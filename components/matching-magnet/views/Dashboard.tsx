@@ -1,19 +1,13 @@
 'use client'
 
 import { useStore } from '../store'
+import { qualityTier, TIER_COLOR, TIER_LABEL } from '../quality'
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Progress } from '@/components/ui/progress'
-import { Coins, Users, Megaphone, TrendingUp, ShieldCheck, Clock } from 'lucide-react'
+import { Coins, Users, Megaphone, Star, ShieldCheck, Clock } from 'lucide-react'
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer, BarChart, Bar, XAxis, YAxis } from 'recharts'
 import { INDUSTRIES } from '../seed'
-
-const STATUS_LABEL: Record<string, string> = {
-  offen: 'Offen',
-  aktiv: 'Aktiv',
-  abgeschlossen: 'Abgeschlossen',
-  abgelehnt: 'Abgelehnt',
-}
 
 const STATUS_COLOR: Record<string, string> = {
   offen: 'bg-yellow-100 text-yellow-800',
@@ -21,16 +15,18 @@ const STATUS_COLOR: Record<string, string> = {
   abgeschlossen: 'bg-green-100 text-green-800',
   abgelehnt: 'bg-red-100 text-red-800',
 }
+const STATUS_LABEL: Record<string, string> = {
+  offen: 'Offen', aktiv: 'Aktiv', abgeschlossen: 'Abgeschlossen', abgelehnt: 'Abgelehnt',
+}
 
 export function Dashboard() {
   const { state, currentUser } = useStore()
 
   const myContacts = state.contacts.filter(c => c.ownerId === currentUser.id)
   const sharedCount = myContacts.filter(c => c.isShared).length
-  const avgCompleteness =
-    myContacts.length > 0
-      ? Math.round(myContacts.reduce((s, c) => s + c.completeness, 0) / myContacts.length)
-      : 0
+  const avgScore = myContacts.length > 0
+    ? Math.round(myContacts.reduce((s, c) => s + c.qualityScore, 0) / myContacts.length)
+    : 0
 
   const myCampaignsCreated = state.campaigns.filter(c => c.creatorId === currentUser.id)
   const myCampaignsReceived = state.campaigns.filter(c => c.targetOwnerId === currentUser.id)
@@ -41,9 +37,8 @@ export function Dashboard() {
     .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
     .slice(0, 5)
 
-  // Industry distribution for chart
   const industryData = INDUSTRIES.map(ind => ({
-    name: ind.length > 12 ? ind.split(' ')[0] : ind,
+    name: ind.split(' ')[0],
     value: myContacts.filter(c => c.industry === ind && c.isShared).length,
   })).filter(d => d.value > 0)
 
@@ -53,14 +48,24 @@ export function Dashboard() {
   ]
   const PIE_COLORS = ['#2563eb', '#f59e0b']
 
-  // Platform stats (Miriam only)
+  // Quality tier distribution
+  const tierDist: Record<string, number> = { platin: 0, gold: 0, silber: 0, bronze: 0, basis: 0 }
+  myContacts.forEach(c => { tierDist[qualityTier(c.qualityScore)]++ })
+  const tierData = [
+    { name: 'Platin', value: tierDist.platin, fill: '#8b5cf6' },
+    { name: 'Gold',   value: tierDist.gold,   fill: '#f59e0b' },
+    { name: 'Silber', value: tierDist.silber,  fill: '#94a3b8' },
+    { name: 'Bronze', value: tierDist.bronze,  fill: '#f97316' },
+    { name: 'Basis',  value: tierDist.basis,   fill: '#ef4444' },
+  ].filter(d => d.value > 0)
+
   const platformFees = state.transactions
     .filter(t => t.type === 'plattform_gebuehr' && t.userId === 'miriam')
     .reduce((s, t) => s + t.amount, 0)
 
   return (
     <div className="space-y-6">
-      {/* Token + quick stats */}
+      {/* Stat cards */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         <Card className="col-span-2 md:col-span-1 border-primary/30 bg-primary/5">
           <CardHeader className="pb-2">
@@ -100,15 +105,17 @@ export function Dashboard() {
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="border-amber-200 bg-amber-50">
           <CardHeader className="pb-2">
-            <CardTitle className="text-sm font-medium text-muted-foreground flex items-center gap-1">
-              <TrendingUp className="h-4 w-4" /> Vollständigkeit
+            <CardTitle className="text-sm font-medium text-amber-700 flex items-center gap-1">
+              <Star className="h-4 w-4 text-amber-500 fill-amber-400" /> Ø Qualität
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="text-3xl font-bold">{avgCompleteness}%</p>
-            <Progress value={avgCompleteness} className="mt-2 h-1.5" />
+            <p className="text-3xl font-bold text-amber-600">{avgScore}</p>
+            <p className="text-xs text-amber-600 mt-1">
+              {avgScore > 0 ? TIER_LABEL[qualityTier(avgScore)] : '–'}
+            </p>
           </CardContent>
         </Card>
       </div>
@@ -130,19 +137,20 @@ export function Dashboard() {
         </Card>
       )}
 
-      <div className="grid md:grid-cols-2 gap-6">
-        {/* Charts */}
+      <div className="grid md:grid-cols-3 gap-6">
+        {/* B2B/B2C Pie */}
         <Card>
           <CardHeader>
-            <CardTitle className="text-base">Kontaktverteilung nach Typ</CardTitle>
-            <CardDescription>Deine freigegebenen Kontakte</CardDescription>
+            <CardTitle className="text-base">B2B / B2C Verteilung</CardTitle>
+            <CardDescription>Alle eigenen Kontakte</CardDescription>
           </CardHeader>
           <CardContent>
             {pieData.some(d => d.value > 0) ? (
-              <ResponsiveContainer width="100%" height={180}>
+              <ResponsiveContainer width="100%" height={160}>
                 <PieChart>
-                  <Pie data={pieData} cx="50%" cy="50%" innerRadius={50} outerRadius={80} dataKey="value" label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`} labelLine={false}>
-                    {pieData.map((_, i) => <Cell key={i} fill={PIE_COLORS[i % PIE_COLORS.length]} />)}
+                  <Pie data={pieData} cx="50%" cy="50%" innerRadius={40} outerRadius={65} dataKey="value"
+                    label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`} labelLine={false}>
+                    {pieData.map((_, i) => <Cell key={i} fill={PIE_COLORS[i]} />)}
                   </Pie>
                   <Tooltip />
                 </PieChart>
@@ -153,22 +161,49 @@ export function Dashboard() {
           </CardContent>
         </Card>
 
+        {/* Quality tier distribution */}
+        <Card className="border-amber-100">
+          <CardHeader>
+            <CardTitle className="text-base flex items-center gap-1.5">
+              <Star className="h-4 w-4 text-amber-400 fill-amber-400" /> Qualitäts-Tiers
+            </CardTitle>
+            <CardDescription>Verteilung deiner Kontakte</CardDescription>
+          </CardHeader>
+          <CardContent>
+            {tierData.length > 0 ? (
+              <ResponsiveContainer width="100%" height={160}>
+                <BarChart data={tierData} layout="vertical" margin={{ left: 0, right: 20 }}>
+                  <XAxis type="number" tick={{ fontSize: 10 }} />
+                  <YAxis type="category" dataKey="name" tick={{ fontSize: 10 }} width={45} />
+                  <Tooltip />
+                  <Bar dataKey="value" radius={[0, 4, 4, 0]}>
+                    {tierData.map((entry, i) => <Cell key={i} fill={entry.fill} />)}
+                  </Bar>
+                </BarChart>
+              </ResponsiveContainer>
+            ) : (
+              <p className="text-muted-foreground text-sm py-8 text-center">Noch keine Kontakte</p>
+            )}
+          </CardContent>
+        </Card>
+
+        {/* Industry bar */}
         <Card>
           <CardHeader>
-            <CardTitle className="text-base">Branchen (freigegebene Kontakte)</CardTitle>
+            <CardTitle className="text-base">Branchen (freigegeben)</CardTitle>
           </CardHeader>
           <CardContent>
             {industryData.length > 0 ? (
-              <ResponsiveContainer width="100%" height={180}>
+              <ResponsiveContainer width="100%" height={160}>
                 <BarChart data={industryData} layout="vertical" margin={{ left: 0, right: 16 }}>
-                  <XAxis type="number" tick={{ fontSize: 11 }} />
-                  <YAxis type="category" dataKey="name" tick={{ fontSize: 11 }} width={80} />
+                  <XAxis type="number" tick={{ fontSize: 10 }} />
+                  <YAxis type="category" dataKey="name" tick={{ fontSize: 10 }} width={60} />
                   <Tooltip />
                   <Bar dataKey="value" fill="var(--color-primary)" radius={[0, 4, 4, 0]} />
                 </BarChart>
               </ResponsiveContainer>
             ) : (
-              <p className="text-muted-foreground text-sm py-8 text-center">Noch keine Kontakte freigegeben</p>
+              <p className="text-muted-foreground text-sm py-8 text-center">Keine freigegebenen Kontakte</p>
             )}
           </CardContent>
         </Card>
@@ -193,7 +228,7 @@ export function Dashboard() {
           </CardContent>
         </Card>
 
-        {/* My received campaigns */}
+        {/* Received campaigns */}
         <Card>
           <CardHeader>
             <CardTitle className="text-base">Kampagnen auf meine Kontakte</CardTitle>
@@ -218,7 +253,7 @@ export function Dashboard() {
         </Card>
       </div>
 
-      {/* Platform stats for Miriam */}
+      {/* Admin platform stats */}
       {currentUser.isAdmin && (
         <Card className="border-emerald-300 bg-emerald-50">
           <CardHeader>
@@ -229,22 +264,17 @@ export function Dashboard() {
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-              <div>
-                <p className="text-2xl font-bold text-emerald-700">{state.users.length}</p>
-                <p className="text-xs text-muted-foreground">Nutzer</p>
-              </div>
-              <div>
-                <p className="text-2xl font-bold text-emerald-700">{state.contacts.filter(c => c.isShared).length}</p>
-                <p className="text-xs text-muted-foreground">Freigegebene Kontakte</p>
-              </div>
-              <div>
-                <p className="text-2xl font-bold text-emerald-700">{state.campaigns.length}</p>
-                <p className="text-xs text-muted-foreground">Kampagnen gesamt</p>
-              </div>
-              <div>
-                <p className="text-2xl font-bold text-emerald-700">{platformFees}</p>
-                <p className="text-xs text-muted-foreground">Gebühren-Token verdient</p>
-              </div>
+              {[
+                { val: state.users.length, label: 'Nutzer' },
+                { val: state.contacts.filter(c => c.isShared).length, label: 'Freigegebene Kontakte' },
+                { val: state.campaigns.length, label: 'Kampagnen gesamt' },
+                { val: platformFees, label: 'Gebühren-Token' },
+              ].map(s => (
+                <div key={s.label}>
+                  <p className="text-2xl font-bold text-emerald-700">{s.val}</p>
+                  <p className="text-xs text-muted-foreground">{s.label}</p>
+                </div>
+              ))}
             </div>
           </CardContent>
         </Card>

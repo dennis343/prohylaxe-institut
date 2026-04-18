@@ -8,10 +8,12 @@ import { Contacts } from './views/Contacts'
 import { Marketplace } from './views/Marketplace'
 import { Campaigns } from './views/Campaigns'
 import { Transactions } from './views/Transactions'
+import { DisclaimerModal } from './DisclaimerModal'
 import { Avatar, AvatarFallback } from '@/components/ui/avatar'
 import { Badge } from '@/components/ui/badge'
+import { Button } from '@/components/ui/button'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
-import { Coins, Magnet } from 'lucide-react'
+import { Coins, Star, Info } from 'lucide-react'
 
 type Tab = 'dashboard' | 'profil' | 'kontakte' | 'marktplatz' | 'kampagnen' | 'transaktionen'
 
@@ -28,6 +30,7 @@ function AppInner() {
   const { state, dispatch, currentUser } = useStore()
   const [activeTab, setActiveTab] = useState<Tab>('dashboard')
   const [campaignTargetId, setCampaignTargetId] = useState<string | undefined>()
+  const [disclaimerOpen, setDisclaimerOpen] = useState(false)
 
   const pendingCampaigns = state.campaigns.filter(
     c => c.targetOwnerId === currentUser.id && c.status === 'offen',
@@ -44,19 +47,21 @@ function AppInner() {
       <header className="sticky top-0 z-40 border-b bg-card shadow-sm">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex h-16 items-center justify-between gap-4">
-            {/* Logo */}
-            <div className="flex items-center gap-2 shrink-0">
-              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">
-                <Magnet className="h-4 w-4" />
+            {/* Logo + slogan */}
+            <div className="flex items-center gap-2.5 shrink-0">
+              <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-amber-400 to-primary text-white shadow-sm">
+                <Star className="h-4.5 w-4.5 fill-white" />
               </div>
               <div>
-                <p className="text-sm font-bold leading-none">Matching Magnet</p>
-                <p className="text-xs text-muted-foreground leading-none mt-0.5">by Miriam König</p>
+                <p className="text-sm font-bold leading-tight">Matching Magnet</p>
+                <p className="text-xs leading-tight font-medium text-amber-500">
+                  Die Sterne stehen günstig ✦
+                </p>
               </div>
             </div>
 
-            {/* Nav tabs – desktop */}
-            <nav className="hidden md:flex items-center gap-1">
+            {/* Nav – desktop */}
+            <nav className="hidden md:flex items-center gap-0.5">
               {TABS.map(tab => (
                 <button
                   key={tab.id}
@@ -69,7 +74,7 @@ function AppInner() {
                 >
                   {tab.label}
                   {tab.id === 'kampagnen' && pendingCampaigns > 0 && (
-                    <span className="absolute -top-1 -right-1 bg-yellow-500 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center">
+                    <span className="absolute -top-1 -right-1 bg-amber-500 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center">
                       {pendingCampaigns}
                     </span>
                   )}
@@ -77,12 +82,22 @@ function AppInner() {
               ))}
             </nav>
 
-            {/* Right: token balance + user switcher */}
-            <div className="flex items-center gap-3 shrink-0">
-              <div className="flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1.5">
-                <Coins className="h-3.5 w-3.5 text-primary" />
-                <span className="text-sm font-bold text-primary">{currentUser.tokens}</span>
-                <span className="text-xs text-muted-foreground hidden sm:inline">Token</span>
+            {/* Right: token + user switcher + info */}
+            <div className="flex items-center gap-2 shrink-0">
+              <Button
+                variant="ghost"
+                size="sm"
+                className="hidden sm:flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground"
+                onClick={() => setDisclaimerOpen(true)}
+              >
+                <Info className="h-3.5 w-3.5" />
+                Wie funktioniert&apos;s?
+              </Button>
+
+              <div className="flex items-center gap-1.5 rounded-full bg-amber-50 border border-amber-200 px-3 py-1.5">
+                <Coins className="h-3.5 w-3.5 text-amber-500" />
+                <span className="text-sm font-bold text-amber-600">{currentUser.tokens}</span>
+                <span className="text-xs text-amber-500 hidden sm:inline">Token</span>
               </div>
 
               <div className="flex items-center gap-2">
@@ -133,7 +148,7 @@ function AppInner() {
               >
                 {tab.label}
                 {tab.id === 'kampagnen' && pendingCampaigns > 0 && (
-                  <span className="absolute -top-0.5 -right-0.5 bg-yellow-500 text-white text-xs rounded-full w-3.5 h-3.5 flex items-center justify-center text-[10px]">
+                  <span className="absolute -top-0.5 -right-0.5 bg-amber-500 text-white text-xs rounded-full w-3.5 h-3.5 flex items-center justify-center text-[10px]">
                     {pendingCampaigns}
                   </span>
                 )}
@@ -146,7 +161,10 @@ function AppInner() {
       {/* Simulation banner */}
       <div className="bg-amber-50 border-b border-amber-200 px-4 py-2 text-center">
         <p className="text-xs text-amber-700">
-          <strong>Simulation:</strong> Wechsle oben rechts den Nutzer, um die Plattform aus verschiedenen Perspektiven zu erleben. Alle Daten sind Demo-Daten.
+          <strong>Simulation:</strong> Wechsle oben rechts den Nutzer, um die Plattform aus verschiedenen Perspektiven zu erleben. ·{' '}
+          <button className="underline hover:no-underline" onClick={() => setDisclaimerOpen(true)}>
+            DSGVO &amp; Kooperationsmodell verstehen →
+          </button>
         </p>
       </div>
 
@@ -155,9 +173,7 @@ function AppInner() {
         {activeTab === 'dashboard' && <Dashboard />}
         {activeTab === 'profil' && <Profile />}
         {activeTab === 'kontakte' && <Contacts />}
-        {activeTab === 'marktplatz' && (
-          <Marketplace onStartCampaign={handleStartCampaign} />
-        )}
+        {activeTab === 'marktplatz' && <Marketplace onStartCampaign={handleStartCampaign} />}
         {activeTab === 'kampagnen' && (
           <Campaigns
             prefillTargetId={campaignTargetId}
@@ -168,20 +184,27 @@ function AppInner() {
       </main>
 
       {/* Footer */}
-      <footer className="border-t bg-muted/40 py-6 mt-8">
+      <footer className="border-t bg-gradient-to-r from-amber-50/50 to-background py-6 mt-8">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
-            <p>
-              <strong className="text-foreground">Matching Magnet</strong> – Token-basierte Lead-Kooperationsplattform
-            </p>
-            <div className="flex items-center gap-4 text-xs">
-              <span>Plattformgebühr: 6 % je Kampagne</span>
-              <span>1 Token = 1 freigegebener Kontakt</span>
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm">
+            <div className="flex items-center gap-2">
+              <Star className="h-4 w-4 text-amber-400 fill-amber-400" />
+              <span className="font-semibold">Matching Magnet</span>
+              <span className="text-amber-500 text-xs font-medium">Die Sterne stehen günstig ✦</span>
+            </div>
+            <div className="flex items-center gap-4 text-xs text-muted-foreground">
+              <span>Plattformgebühr: 6 %</span>
+              <span>1 Token = 1 Kontakt</span>
+              <button className="underline hover:no-underline text-amber-600" onClick={() => setDisclaimerOpen(true)}>
+                DSGVO &amp; Kooperationsmodell
+              </button>
               <span>Betrieben von Miriam König</span>
             </div>
           </div>
         </div>
       </footer>
+
+      <DisclaimerModal open={disclaimerOpen} onClose={() => setDisclaimerOpen(false)} />
     </div>
   )
 }
