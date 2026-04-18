@@ -1,5 +1,6 @@
 export type BusinessType = 'B2B' | 'B2C' | 'Gemischt'
 export type ContactType = 'B2B' | 'B2C'
+export type EmployeeRange = '1-9' | '10-49' | '50-249' | '250-999' | '1000+'
 export type CampaignStatus = 'offen' | 'aktiv' | 'abgeschlossen' | 'abgelehnt'
 export type TxType =
   | 'freigabe'
@@ -29,7 +30,12 @@ export interface Contact {
   industry: string
   segment: string
   type: ContactType
-  completeness: number
+  employeeRange: EmployeeRange | null
+  hasEmail: boolean
+  hasPhone: boolean
+  hasAddress: boolean
+  lastUpdated: string
+  qualityScore: number
   isShared: boolean
   addedAt: string
 }
