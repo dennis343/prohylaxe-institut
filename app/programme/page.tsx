@@ -146,14 +146,12 @@ const serviceJsonLd = {
       {
         "@type": "Offer",
         name: "Strategische Prophylaxe-Integration",
-        price: "3500",
-        priceCurrency: "EUR",
+        category: "Unternehmensberatung · BAFA-förderfähig",
       },
       {
         "@type": "Offer",
         name: "Kommunikations- und Bindungsoptimierung",
-        price: "3500",
-        priceCurrency: "EUR",
+        category: "Unternehmensberatung · BAFA-förderfähig",
       },
       {
         "@type": "Offer",
@@ -188,7 +186,7 @@ export default function ProgrammePage() {
               size="lg"
               className="rounded-full px-8 text-base font-semibold tracking-wide"
             >
-              <Link href="/kontakt">Erstgespräch anfragen</Link>
+              <Link href="/gespraech">Erstgespräch anfragen</Link>
             </Button>
             <Button
               asChild
@@ -218,7 +216,7 @@ export default function ProgrammePage() {
           <div className="mt-10 max-w-2xl">
             <h2 className="serif-display text-3xl leading-[1.1] text-foreground md:text-4xl">
               Zwei Beratungs­varianten —{" "}
-              <em className="italic text-accent">jeweils 3.500 €</em>
+              <em className="italic text-accent">50–80 % gefördert.</em>
             </h2>
             <p className="lead mt-6">
               Klar abgegrenzt, mit definiertem Ergebnis und kompletter
@@ -268,15 +266,15 @@ export default function ProgrammePage() {
 
                 <div className="mt-10 flex items-end justify-between gap-4 border-t border-border pt-6">
                   <div>
-                    <p className="font-serif text-2xl text-foreground md:text-3xl">
-                      3.500&nbsp;€
+                    <p className="font-serif text-2xl italic text-accent md:text-[28px]">
+                      50–80&nbsp;% gefördert
                     </p>
                     <p className="mt-1 text-xs uppercase tracking-[0.18em] text-muted-foreground">
-                      pro Beratung · Förderung möglich
+                      BAFA-Beratungsförderung · Netto-Eigenanteil ab 700 €
                     </p>
                   </div>
                   <Link
-                    href="/kontakt"
+                    href="/gespraech"
                     className="inline-flex items-center gap-2 text-sm font-medium text-foreground"
                   >
                     <span className="border-b border-accent/60 pb-0.5">
@@ -299,7 +297,7 @@ export default function ProgrammePage() {
             </p>
             <div className="md:text-right">
               <Link
-                href="/kontakt"
+                href="/foerder-check"
                 className="inline-flex items-center gap-2 font-serif text-lg italic text-foreground"
               >
                 <span className="border-b border-accent/60 pb-0.5">
@@ -446,7 +444,7 @@ export default function ProgrammePage() {
                             : "rounded-full px-8 text-sm font-semibold tracking-wide"
                         }
                       >
-                        <Link href="/kontakt">Stufe anfragen</Link>
+                        <Link href="/gespraech">Stufe anfragen</Link>
                       </Button>
                     </div>
                   </div>

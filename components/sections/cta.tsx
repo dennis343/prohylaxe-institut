@@ -34,7 +34,7 @@ export function CTA() {
             <Link href="/kontakt#warteliste">Auf die Warteliste</Link>
           </Button>
           <Link
-            href="/kontakt"
+            href="/gespraech"
             className="group inline-flex items-center gap-2 text-sm font-medium text-primary-foreground"
           >
             <span className="border-b border-primary-foreground/40 pb-0.5 group-hover:border-accent">

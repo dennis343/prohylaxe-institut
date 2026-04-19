@@ -8,8 +8,8 @@ export const runtime = "nodejs"
 const INTENT_LABELS: Record<string, string> = {
   kennenlernen: "15-Min-Kennenlernen vereinbaren",
   programme: "Mentoring-Programm (3 / 6 / 18 Monate)",
-  strategie: "Strategische Prophylaxe-Integration (3.500 €)",
-  kommunikation: "Kommunikations- & Bindungsoptimierung (3.500 €)",
+  strategie: "Strategische Prophylaxe-Integration (geförderte Beratung)",
+  kommunikation: "Kommunikations- & Bindungsoptimierung (geförderte Beratung)",
   intensivtag: "Prophylaxe-Intensivtag",
   foerderung: "Förder-Eignung / BAFA-Quickcheck",
   ladies: "Ladies-Programm (April-Spezial)",

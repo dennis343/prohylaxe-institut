@@ -19,7 +19,7 @@ const faqs = [
   },
   {
     q: "Wie funktioniert die Förderung konkret?",
-    a: "Beide Einstiegsberatungen (je 3.500 €) sind im Rahmen der Beratungsförderung aktuell zu 50 % (West) bzw. bis zu 80 % (Ost) förderfähig. Unser Concierge-Team übernimmt die komplette Antragstellung. Ihr Netto-Eigenanteil pro Beratung: 1.750 € (West) bzw. ab 700 € (Ost). Zwei Beratungen pro Förderjahr sind kombinierbar.",
+    a: "Beide Einstiegsberatungen sind im Rahmen der BAFA-Beratungsförderung zu 50 % (West) bzw. bis zu 80 % (Ost) förderfähig. Unser Concierge-Team übernimmt die komplette Antragstellung. Ihr Netto-Eigenanteil pro Beratung: ab 1.750 € (West) bzw. ab 700 € (Ost). Zwei Beratungen pro Förderjahr sind kombinierbar.",
   },
   {
     q: "Was passiert, wenn wir nach der Beratung weitermachen wollen?",
