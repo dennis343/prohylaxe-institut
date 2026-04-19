@@ -49,11 +49,11 @@ const mentoringStages = [
 
 export function Programs() {
   return (
-    <section className="bg-background py-24 md:py-32">
-      <div className="mx-auto max-w-6xl px-5 md:px-8">
+    <section className="bg-background py-16 sm:py-24 md:py-32">
+      <div className="mx-auto max-w-6xl px-4 sm:px-5 md:px-8">
         <div className="max-w-2xl">
           <SectionLabel numeral="VII" label="Ihr Weg" />
-          <h2 className="serif-display mt-6 text-4xl leading-[1.1] text-foreground md:text-5xl">
+          <h2 className="serif-display mt-6 text-[32px] leading-[1.1] text-foreground sm:text-4xl md:text-5xl">
             Zwei Einstiegs-Beratungen —{" "}
             <em className="italic text-accent">und ein Mentoring</em>{" "}
             für die Tiefe.
@@ -81,7 +81,7 @@ export function Programs() {
             {consulting.map((c) => (
               <article
                 key={c.variant}
-                className="group flex flex-col bg-card p-8 transition-colors duration-500 hover:bg-secondary/30 md:p-10"
+                className="group flex flex-col bg-card p-6 transition-colors duration-500 hover:bg-secondary/30 sm:p-8 md:p-10"
               >
                 <span className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">
                   {c.variant}
@@ -151,7 +151,7 @@ export function Programs() {
             </span>
           </div>
 
-          <article className="relative mt-8 overflow-hidden rounded-lg bg-primary p-8 text-primary-foreground md:p-14">
+          <article className="relative mt-8 overflow-hidden rounded-lg bg-primary p-6 text-primary-foreground sm:p-8 md:p-14">
             <span
               aria-hidden
               className="pointer-events-none absolute -right-32 -top-20 h-[440px] w-[440px] rounded-full bg-[radial-gradient(closest-side,var(--accent),transparent_70%)] opacity-15 blur-3xl"
@@ -161,7 +161,7 @@ export function Programs() {
                 <span className="inline-flex items-center gap-2 rounded-full border border-accent/60 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-accent">
                   Empfohlen für ambitionierte Praxen
                 </span>
-                <h3 className="serif-display mt-6 text-3xl leading-[1.1] md:text-5xl">
+                <h3 className="serif-display mt-6 text-[28px] leading-[1.1] sm:text-3xl md:text-5xl">
                   Praxis-Mentoring —{" "}
                   <em className="italic text-accent">in der Tiefe begleitet.</em>
                 </h3>

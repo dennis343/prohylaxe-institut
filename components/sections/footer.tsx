@@ -11,6 +11,7 @@ const sitemap = {
       { href: "/mentor", label: "Mentorin Minka" },
       { href: "/#ansatz", label: "Unser Ansatz" },
       { href: "/#foerderung", label: "Förderung" },
+      { href: "/ladies", label: "April-Spezial ♥" },
     ],
   },
   services: {
@@ -35,8 +36,8 @@ const sitemap = {
 export function Footer() {
   return (
     <footer className="border-t border-border bg-background">
-      <div className="mx-auto max-w-6xl px-5 py-20 md:px-8 md:py-24">
-        <div className="grid gap-14 md:grid-cols-[5fr_7fr]">
+      <div className="mx-auto max-w-6xl px-4 py-16 sm:px-5 sm:py-20 md:px-8 md:py-24">
+        <div className="grid gap-10 sm:gap-14 md:grid-cols-[5fr_7fr]">
           <div>
             <Link
               href="/"
@@ -84,7 +85,7 @@ export function Footer() {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-10 sm:grid-cols-3">
+          <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 sm:gap-10">
             {(Object.keys(sitemap) as Array<keyof typeof sitemap>).map((key) => (
               <div key={key}>
                 <h3 className="text-[13px] uppercase tracking-[0.18em] text-foreground">

@@ -35,18 +35,18 @@ const writtenTestimonials = [
 
 export function Testimonials() {
   return (
-    <section className="bg-secondary/40 py-24 md:py-32">
-      <div className="mx-auto max-w-6xl px-5 md:px-8">
+    <section className="bg-secondary/40 py-16 sm:py-24 md:py-32">
+      <div className="mx-auto max-w-6xl px-4 sm:px-5 md:px-8">
         <div className="max-w-2xl">
           <SectionLabel numeral="X" label="Stimmen aus der Praxis" />
-          <h2 className="serif-display mt-6 text-4xl leading-[1.1] text-foreground md:text-5xl">
+          <h2 className="serif-display mt-6 text-[32px] leading-[1.1] text-foreground sm:text-4xl md:text-5xl">
             Was unsere{" "}
             <em className="italic text-accent">Mentees berichten.</em>
           </h2>
         </div>
 
         {/* Video-Testimonials (YouTube Shorts) */}
-        <div className="mt-16 grid gap-8 md:mt-20 md:grid-cols-2">
+        <div className="mt-12 grid gap-6 sm:mt-16 sm:gap-8 md:mt-20 md:grid-cols-2">
           {videoTestimonials.map((v) => (
             <figure
               key={v.id}
@@ -58,7 +58,7 @@ export function Testimonials() {
                   title={`Video-Testimonial: ${v.caption}`}
                 />
               </div>
-              <figcaption className="border-t border-border p-6">
+              <figcaption className="border-t border-border p-5 sm:p-6">
                 <p className="font-serif text-lg italic text-foreground md:text-xl">
                   „{v.caption}"
                 </p>
@@ -71,11 +71,11 @@ export function Testimonials() {
         </div>
 
         {/* Schriftliche Testimonials */}
-        <div className="mt-16 grid gap-px overflow-hidden rounded-lg border border-border bg-border md:grid-cols-3">
+        <div className="mt-12 grid gap-px overflow-hidden rounded-lg border border-border bg-border sm:mt-16 md:grid-cols-3">
           {writtenTestimonials.map((t) => (
             <figure
               key={t.name}
-              className="flex flex-col bg-background p-8 md:p-10"
+              className="flex flex-col bg-background p-6 sm:p-8 md:p-10"
             >
               <span
                 aria-hidden

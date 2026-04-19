@@ -7,6 +7,7 @@ const routes = [
   { url: "/programme", priority: 0.9 },
   { url: "/mentor", priority: 0.8 },
   { url: "/kontakt", priority: 0.9 },
+  { url: "/ladies", priority: 0.4 },
   { url: "/impressum", priority: 0.3 },
   { url: "/datenschutz", priority: 0.3 },
   { url: "/agb", priority: 0.3 },

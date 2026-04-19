@@ -22,7 +22,7 @@ export function PageHero({
         aria-hidden
         className="pointer-events-none absolute -top-32 right-[-20%] h-[440px] w-[440px] rounded-full bg-[radial-gradient(closest-side,var(--accent),transparent_70%)] opacity-[0.08] blur-3xl"
       />
-      <div className="relative mx-auto max-w-5xl px-5 pb-20 pt-16 md:px-8 md:pb-28 md:pt-24">
+      <div className="relative mx-auto max-w-5xl px-4 pb-16 pt-12 sm:px-5 sm:pb-20 sm:pt-16 md:px-8 md:pb-28 md:pt-24">
         {breadcrumbs && breadcrumbs.length > 0 && (
           <>
             <nav
@@ -79,11 +79,11 @@ export function PageHero({
 
         <div className="max-w-3xl">
           {eyebrow && <div className="eyebrow">{eyebrow}</div>}
-          <h1 className="serif-display mt-6 text-balance text-4xl leading-[1.05] text-foreground md:text-6xl">
+          <h1 className="serif-display mt-6 text-balance text-[32px] leading-[1.05] text-foreground sm:text-5xl md:text-6xl">
             {title}
           </h1>
           {description && (
-            <p className="mt-8 max-w-2xl text-pretty text-base leading-relaxed text-muted-foreground md:text-lg">
+            <p className="mt-6 max-w-2xl text-pretty text-base leading-relaxed text-muted-foreground sm:mt-8 md:text-lg">
               {description}
             </p>
           )}
