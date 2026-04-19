@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 120" role="img" aria-label="BAFA — Bundesamt für Wirtschaft und Ausfuhrkontrolle">
+  <title>BAFA — Bundesamt für Wirtschaft und Ausfuhrkontrolle (Platzhalter)</title>
+  <rect x="0" y="0" width="320" height="120" fill="none" />
+  <g fill="currentColor">
+    <text x="20" y="62" font-family="Georgia, 'Times New Roman', serif" font-size="44" font-style="italic" font-weight="400" letter-spacing="2">BAFA</text>
+    <text x="20" y="88" font-family="'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="500" letter-spacing="1.5">BUNDESAMT FÜR WIRTSCHAFT</text>
+    <text x="20" y="102" font-family="'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="500" letter-spacing="1.5">UND AUSFUHRKONTROLLE</text>
+    <rect x="20" y="68" width="60" height="2" />
+  </g>
+</svg>
