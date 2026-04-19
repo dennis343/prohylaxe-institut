@@ -35,10 +35,10 @@ export function Hero() {
 
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Button size="lg" className="w-full px-8 py-6 text-lg sm:w-auto" asChild>
-              <a href="#kontakt">Auf die Warteliste</a>
+              <a href="/kontakt#warteliste">Auf die Warteliste</a>
             </Button>
             <Button size="lg" variant="outline" className="w-full px-8 py-6 text-lg sm:w-auto" asChild>
-              <a href="#kontakt">Erstgespräch anfragen</a>
+              <a href="/kontakt">Erstgespräch anfragen</a>
             </Button>
           </div>
         </div>
