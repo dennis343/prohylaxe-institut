@@ -110,15 +110,15 @@ export function Programs() {
 
                 <div className="mt-10 flex items-end justify-between gap-4 border-t border-border pt-6">
                   <div>
-                    <p className="font-serif text-2xl text-foreground md:text-3xl">
-                      3.500&nbsp;€
+                    <p className="font-serif text-2xl italic text-accent md:text-[28px]">
+                      50–80&nbsp;% gefördert
                     </p>
                     <p className="mt-1 text-xs uppercase tracking-[0.18em] text-muted-foreground">
-                      pro Beratung · Förderung möglich
+                      BAFA-Beratungsförderung · West 50 % · Ost 80 %
                     </p>
                   </div>
                   <Link
-                    href="/kontakt"
+                    href="/gespraech"
                     className="inline-flex items-center gap-2 text-sm font-medium text-foreground"
                   >
                     <span className="border-b border-accent/60 pb-0.5">
@@ -184,7 +184,7 @@ export function Programs() {
                     size="lg"
                     className="rounded-full border-primary-foreground/30 bg-transparent px-8 text-sm font-medium tracking-wide text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground"
                   >
-                    <Link href="/kontakt">Erstgespräch anfragen</Link>
+                    <Link href="/gespraech">Erstgespräch anfragen</Link>
                   </Button>
                 </div>
               </div>

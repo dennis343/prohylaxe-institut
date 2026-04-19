@@ -70,9 +70,7 @@ const servicesCatalog = {
       "@type": "Offer",
       name: "Strategische Prophylaxe-Integration",
       description:
-        "Konzeption für ein zusätzliches, kalkulierbares und steuerbares Profitcenter in der Zahnarztpraxis.",
-      price: "3500",
-      priceCurrency: "EUR",
+        "Konzeption für ein zusätzliches, kalkulierbares und steuerbares Profitcenter in der Zahnarztpraxis. BAFA-förderfähig (50–80 %).",
       category: "Unternehmensberatung",
       url: `${siteUrl}/programme`,
     },
@@ -80,9 +78,7 @@ const servicesCatalog = {
       "@type": "Offer",
       name: "Kommunikations- und Bindungsoptimierung",
       description:
-        "Patientenweg, Kommunikation, Teamwirkung — für mehr freiwillige Wiederkehr und Weiterempfehlung.",
-      price: "3500",
-      priceCurrency: "EUR",
+        "Patientenweg, Kommunikation, Teamwirkung — für mehr freiwillige Wiederkehr und Weiterempfehlung. BAFA-förderfähig (50–80 %).",
       category: "Unternehmensberatung",
       url: `${siteUrl}/programme`,
     },

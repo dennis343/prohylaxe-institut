@@ -57,7 +57,7 @@ export function Hero() {
               size="lg"
               className="w-full rounded-full px-8 text-base font-semibold tracking-wide sm:w-auto"
             >
-              <Link href="/kontakt">Erstgespräch anfragen</Link>
+              <Link href="/gespraech">Erstgespräch anfragen</Link>
             </Button>
             <Link
               href="#programme"

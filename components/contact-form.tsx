@@ -24,8 +24,8 @@ const labelClass =
 export const CONTACT_INTENTS = [
   { value: "kennenlernen", label: "15-Min-Kennenlernen vereinbaren" },
   { value: "programme", label: "Mentoring-Programm (3 / 6 / 18 Monate)" },
-  { value: "strategie", label: "Strategische Prophylaxe-Integration (3.500 €)" },
-  { value: "kommunikation", label: "Kommunikations- & Bindungs­optimierung (3.500 €)" },
+  { value: "strategie", label: "Strategische Prophylaxe-Integration (geförderte Beratung)" },
+  { value: "kommunikation", label: "Kommunikations- & Bindungs­optimierung (geförderte Beratung)" },
   { value: "intensivtag", label: "Prophylaxe-Intensivtag (Platz sichern)" },
   { value: "foerderung", label: "Förder-Eignung / BAFA-Quickcheck" },
   { value: "ladies", label: "Ladies-Programm (April-Spezial)" },

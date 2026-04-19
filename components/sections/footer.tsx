@@ -27,8 +27,9 @@ const sitemap = {
   kontakt: {
     title: "Kontakt",
     links: [
-      { href: "/kontakt", label: "Erstgespräch anfragen" },
+      { href: "/gespraech", label: "Erstgespräch anfragen" },
       { href: "/kontakt#warteliste", label: "Warteliste" },
+      { href: "/kontakt", label: "Kontaktformular" },
       { href: "mailto:info@prophylaxe-institut.de", label: "E-Mail schreiben" },
     ],
   },

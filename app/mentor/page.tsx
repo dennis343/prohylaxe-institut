@@ -93,7 +93,7 @@ export default function MentorPage() {
               size="lg"
               className="rounded-full px-8 text-base font-semibold tracking-wide"
             >
-              <Link href="/kontakt">Erstgespräch mit Minka</Link>
+              <Link href="/gespraech">Erstgespräch mit Minka</Link>
             </Button>
             <Button
               asChild

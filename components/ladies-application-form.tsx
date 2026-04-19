@@ -103,7 +103,7 @@ export function LadiesApplicationForm() {
             variant="outline"
             className="w-full rounded-full border-foreground/15 px-7 text-sm font-medium tracking-wide sm:w-auto"
           >
-            <a href="/kontakt">Erstgespräch anfragen</a>
+            <a href="/gespraech">Erstgespräch anfragen</a>
           </Button>
         </div>
       </div>
