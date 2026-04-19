@@ -24,31 +24,57 @@ export function PageHero({
       />
       <div className="relative mx-auto max-w-5xl px-5 pb-20 pt-16 md:px-8 md:pb-28 md:pt-24">
         {breadcrumbs && breadcrumbs.length > 0 && (
-          <nav
-            aria-label="Breadcrumb"
-            className="mb-10 flex flex-wrap items-center gap-2 text-[11px] uppercase tracking-[0.22em] text-muted-foreground"
-          >
-            <Link href="/" className="transition-colors hover:text-accent">
-              Start
-            </Link>
-            {breadcrumbs.map((crumb, i) => (
-              <span key={crumb.href} className="flex items-center gap-2">
-                <span aria-hidden className="text-accent/60">
-                  /
+          <>
+            <nav
+              aria-label="Breadcrumb"
+              className="mb-10 flex flex-wrap items-center gap-2 text-[11px] uppercase tracking-[0.22em] text-muted-foreground"
+            >
+              <Link href="/" className="transition-colors hover:text-accent">
+                Start
+              </Link>
+              {breadcrumbs.map((crumb, i) => (
+                <span key={crumb.href} className="flex items-center gap-2">
+                  <span aria-hidden className="text-accent/60">
+                    /
+                  </span>
+                  {i === breadcrumbs.length - 1 ? (
+                    <span className="text-foreground">{crumb.label}</span>
+                  ) : (
+                    <Link
+                      href={crumb.href}
+                      className="transition-colors hover:text-accent"
+                    >
+                      {crumb.label}
+                    </Link>
+                  )}
                 </span>
-                {i === breadcrumbs.length - 1 ? (
-                  <span className="text-foreground">{crumb.label}</span>
-                ) : (
-                  <Link
-                    href={crumb.href}
-                    className="transition-colors hover:text-accent"
-                  >
-                    {crumb.label}
-                  </Link>
-                )}
-              </span>
-            ))}
-          </nav>
+              ))}
+            </nav>
+            <script
+              type="application/ld+json"
+              suppressHydrationWarning
+              dangerouslySetInnerHTML={{
+                __html: JSON.stringify({
+                  "@context": "https://schema.org",
+                  "@type": "BreadcrumbList",
+                  itemListElement: [
+                    {
+                      "@type": "ListItem",
+                      position: 1,
+                      name: "Start",
+                      item: "https://prophylaxe-institut.de/",
+                    },
+                    ...breadcrumbs.map((c, idx) => ({
+                      "@type": "ListItem",
+                      position: idx + 2,
+                      name: c.label,
+                      item: `https://prophylaxe-institut.de${c.href}`,
+                    })),
+                  ],
+                }),
+              }}
+            />
+          </>
         )}
 
         <div className="max-w-3xl">

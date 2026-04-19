@@ -1,8 +1,9 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { Geist, Fraunces } from 'next/font/google'
-import { Analytics } from '@vercel/analytics/next'
 import { Navbar } from '@/components/sections/navbar'
 import { Footer } from '@/components/sections/footer'
+import { CookieConsent } from '@/components/cookie-consent'
+import { AnalyticsGate } from '@/components/analytics-gate'
 import './globals.css'
 
 const geist = Geist({
@@ -20,39 +21,75 @@ const fraunces = Fraunces({
 
 const siteUrl = 'https://prophylaxe-institut.de'
 
+export const viewport: Viewport = {
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#f5ecd6' },
+    { media: '(prefers-color-scheme: dark)', color: '#14203a' },
+  ],
+  colorScheme: 'light',
+  width: 'device-width',
+  initialScale: 1,
+}
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: 'Prophylaxe Institut by Minka — Praxismentoring für Zahnärzte',
-    template: '%s | Prophylaxe Institut by Minka',
+    default:
+      'Prophylaxe-Institut by Minka — Praxismentoring für Zahnarztpraxen',
+    template: '%s | Prophylaxe-Institut by Minka',
   },
   description:
-    'Nachhaltiger Praxiserfolg mit System. Persönliches Mentoring von Minka – für Zahnärztinnen, Zahnärzte und Teams, die Prophylaxe als strategischen Umsatztreiber etablieren wollen.',
+    'Praxismentoring & Beratung für Zahnarztpraxen: Prophylaxe als strategische Umsatz- und Bindungssäule. Persönlich begleitet durch Minka Mujezinovic — über 150 Praxen im DACH-Raum. Beratung 50–80 % förderfähig.',
+  applicationName: 'Prophylaxe-Institut',
+  authors: [
+    { name: 'Minka Mujezinovic', url: `${siteUrl}/mentor` },
+  ],
+  creator: 'Prophylaxe-Institut UG (haftungsbeschränkt)',
+  publisher: 'Prophylaxe-Institut UG (haftungsbeschränkt)',
   keywords: [
     'Prophylaxe Mentoring',
     'Zahnarzt Coaching',
     'Praxismentoring',
     'Dentalhygiene',
     'Prophylaxe Institut',
-    'Minka',
+    'Minka Mujezinovic',
     'Praxisberatung Zahnarzt',
-    'Förderung BAFA Zahnarzt',
+    'Profitcenter Prophylaxe',
+    'BAFA Förderung Zahnarztpraxis',
+    'Recall Zahnarzt',
+    'Patientenbindung Zahnarztpraxis',
+    'DH Dentalhygiene Mentoring',
   ],
-  generator: 'v0.app',
+  category: 'Zahnmedizin · Praxisberatung',
   openGraph: {
     type: 'website',
     locale: 'de_DE',
     url: siteUrl,
-    siteName: 'Prophylaxe Institut by Minka',
-    title: 'Prophylaxe Institut by Minka — Praxismentoring für Zahnärzte',
+    siteName: 'Prophylaxe-Institut by Minka',
+    title: 'Prophylaxe-Institut by Minka — Praxismentoring für Zahnärzte',
     description:
-      'Nachhaltiger Praxiserfolg mit System. Mentoring für Zahnarztpraxen – Prophylaxe als Umsatz- und Bindungsfaktor.',
+      'Nachhaltiger Praxiserfolg mit System. Mentoring für Zahnarztpraxen — Prophylaxe als Umsatz- und Bindungssäule.',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Prophylaxe Institut by Minka',
+    title: 'Prophylaxe-Institut by Minka',
     description:
-      'Nachhaltiger Praxiserfolg mit System – persönliches Mentoring für Zahnarztpraxen.',
+      'Nachhaltiger Praxiserfolg mit System — persönliches Mentoring für Zahnarztpraxen.',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-snippet': -1,
+      'max-image-preview': 'large',
+      'max-video-preview': -1,
+    },
+  },
+  alternates: {
+    canonical: '/',
+    languages: { 'de-DE': '/' },
   },
   icons: {
     icon: [
@@ -84,10 +121,19 @@ export default function RootLayout({
       className={`${geist.variable} ${fraunces.variable} bg-background`}
     >
       <body className="flex min-h-screen flex-col font-sans antialiased">
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-primary focus:px-4 focus:py-2 focus:text-sm focus:text-primary-foreground"
+        >
+          Zum Inhalt springen
+        </a>
         <Navbar />
-        <div className="flex-1">{children}</div>
+        <div id="main-content" className="flex-1">
+          {children}
+        </div>
         <Footer />
-        {process.env.NODE_ENV === 'production' && <Analytics />}
+        <CookieConsent />
+        <AnalyticsGate />
       </body>
     </html>
   )

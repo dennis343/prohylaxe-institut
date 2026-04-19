@@ -56,11 +56,20 @@ const processSteps = [
 
 export function Process() {
   return (
-    <section className="bg-primary py-24 text-primary-foreground md:py-32">
-      <div className="mx-auto max-w-6xl px-5 md:px-8">
+    <section className="relative overflow-hidden bg-primary py-24 text-primary-foreground md:py-32">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -left-40 top-10 h-[520px] w-[520px] rounded-full halo-accent opacity-20 blur-3xl"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 opacity-[0.04] dot-grid"
+      />
+      <div className="relative mx-auto max-w-6xl px-5 md:px-8">
         <div className="max-w-3xl">
-          <div className="inline-flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.18em] text-accent">
-            <span className="h-px w-8 bg-accent" />
+          <div className="inline-flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.22em] text-accent">
+            <span className="font-serif text-[11px] tracking-[0.3em]">VI</span>
+            <span className="h-px w-10 bg-accent" />
             Praxis-Entwicklungs-System®
           </div>
           <h2 className="serif-display mt-6 text-4xl leading-[1.1] text-primary-foreground md:text-5xl">

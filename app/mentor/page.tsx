@@ -40,9 +40,47 @@ const principles = [
   },
 ]
 
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": "https://prophylaxe-institut.de#minka",
+  name: `Rusminka „Minka" Mujezinovic`,
+  alternateName: "Minka Mujezinovic",
+  jobTitle: "Gründerin & Mentorin, Prophylaxe-Institut",
+  description:
+    "Minka Mujezinovic (ZFA, ZMP, Praxismanagerin IHK, iTOP-Teacher) begleitet als Mentorin Zahnarztpraxen bei der strategischen Entwicklung der Prophylaxe. Über 150 begleitete Praxen.",
+  image: "https://prophylaxe-institut.de/minka/portrait.jpg",
+  url: "https://prophylaxe-institut.de/mentor",
+  worksFor: {
+    "@type": "ProfessionalService",
+    "@id": "https://prophylaxe-institut.de#organization",
+    name: "Prophylaxe-Institut UG (haftungsbeschränkt)",
+  },
+  knowsAbout: [
+    "Prophylaxe",
+    "Dentalhygiene",
+    "Patientenbindung",
+    "Praxismanagement",
+    "Mundhygieneinstruktion",
+    "Schmelzregeneration",
+    "bioaktive Konzepte",
+  ],
+  hasCredential: [
+    "ZFA — Zahnmedizinische Fachangestellte",
+    "ZMP — Zahnmedizinische Prophylaxeassistentin",
+    "Praxismanagerin (IHK)",
+    "iTOP-Teacher (Curaden)",
+  ],
+}
+
 export default function MentorPage() {
   return (
     <main>
+      <script
+        type="application/ld+json"
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+      />
       <PageHero
         eyebrow="Ihre Mentorin"
         title={`Rusminka „Minka" Mujezinovic — persönlich, praxisnah, umsetzungsstark.`}

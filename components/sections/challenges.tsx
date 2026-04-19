@@ -31,12 +31,14 @@ const challenges = [
   },
 ]
 
+import { SectionLabel } from "@/components/ui/section-label"
+
 export function Challenges() {
   return (
     <section className="bg-secondary/40 py-24 md:py-32">
       <div className="mx-auto max-w-6xl px-5 md:px-8">
         <div className="max-w-2xl">
-          <div className="eyebrow">Typische Realität in vielen Praxen</div>
+          <SectionLabel numeral="I" label="Typische Realität" />
           <h2 className="serif-display mt-6 text-4xl leading-[1.1] text-foreground md:text-5xl">
             Fachlich hervorragend —{" "}
             <em className="italic text-accent">

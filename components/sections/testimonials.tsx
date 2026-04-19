@@ -1,3 +1,6 @@
+import { YouTubeConsentEmbed } from "@/components/youtube-consent-embed"
+import { SectionLabel } from "@/components/ui/section-label"
+
 const videoTestimonials = [
   {
     id: "L6KeIxMGDQ4",
@@ -35,7 +38,7 @@ export function Testimonials() {
     <section className="bg-secondary/40 py-24 md:py-32">
       <div className="mx-auto max-w-6xl px-5 md:px-8">
         <div className="max-w-2xl">
-          <div className="eyebrow">Stimmen aus der Praxis</div>
+          <SectionLabel numeral="X" label="Stimmen aus der Praxis" />
           <h2 className="serif-display mt-6 text-4xl leading-[1.1] text-foreground md:text-5xl">
             Was unsere{" "}
             <em className="italic text-accent">Mentees berichten.</em>
@@ -50,14 +53,9 @@ export function Testimonials() {
               className="overflow-hidden rounded-lg border border-border bg-background"
             >
               <div className="relative aspect-[9/16] w-full bg-primary">
-                <iframe
-                  src={`https://www.youtube-nocookie.com/embed/${v.id}?rel=0&modestbranding=1`}
-                  title="Video-Testimonial"
-                  loading="lazy"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowFullScreen
-                  referrerPolicy="strict-origin-when-cross-origin"
-                  className="absolute inset-0 h-full w-full border-0"
+                <YouTubeConsentEmbed
+                  id={v.id}
+                  title={`Video-Testimonial: ${v.caption}`}
                 />
               </div>
               <figcaption className="border-t border-border p-6">

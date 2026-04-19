@@ -1,3 +1,5 @@
+import { SectionLabel } from "@/components/ui/section-label"
+
 const beforeItems = [
   "Moderate Deckungsbeiträge",
   "Hohe Mitarbeiterfluktuation",
@@ -15,12 +17,20 @@ export function Transformation() {
     <section className="bg-secondary/40 py-24 md:py-32">
       <div className="mx-auto max-w-6xl px-5 md:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <div className="eyebrow mx-auto justify-center">Die Transformation</div>
+          <SectionLabel
+            numeral="III"
+            label="Die Transformation"
+            className="mx-auto justify-center"
+          />
           <h2 className="serif-display mt-6 text-3xl leading-[1.1] text-foreground md:text-5xl">
             Vom <em className="italic text-muted-foreground">Irgendwie</em>
             <br className="hidden sm:block" /> zur{" "}
-            <em className="italic text-accent">Praxis auf Autopilot</em>
+            <em className="italic text-accent">Praxis auf Autopilot.</em>
           </h2>
+
+          <div className="ornament mt-10 mb-0">
+            <span>✦</span>
+          </div>
         </div>
 
         <div className="mt-16 grid gap-10 md:mt-20 md:grid-cols-2 md:gap-16">

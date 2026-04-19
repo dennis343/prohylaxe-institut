@@ -1,3 +1,5 @@
+import { SectionLabel } from "@/components/ui/section-label"
+
 const approaches = [
   {
     title: "Prophylaxe als Renditetreiber",
@@ -21,12 +23,12 @@ export function Approach() {
     <section className="bg-background py-24 md:py-32">
       <div className="mx-auto max-w-6xl px-5 md:px-8">
         <div className="max-w-2xl">
-          <div className="eyebrow">Unser einzigartiger Ansatz</div>
+          <SectionLabel numeral="II" label="Unser Ansatz" />
           <h2 className="serif-display mt-6 text-3xl leading-[1.1] text-foreground md:text-5xl">
             Persönliches Mentoring für{" "}
             <em className="italic text-accent">nachhaltigen</em> Praxiserfolg
           </h2>
-          <p className="mt-6 text-base text-muted-foreground md:text-lg">
+          <p className="lead mt-6">
             Kein Blabla. Vorhersehbarer Erfolg. System statt Chaos.
           </p>
         </div>
@@ -35,15 +37,21 @@ export function Approach() {
           {approaches.map((a, i) => (
             <article
               key={a.title}
-              className="flex flex-col gap-6 bg-background p-8 md:p-10"
+              className="group relative flex flex-col gap-6 bg-background p-8 transition-colors duration-500 hover:bg-secondary/50 md:p-10"
             >
               <div className="flex items-baseline gap-3">
                 <span className="font-serif text-xs italic text-accent">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <span className="h-px flex-1 bg-border" />
+                <span
+                  aria-hidden
+                  className="font-serif text-accent opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                >
+                  ✦
+                </span>
               </div>
-              <h3 className="font-serif text-2xl font-light tracking-tight text-foreground md:text-3xl">
+              <h3 className="font-serif text-2xl font-normal tracking-tight text-foreground md:text-3xl">
                 {a.title}
               </h3>
               <p className="text-[15px] leading-relaxed text-muted-foreground">
