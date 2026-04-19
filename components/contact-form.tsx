@@ -37,10 +37,36 @@ export function ContactForm({ variant = "consultation" }: { variant?: Variant })
       return
     }
 
+    const payload = {
+      variant,
+      firstName: String(data.get("firstName") ?? ""),
+      lastName: String(data.get("lastName") ?? ""),
+      email: String(data.get("email") ?? ""),
+      phone: String(data.get("phone") ?? ""),
+      practice: String(data.get("practice") ?? ""),
+      role: String(data.get("role") ?? ""),
+      message: String(data.get("message") ?? ""),
+      consent: "on" as const,
+      website: String(data.get("website") ?? ""),
+    }
+
     setStatus("submitting")
-    await new Promise((r) => setTimeout(r, 700))
-    setStatus("success")
-    form.reset()
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      })
+      if (!res.ok) {
+        const body = await res.json().catch(() => ({}))
+        throw new Error(body?.error ?? "Übermittlung fehlgeschlagen.")
+      }
+      setStatus("success")
+      form.reset()
+    } catch (err) {
+      setStatus("idle")
+      setError(err instanceof Error ? err.message : "Übermittlung fehlgeschlagen.")
+    }
   }
 
   if (status === "success") {
