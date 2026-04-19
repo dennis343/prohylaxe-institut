@@ -1,8 +1,17 @@
-const highlights = [
-  "Mehrfach erprobte Erfolgsprinzipien",
-  "Umsetzung in über 150 unterschiedlichen Praxen",
-  "Langfristige Begleitung statt einmaliger Impulse",
-  "Prophylaxe mit System — Beratung, die begeistert",
+import Image from "next/image"
+
+const credentials = [
+  "Zahnmedizinische Fachangestellte (ZFA)",
+  "Zahnmedizinische Prophylaxeassistentin (ZMP)",
+  "Praxismanagerin (IHK)",
+  "Referentin & iTOP-Teacher (Curaden)",
+  "Spezialistin für Mundhygieneinstruktion, Schmelzregeneration & bioaktive Konzepte",
+]
+
+const combines = [
+  { left: "Praxisnähe", right: "tiefe Praxisrealität" },
+  { left: "Systematik", right: "wirtschaftliche Klarheit" },
+  { left: "wirtschaftliche Steuerung", right: "umsetzungsstarke Kommunikation" },
 ]
 
 export function Mentor() {
@@ -10,64 +19,106 @@ export function Mentor() {
     <section className="bg-background py-24 md:py-32">
       <div className="mx-auto max-w-6xl px-5 md:px-8">
         <div className="grid items-start gap-12 md:grid-cols-[5fr_7fr] md:gap-16">
-          {/* Portrait */}
+          {/* Portrait collage */}
           <div className="mx-auto w-full max-w-sm md:max-w-none">
             <div className="relative">
-              <div className="aspect-[4/5] overflow-hidden rounded-md bg-gradient-to-br from-primary to-[oklch(0.32_0.05_265)]">
-                <div className="flex h-full flex-col items-center justify-center px-6 text-center text-primary-foreground">
-                  <span className="font-serif text-[11rem] leading-none italic text-accent/70">
-                    M
-                  </span>
-                  <span className="mt-4 text-[11px] uppercase tracking-[0.25em] text-primary-foreground/70">
-                    Minka
-                  </span>
-                </div>
+              <div className="relative aspect-[4/5] overflow-hidden rounded-md bg-secondary">
+                <Image
+                  src="/minka/seminar.jpg"
+                  alt="Minka Mujezinovic im Seminar"
+                  fill
+                  sizes="(max-width: 768px) 90vw, 40vw"
+                  className="object-cover"
+                />
               </div>
               <div
                 aria-hidden
-                className="absolute -bottom-3 -right-3 h-20 w-20 border border-accent/40"
+                className="absolute -bottom-3 -right-3 h-20 w-20 border border-accent/50"
               />
             </div>
+            <p className="mt-5 font-serif text-sm italic text-muted-foreground md:text-base">
+              Beim Seminar — charmant, elegant, auf Augenhöhe.
+            </p>
           </div>
 
-          {/* Content */}
           <div>
             <div className="eyebrow">Ihre Mentorin</div>
             <h2 className="serif-display mt-6 text-4xl leading-[1.05] text-foreground md:text-6xl">
-              Minka.
+              Rusminka „Minka"{" "}
+              <em className="italic text-accent">Mujezinovic.</em>
             </h2>
             <p className="mt-4 font-serif text-lg italic text-muted-foreground md:text-xl">
-              Gründerin Prophylaxe Institut — Dozentin bei WissensReich Academy
+              Gründerin Prophylaxe-Institut · ZFA · ZMP · Praxismanagerin
             </p>
 
-            <div className="mt-8 space-y-5 text-[15px] leading-relaxed text-muted-foreground md:text-base">
+            <div className="mt-8 space-y-5 text-base leading-relaxed text-foreground/85 md:text-lg">
               <p>
-                Ich habe bereits über 150 Praxen zu nachhaltigem Wachstum
-                verholfen — und ich kann Ihnen nicht nur zeigen, wie es geht,
-                sondern ich setze mit Ihnen gemeinsam um.
+                Aufbau und langjährige Leitung hochprofitabler Prophylaxe­
+                abteilungen — und über 150 Praxen, denen ich zu nachhaltigem
+                Wachstum verholfen habe.
               </p>
               <p>
-                Ich weiß genau, wie es sich anfühlt, wenn die Praxis stagniert
-                und man das Gefühl hat, alles selbst machen zu müssen. Aber ich
-                habe auch gesehen, wie Praxen mit dem richtigen Mentoring und
-                bewährten Prinzipien aufblühen.
+                Ich kann Ihnen nicht nur zeigen, wie es geht — ich setze mit
+                Ihnen gemeinsam um. Tiefe Praxis­realität trifft auf
+                wirtschaftliche Klarheit.
               </p>
             </div>
 
             <ul className="mt-10 space-y-4 border-t border-border pt-8">
-              {highlights.map((item) => (
+              {credentials.map((item) => (
                 <li
                   key={item}
-                  className="flex items-start gap-4 text-[15px] text-foreground"
+                  className="flex items-start gap-4 text-base leading-relaxed text-foreground"
                 >
                   <span
                     aria-hidden
-                    className="mt-2.5 inline-block h-px w-5 shrink-0 bg-accent"
+                    className="mt-3 inline-block h-px w-5 shrink-0 bg-accent"
                   />
                   <span>{item}</span>
                 </li>
               ))}
             </ul>
+
+            <div className="mt-12 grid gap-px overflow-hidden rounded-md border border-border bg-border sm:grid-cols-3">
+              {combines.map((c) => (
+                <div key={c.left} className="bg-card p-5">
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">
+                    Verbindet
+                  </p>
+                  <p className="mt-3 font-serif text-base text-foreground md:text-lg">
+                    {c.left}
+                  </p>
+                  <p className="mt-1 text-sm italic text-muted-foreground">
+                    × {c.right}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Bühnen-Bild als Wirkungs-Banner */}
+        <div className="mt-20 overflow-hidden rounded-lg md:mt-28">
+          <div className="relative aspect-[16/7] w-full bg-primary">
+            <Image
+              src="/minka/buehne.jpg"
+              alt="Minka Mujezinovic auf der Bühne"
+              fill
+              sizes="100vw"
+              className="object-cover"
+            />
+            <div
+              aria-hidden
+              className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/30 to-transparent"
+            />
+            <div className="absolute inset-0 flex items-end p-8 md:p-14">
+              <p className="serif-display max-w-2xl text-2xl leading-tight text-primary-foreground md:text-4xl">
+                Patienten spüren Struktur.{" "}
+                <em className="italic text-accent">
+                  Und Struktur schafft Vertrauen.
+                </em>
+              </p>
+            </div>
           </div>
         </div>
       </div>

@@ -2,9 +2,9 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 
 const fundingBenefits = [
-  "Unterstützung bei der Beantragung von Zuschüssen",
-  "Komplette organisatorische Abwicklung",
-  "Wartelisten-Teilnehmer haben einen zusätzlichen Vorteil",
+  "Vom Bund anerkannte Beratungseinrichtung",
+  "Cash-Back nach Umsetzung der Beratung",
+  "Concierge-Service: Wir übernehmen die komplette Antragstellung",
 ]
 
 export function Funding() {
@@ -14,29 +14,60 @@ export function Funding() {
         <div className="grid gap-12 md:grid-cols-[5fr_7fr] md:gap-16">
           <div>
             <div className="eyebrow">Förderung möglich</div>
-            <h2 className="serif-display mt-6 text-3xl leading-[1.1] text-foreground md:text-5xl">
-              Wir kümmern uns um die{" "}
-              <em className="italic text-accent">gesamte Abwicklung.</em>
+            <h2 className="serif-display mt-6 text-4xl leading-[1.1] text-foreground md:text-5xl">
+              Bis zu{" "}
+              <em className="italic text-accent">80 % Zuschuss</em> auf Ihre
+              Beratung.
             </h2>
+            <p className="lead mt-6">
+              Das Prophylaxe-Institut gehört offiziell zu den vom Bund
+              anerkannten Beratungs­einrichtungen. Zahnarztpraxen sind
+              förderfähig — und unser Concierge übernimmt die komplette
+              Bürokratie.
+            </p>
           </div>
 
           <div>
-            <p className="text-base leading-relaxed text-muted-foreground md:text-lg">
-              Für Praxisberatung und begleitete Umsetzung sind häufig öffentliche
-              Zuschüsse möglich. Das Beste daran: Wir übernehmen die komplette
-              organisatorische Abwicklung für interessierte Praxen durch unser
-              Fördermittel-Concierge-Team.
-            </p>
+            <div className="grid gap-px overflow-hidden rounded-lg border border-border bg-border md:grid-cols-2">
+              <div className="bg-card p-7">
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">
+                  Westdeutschland
+                </p>
+                <p className="mt-3 font-serif text-4xl text-foreground md:text-5xl">
+                  50 %
+                </p>
+                <p className="mt-2 text-sm text-muted-foreground">
+                  Zuschuss · Effektive Netto-Investition:
+                </p>
+                <p className="mt-1 font-serif text-2xl text-foreground">
+                  1.750 €
+                </p>
+              </div>
+              <div className="bg-card p-7">
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">
+                  Ostdeutschland
+                </p>
+                <p className="mt-3 font-serif text-4xl text-foreground md:text-5xl">
+                  80 %
+                </p>
+                <p className="mt-2 text-sm text-muted-foreground">
+                  Zuschuss · Effektive Netto-Investition:
+                </p>
+                <p className="mt-1 font-serif text-2xl text-foreground">
+                  700 €
+                </p>
+              </div>
+            </div>
 
-            <ul className="mt-10 space-y-5 border-t border-border pt-8">
+            <ul className="mt-10 space-y-4 border-t border-border pt-8">
               {fundingBenefits.map((item) => (
                 <li
                   key={item}
-                  className="flex items-start gap-4 text-[15px] text-foreground"
+                  className="flex items-start gap-4 text-base leading-relaxed text-foreground"
                 >
                   <span
                     aria-hidden
-                    className="mt-2.5 inline-block h-px w-5 shrink-0 bg-accent"
+                    className="mt-3 inline-block h-px w-5 shrink-0 bg-accent"
                   />
                   <span>{item}</span>
                 </li>
@@ -44,13 +75,14 @@ export function Funding() {
             </ul>
 
             <figure className="mt-12 border-l-2 border-accent pl-6">
-              <blockquote className="font-serif text-xl font-light italic leading-snug text-foreground md:text-2xl">
-                &bdquo;Die Unterstützung bei den Förderanträgen war Gold wert.
-                Ich hätte das alleine nie geschafft!&ldquo;
+              <blockquote className="font-serif text-xl font-normal italic leading-snug text-foreground md:text-2xl">
+                „Die Frage ist nicht: Bekomme ich einen Zuschuss?{" "}
+                Sondern: Wie viele Patienten und wie viel Umsatz verliere ich
+                derzeit unbemerkt?"
               </blockquote>
               <figcaption className="mt-4 text-sm text-muted-foreground">
-                <span className="font-medium text-foreground">Dr. Anna Schmidt</span>{" "}
-                — Zahnärztin aus München
+                <span className="font-medium text-foreground">Minka</span>{" "}
+                — Gründerin Prophylaxe-Institut
               </figcaption>
             </figure>
 
@@ -58,10 +90,11 @@ export function Funding() {
               <Button
                 asChild
                 variant="outline"
-                className="rounded-full border-foreground/15 px-6 text-sm tracking-wide hover:bg-primary hover:text-primary-foreground"
+                size="lg"
+                className="rounded-full border-foreground/15 px-7 text-sm font-medium tracking-wide hover:bg-primary hover:text-primary-foreground"
               >
                 <Link href="/kontakt">
-                  Mehr zum Fördermittel-Concierge →
+                  Förder-Eignung prüfen lassen →
                 </Link>
               </Button>
             </div>

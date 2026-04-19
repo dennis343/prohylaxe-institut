@@ -50,10 +50,10 @@ export function Navbar() {
             <span className="font-serif text-base italic leading-none">M</span>
           </span>
           <span className="hidden flex-col leading-tight sm:flex">
-            <span className="font-serif text-[15px] font-medium italic tracking-tight text-foreground">
-              Prophylaxe Institut
+            <span className="font-serif text-base font-medium italic tracking-tight text-foreground">
+              Prophylaxe-Institut
             </span>
-            <span className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
+            <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
               by Minka
             </span>
           </span>
@@ -64,7 +64,7 @@ export function Navbar() {
             <Link
               key={link.href}
               href={link.href}
-              className="text-[13px] font-medium tracking-wide text-foreground/80 transition-colors hover:text-foreground"
+              className="text-sm font-medium tracking-wide text-foreground/85 transition-colors hover:text-foreground"
             >
               {link.label}
             </Link>
@@ -75,9 +75,9 @@ export function Navbar() {
           <Button
             asChild
             size="sm"
-            className="rounded-full px-5 text-[12px] tracking-wide"
+            className="rounded-full px-5 text-sm font-semibold tracking-wide"
           >
-            <Link href="/kontakt#warteliste">Erstgespräch</Link>
+            <Link href="/kontakt">Erstgespräch</Link>
           </Button>
         </div>
 
@@ -117,7 +117,7 @@ export function Navbar() {
               <Link href="/kontakt#warteliste">Erstgespräch anfragen</Link>
             </Button>
             <p className="mt-4 text-center text-xs text-muted-foreground">
-              info@wissensreich.academy
+              info@prophylaxe-institut.de
             </p>
           </div>
         </div>

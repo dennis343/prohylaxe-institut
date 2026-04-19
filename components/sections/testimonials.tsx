@@ -1,4 +1,15 @@
-const testimonials = [
+const videoTestimonials = [
+  {
+    id: "L6KeIxMGDQ4",
+    caption: "Endlich Struktur — und ein begeistertes Team.",
+  },
+  {
+    id: "KiMLABEpcSo",
+    caption: "Patienten kommen freiwillig wieder.",
+  },
+]
+
+const writtenTestimonials = [
   {
     quote:
       "Das Prophylaxe-System hat unsere Praxis grundlegend verändert. Mein Team arbeitet eigenständig, die Patienten sind begeistert — und die Auswertungen sprechen für sich.",
@@ -25,32 +36,63 @@ export function Testimonials() {
       <div className="mx-auto max-w-6xl px-5 md:px-8">
         <div className="max-w-2xl">
           <div className="eyebrow">Stimmen aus der Praxis</div>
-          <h2 className="serif-display mt-6 text-3xl leading-[1.1] text-foreground md:text-5xl">
+          <h2 className="serif-display mt-6 text-4xl leading-[1.1] text-foreground md:text-5xl">
             Was unsere{" "}
             <em className="italic text-accent">Mentees berichten.</em>
           </h2>
         </div>
 
-        <div className="mt-16 grid gap-px overflow-hidden rounded-lg border border-border bg-border md:mt-20 md:grid-cols-3">
-          {testimonials.map((t) => (
+        {/* Video-Testimonials (YouTube Shorts) */}
+        <div className="mt-16 grid gap-8 md:mt-20 md:grid-cols-2">
+          {videoTestimonials.map((v) => (
+            <figure
+              key={v.id}
+              className="overflow-hidden rounded-lg border border-border bg-background"
+            >
+              <div className="relative aspect-[9/16] w-full bg-primary">
+                <iframe
+                  src={`https://www.youtube-nocookie.com/embed/${v.id}?rel=0&modestbranding=1`}
+                  title="Video-Testimonial"
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  className="absolute inset-0 h-full w-full border-0"
+                />
+              </div>
+              <figcaption className="border-t border-border p-6">
+                <p className="font-serif text-lg italic text-foreground md:text-xl">
+                  „{v.caption}"
+                </p>
+                <p className="mt-2 text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+                  Video-Testimonial
+                </p>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+
+        {/* Schriftliche Testimonials */}
+        <div className="mt-16 grid gap-px overflow-hidden rounded-lg border border-border bg-border md:grid-cols-3">
+          {writtenTestimonials.map((t) => (
             <figure
               key={t.name}
               className="flex flex-col bg-background p-8 md:p-10"
             >
               <span
                 aria-hidden
-                className="font-serif text-5xl italic leading-none text-accent/60"
+                className="font-serif text-5xl italic leading-none text-accent/70"
               >
                 &ldquo;
               </span>
-              <blockquote className="mt-4 flex-1 font-serif text-lg font-light italic leading-snug text-foreground md:text-xl">
+              <blockquote className="mt-4 flex-1 font-serif text-lg font-normal italic leading-snug text-foreground md:text-xl">
                 {t.quote}
               </blockquote>
               <figcaption className="mt-8 border-t border-border pt-5">
-                <p className="text-[15px] font-medium text-foreground">
+                <p className="text-base font-medium text-foreground">
                   {t.name}
                 </p>
-                <p className="mt-1 text-xs uppercase tracking-[0.18em] text-muted-foreground">
+                <p className="mt-1 text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
                   {t.role}
                 </p>
               </figcaption>

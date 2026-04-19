@@ -64,15 +64,18 @@ export function Footer() {
               <ul className="mt-5 space-y-3">
                 <li>
                   <a
-                    href="mailto:info@wissensreich.academy"
+                    href="mailto:info@prophylaxe-institut.de"
                     className="hover:text-accent"
                   >
-                    info@wissensreich.academy
+                    info@prophylaxe-institut.de
                   </a>
                 </li>
                 <li>
-                  <span className="block">WissensReich Academy UG</span>
-                  <span className="block">Weinsbergstraße 190, 50825 Köln</span>
+                  <span className="block">Prophylaxe-Institut UG (haftungsbeschränkt)</span>
+                  <span className="block">Grenzstraße 144, 47441 Moers</span>
+                </li>
+                <li className="text-foreground/70">
+                  Leitung &amp; Ansprechpartnerin: Minka Mujezinovic
                 </li>
               </ul>
             </div>
@@ -103,11 +106,11 @@ export function Footer() {
 
         <div className="mt-20 flex flex-col gap-4 border-t border-border pt-8 text-xs text-muted-foreground md:flex-row md:items-center md:justify-between">
           <p>
-            &copy; {new Date().getFullYear()} Prophylaxe-Institut — ein Angebot
-            der WissensReich Academy UG.
+            &copy; {new Date().getFullYear()} Prophylaxe-Institut UG
+            (haftungsbeschränkt) · Alle Rechte vorbehalten.
           </p>
           <p className="uppercase tracking-[0.18em]">
-            Made with care in Köln
+            Made with care in Moers
           </p>
         </div>
       </div>

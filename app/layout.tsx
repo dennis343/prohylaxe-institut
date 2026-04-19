@@ -35,7 +35,8 @@ export const metadata: Metadata = {
     'Dentalhygiene',
     'Prophylaxe Institut',
     'Minka',
-    'WissensReich Academy',
+    'Praxisberatung Zahnarzt',
+    'Förderung BAFA Zahnarzt',
   ],
   generator: 'v0.app',
   openGraph: {

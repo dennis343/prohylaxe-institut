@@ -4,7 +4,7 @@ import { LegalLayout } from "@/components/sections/legal-layout"
 export const metadata: Metadata = {
   title: "Allgemeine Geschäftsbedingungen",
   description:
-    "Allgemeine Geschäftsbedingungen für Mentoring-Leistungen des Prophylaxe Instituts by Minka.",
+    "Allgemeine Geschäftsbedingungen für Beratungs- und Mentoring-Leistungen des Prophylaxe-Instituts UG.",
   alternates: { canonical: "/agb" },
   robots: { index: true, follow: true },
 }
@@ -18,10 +18,12 @@ export default function AgbPage() {
     >
       <h2>§ 1 Geltungsbereich</h2>
       <p>
-        Diese Allgemeinen Geschäftsbedingungen (AGB) gelten für alle Verträge, Lieferungen und
-        Leistungen zwischen dem Prophylaxe Institut by Minka (nachfolgend „Anbieter") und der
-        Kundin bzw. dem Kunden (nachfolgend „Kunde") im Zusammenhang mit Mentoring-, Beratungs-
-        und Weiterbildungsleistungen.
+        Diese Allgemeinen Geschäftsbedingungen (AGB) gelten für alle Verträge,
+        Lieferungen und Leistungen zwischen der{" "}
+        <strong>Prophylaxe-Institut UG (haftungsbeschränkt)</strong>,
+        Grenzstraße 144, 47441 Moers (nachfolgend „Anbieter") und der Kundin
+        bzw. dem Kunden (nachfolgend „Kunde") im Zusammenhang mit Beratungs-,
+        Mentoring- und Weiterbildungsleistungen.
       </p>
 
       <h2>§ 2 Vertragsschluss</h2>

@@ -1,27 +1,56 @@
 const processSteps = [
   {
-    badge: "Patientenverständnis",
-    title: "Klare Kommunikation von Leistungen",
-    description:
-      "Patienten verstehen, warum Prophylaxe sinnvoll ist — nicht nur, was gemacht wird.",
+    number: "1a",
+    title: "Impuls & Erstkontakt",
+    subtitle: "Potenziale sichtbar machen",
+    purpose:
+      "Klarheit, wo Prophylaxe in Ihrer Praxis heute Potenzial verschenkt.",
+    points: [
+      "Analyse von Kommunikation, Abläufen, Team & Umsatzpotenzial",
+      "Sichtbarmachung von Optimierungsfeldern",
+      "Klare Bewertung bestehender Strukturen",
+    ],
+    result: "Grobanalyse mit Potenzialen, Engpässen und ersten Hebeln.",
+    pairHint: "1a + 1b in einem Termin möglich",
   },
   {
-    badge: "Vertrauensaufbau",
-    title: "Wirkungsvolle Patientenkommunikation",
-    description:
-      "Die richtige Sprache schafft Vertrauen, Sicherheit und Bereitschaft zur Mitarbeit.",
+    number: "1b",
+    title: "Analyse & Detailplanung",
+    subtitle: "Aus der Analyse wird ein konkreter Plan",
+    purpose:
+      'Aus der Grobanalyse wird ein steuerbarer „interner Behandlungsplan" für die Prophylaxe-Säule.',
+    points: [
+      "Ist-Stand: Abläufe, Teamrollen, Zahlen",
+      "Klare Prozesse, Verantwortlichkeiten und messbare Kennzahlen",
+      "Saubere Gesprächslogik: Nutzen statt Fachworte",
+    ],
+    result: "Detailplan mit Maßnahmen, Reihenfolge, Rollen und KPIs.",
   },
   {
-    badge: "Kommunikation",
-    title: "Charmantes Anbieten sinnvoller Zusatzleistungen",
-    description:
-      "Zusatzleistungen werden beraten, nicht verkauft — ehrlich, wertschätzend und passend.",
+    number: "2",
+    title: "Prototypische Umsetzung",
+    subtitle: "Wirkung im Praxisalltag erleben",
+    purpose:
+      "Den Plan in einem überschaubaren Rahmen praktisch testen — echte Wirkung im Alltag.",
+    points: [
+      "Feinschliff von bis zu drei ausgewählten Abläufen",
+      "Test der Gesprächsführung, Termin- & Recall-Logik",
+      "Kennzahlen messbar: Annahme-, Wiederkehr-, Ausfallquote",
+    ],
+    result: "Erster Machbarkeitsnachweis mit messbaren Verbesserungen.",
   },
   {
-    badge: "Individuelle Betreuung",
-    title: "Beratung statt Waschanlage",
-    description:
-      "Mundhygiene wird zum Coaching und persönlichen Dialog.",
+    number: "3",
+    title: "Leben des Systems",
+    subtitle: "Langfristige Verankerung im Team",
+    purpose:
+      "Das System wird dauerhaft in der Praxis verankert — teamgetragen, messbar und stabil.",
+    points: [
+      "Standardisierung aller Stationen: Empfang, Behandlung, Recall",
+      "Etablierung einer Prophylaxe-Leitungs-Funktion",
+      "Kontinuität in Wirkungskommunikation und Profitabilität",
+    ],
+    result: "Prophylaxe-System als Selbstläufer — ohne Inhaber-Dauerpräsenz.",
   },
 ]
 
@@ -29,42 +58,78 @@ export function Process() {
   return (
     <section className="bg-primary py-24 text-primary-foreground md:py-32">
       <div className="mx-auto max-w-6xl px-5 md:px-8">
-        <div className="max-w-2xl">
-          <div className="inline-flex items-center gap-3 text-[11px] font-medium uppercase tracking-[0.22em] text-accent">
+        <div className="max-w-3xl">
+          <div className="inline-flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.18em] text-accent">
             <span className="h-px w-8 bg-accent" />
-            Für Zahnärztinnen, Zahnärzte &amp; Teams
+            Praxis-Entwicklungs-System®
           </div>
-          <h2 className="serif-display mt-6 text-3xl leading-[1.1] text-primary-foreground md:text-5xl">
-            Prophylaxe wird zum{" "}
-            <em className="italic text-accent">Kommunikations-</em>
-            <br className="hidden md:block" /> und{" "}
-            <em className="italic text-accent">Serviceprozess.</em>
+          <h2 className="serif-display mt-6 text-4xl leading-[1.1] text-primary-foreground md:text-5xl">
+            Vier klare Schritte —{" "}
+            <em className="italic text-accent">vom Impuls bis zum Selbstläufer.</em>
           </h2>
-          <p className="mt-6 text-base text-primary-foreground/70 md:text-lg">
-            Ein Prozess, der Patienten begeistert und Praxiserfolg steigert.
+          <p className="mt-6 text-lg leading-relaxed text-primary-foreground/85 md:text-xl">
+            Ein durchgängiger Pfad: Wir machen Potenziale sichtbar, planen
+            steuerbar, testen prototypisch — und verankern das System nachhaltig
+            im Team.
           </p>
         </div>
 
         <ol className="mt-16 divide-y divide-primary-foreground/15 border-y border-primary-foreground/15 md:mt-20">
-          {processSteps.map((step, i) => (
+          {processSteps.map((step) => (
             <li
-              key={step.title}
-              className="grid grid-cols-1 gap-4 py-8 md:grid-cols-[4rem_1fr_1.2fr] md:items-start md:gap-12 md:py-10"
+              key={step.number}
+              className="grid grid-cols-1 gap-6 py-10 md:grid-cols-[5rem_1fr_1.2fr] md:items-start md:gap-12 md:py-14"
             >
-              <span className="font-serif text-sm italic text-accent">
-                {String(i + 1).padStart(2, "0")}
-              </span>
+              <div className="flex items-baseline gap-3">
+                <span className="font-serif text-3xl italic text-accent md:text-4xl">
+                  {step.number}
+                </span>
+                {step.pairHint && (
+                  <span className="hidden text-[10px] uppercase tracking-[0.18em] text-accent/80 md:inline">
+                    Tipp
+                  </span>
+                )}
+              </div>
+
               <div>
-                <p className="text-[10px] uppercase tracking-[0.22em] text-accent">
-                  {step.badge}
-                </p>
-                <h3 className="mt-3 font-serif text-2xl font-light tracking-tight md:text-3xl">
+                <h3 className="font-serif text-2xl font-normal tracking-tight text-primary-foreground md:text-3xl">
                   {step.title}
                 </h3>
+                <p className="mt-2 text-sm font-medium uppercase tracking-[0.14em] text-accent">
+                  {step.subtitle}
+                </p>
+                <p className="mt-4 text-base leading-relaxed text-primary-foreground/80">
+                  {step.purpose}
+                </p>
               </div>
-              <p className="max-w-md text-[15px] leading-relaxed text-primary-foreground/70">
-                {step.description}
-              </p>
+
+              <div>
+                <ul className="space-y-3">
+                  {step.points.map((p) => (
+                    <li
+                      key={p}
+                      className="flex items-start gap-3 text-[15px] leading-relaxed text-primary-foreground/90"
+                    >
+                      <span
+                        aria-hidden
+                        className="mt-2.5 inline-block h-px w-4 shrink-0 bg-accent"
+                      />
+                      <span>{p}</span>
+                    </li>
+                  ))}
+                </ul>
+                <p className="mt-6 border-t border-primary-foreground/15 pt-4 text-sm leading-relaxed text-primary-foreground/70">
+                  <span className="font-semibold uppercase tracking-[0.14em] text-accent">
+                    Ergebnis ·{" "}
+                  </span>
+                  {step.result}
+                </p>
+                {step.pairHint && (
+                  <p className="mt-3 text-xs italic text-accent/90">
+                    Tipp: {step.pairHint}
+                  </p>
+                )}
+              </div>
             </li>
           ))}
         </ol>
