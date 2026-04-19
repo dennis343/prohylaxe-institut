@@ -19,44 +19,44 @@ export default function ImpressumPage() {
       <p>
         <strong>Prophylaxe Institut by Minka</strong>
         <br />
-        ein Angebot der WissensReich Academy
+        ein Angebot der WissensReich Academy UG (haftungsbeschränkt)
         <br />
-        [Straße und Hausnummer]
+        Weinsbergstraße 190
         <br />
-        [PLZ Ort]
+        50825 Köln
         <br />
         Deutschland
       </p>
 
       <h2>Kontakt</h2>
       <p>
-        Telefon: [wird nachgereicht]
+        E-Mail: <a href="mailto:info@wissensreich.academy">info@wissensreich.academy</a>
         <br />
-        E-Mail: <a href="mailto:kontakt@prophylaxe-institut.de">kontakt@prophylaxe-institut.de</a>
+        Web: <a href="https://wissensreich.academy" target="_blank" rel="noreferrer">wissensreich.academy</a>
       </p>
 
-      <h2>Vertretungsberechtigt</h2>
-      <p>[Vor- und Nachname der vertretungsberechtigten Person]</p>
+      <h2>Vertretungsberechtigte Geschäftsführer</h2>
+      <p>Hermann Fürstenau &amp; Florian Domin</p>
 
       <h2>Registereintrag</h2>
       <p>
-        Registergericht: [Amtsgericht]
+        Registergericht: Amtsgericht Köln
         <br />
-        Registernummer: [HRB …]
+        Registernummer: [HRB wird nachgereicht]
       </p>
 
       <h2>Umsatzsteuer-ID</h2>
       <p>
         Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:
         <br />
-        [DE…]
+        [DE wird nachgereicht]
       </p>
 
       <h2>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h2>
       <p>
-        [Vor- und Nachname]
+        Hermann Fürstenau
         <br />
-        [Anschrift wie oben]
+        Anschrift wie oben
       </p>
 
       <h2>Streitschlichtung</h2>
@@ -97,8 +97,7 @@ export default function ImpressumPage() {
       </p>
 
       <p className="text-sm italic text-muted-foreground">
-        Die mit [ ] markierten Angaben sind Platzhalter und werden durch die endgültigen Daten des
-        Betreibers ersetzt.
+        Mit [ ] markierte Felder werden durch die endgültigen Registerdaten ersetzt.
       </p>
     </LegalLayout>
   )

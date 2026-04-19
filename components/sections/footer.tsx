@@ -1,5 +1,4 @@
 import Link from "next/link"
-import { Mail, Phone, MapPin } from "lucide-react"
 
 const sitemap = {
   angebot: {
@@ -23,7 +22,7 @@ const sitemap = {
     title: "Rechtliches",
     links: [
       { href: "/impressum", label: "Impressum" },
-      { href: "/datenschutz", label: "Datenschutz (DSGVO)" },
+      { href: "/datenschutz", label: "Datenschutz" },
       { href: "/agb", label: "AGB" },
       { href: "/widerruf", label: "Widerrufsbelehrung" },
     ],
@@ -32,71 +31,84 @@ const sitemap = {
 
 export function Footer() {
   return (
-    <footer className="border-t border-border bg-card">
-      <div className="container mx-auto px-4 py-16">
-        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
+    <footer className="border-t border-border bg-background">
+      <div className="mx-auto max-w-6xl px-5 py-20 md:px-8 md:py-24">
+        <div className="grid gap-14 md:grid-cols-[5fr_7fr]">
           <div>
-            <div className="flex items-center gap-2">
-              <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-lg font-bold text-primary-foreground">
-                P
+            <Link
+              href="/"
+              aria-label="Prophylaxe-Institut"
+              className="inline-flex items-center gap-3"
+            >
+              <span className="flex h-10 w-10 items-center justify-center rounded-full border border-foreground/15 font-serif text-xl italic text-accent">
+                M
               </span>
-              <div className="leading-tight">
-                <p className="text-base font-bold text-foreground">Prophylaxe Institut</p>
-                <p className="text-xs text-muted-foreground">by Minka</p>
-              </div>
-            </div>
-            <p className="mt-4 text-sm text-muted-foreground">
-              Nachhaltiger Praxiserfolg mit System. Ein Angebot der WissensReich Academy.
-            </p>
-            <ul className="mt-6 space-y-2 text-sm text-muted-foreground">
-              <li className="flex items-start gap-2">
-                <Mail className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                <a href="mailto:kontakt@prophylaxe-institut.de" className="hover:text-foreground">
-                  kontakt@prophylaxe-institut.de
-                </a>
-              </li>
-              <li className="flex items-start gap-2">
-                <Phone className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                <a href="tel:+49" className="hover:text-foreground">
-                  Rückruf anfragen
-                </a>
-              </li>
-              <li className="flex items-start gap-2">
-                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                <span>Deutschland &middot; bundesweit online</span>
-              </li>
-            </ul>
-          </div>
+              <span className="leading-tight">
+                <span className="block font-serif text-base italic text-foreground">
+                  Prophylaxe-Institut
+                </span>
+                <span className="mt-0.5 block text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
+                  by Minka
+                </span>
+              </span>
+            </Link>
 
-          {(Object.keys(sitemap) as Array<keyof typeof sitemap>).map((key) => (
-            <div key={key}>
-              <h3 className="text-sm font-semibold uppercase tracking-wider text-foreground">
-                {sitemap[key].title}
-              </h3>
-              <ul className="mt-4 space-y-2">
-                {sitemap[key].links.map((link) => (
-                  <li key={link.href}>
-                    <Link
-                      href={link.href}
-                      className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
+            <p className="mt-8 max-w-md font-serif text-lg font-light italic leading-snug text-foreground">
+              Nachhaltiger Praxiserfolg mit System.
+            </p>
+
+            <div className="mt-10 border-t border-border pt-8 text-sm text-muted-foreground">
+              <p className="text-[13px] uppercase tracking-[0.18em] text-foreground">
+                Kontakt
+              </p>
+              <ul className="mt-5 space-y-3">
+                <li>
+                  <a
+                    href="mailto:info@wissensreich.academy"
+                    className="hover:text-accent"
+                  >
+                    info@wissensreich.academy
+                  </a>
+                </li>
+                <li>
+                  <span className="block">WissensReich Academy UG</span>
+                  <span className="block">Weinsbergstraße 190, 50825 Köln</span>
+                </li>
               </ul>
             </div>
-          ))}
+          </div>
+
+          <div className="grid grid-cols-2 gap-10 sm:grid-cols-3">
+            {(Object.keys(sitemap) as Array<keyof typeof sitemap>).map((key) => (
+              <div key={key}>
+                <h3 className="text-[13px] uppercase tracking-[0.18em] text-foreground">
+                  {sitemap[key].title}
+                </h3>
+                <ul className="mt-5 space-y-3 text-sm text-muted-foreground">
+                  {sitemap[key].links.map((link) => (
+                    <li key={link.href}>
+                      <Link
+                        href={link.href}
+                        className="transition-colors hover:text-accent"
+                      >
+                        {link.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
         </div>
 
-        <div className="mt-12 flex flex-col gap-4 border-t border-border pt-8 text-center text-sm text-muted-foreground md:flex-row md:items-center md:justify-between md:text-left">
-          <p>&copy; {new Date().getFullYear()} Prophylaxe Institut by Minka. Alle Rechte vorbehalten.</p>
-          <nav className="flex flex-wrap justify-center gap-6 md:justify-end">
-            <Link href="/impressum" className="hover:text-foreground">Impressum</Link>
-            <Link href="/datenschutz" className="hover:text-foreground">Datenschutz</Link>
-            <Link href="/agb" className="hover:text-foreground">AGB</Link>
-            <Link href="/widerruf" className="hover:text-foreground">Widerruf</Link>
-          </nav>
+        <div className="mt-20 flex flex-col gap-4 border-t border-border pt-8 text-xs text-muted-foreground md:flex-row md:items-center md:justify-between">
+          <p>
+            &copy; {new Date().getFullYear()} Prophylaxe-Institut — ein Angebot
+            der WissensReich Academy UG.
+          </p>
+          <p className="uppercase tracking-[0.18em]">
+            Made with care in Köln
+          </p>
         </div>
       </div>
     </footer>

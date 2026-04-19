@@ -5,9 +5,18 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
-import { CheckCircle2, AlertCircle, Loader2 } from "lucide-react"
+import { AlertCircle, Loader2 } from "lucide-react"
 
 type Variant = "waitlist" | "consultation"
+
+const fieldClass =
+  "h-12 rounded-none border-0 border-b border-border bg-transparent px-0 text-base shadow-none focus-visible:border-accent focus-visible:ring-0 md:text-[15px]"
+
+const textareaClass =
+  "rounded-none border-0 border-b border-border bg-transparent px-0 text-base shadow-none focus-visible:border-accent focus-visible:ring-0 md:text-[15px]"
+
+const labelClass =
+  "text-[11px] font-medium uppercase tracking-[0.18em] text-muted-foreground"
 
 export function ContactForm({ variant = "consultation" }: { variant?: Variant }) {
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle")
@@ -24,13 +33,11 @@ export function ContactForm({ variant = "consultation" }: { variant?: Variant })
       return
     }
     if (data.get("website")) {
-      // honeypot
       setStatus("success")
       return
     }
 
     setStatus("submitting")
-    // No backend yet – simulate submission success.
     await new Promise((r) => setTimeout(r, 700))
     setStatus("success")
     form.reset()
@@ -38,57 +45,114 @@ export function ContactForm({ variant = "consultation" }: { variant?: Variant })
 
   if (status === "success") {
     return (
-      <div className="rounded-2xl border border-primary/20 bg-primary/5 p-8 text-center">
-        <CheckCircle2 className="mx-auto h-12 w-12 text-primary" />
-        <h3 className="mt-4 text-xl font-semibold text-foreground">
-          Vielen Dank für Ihre Anfrage!
+      <div className="rounded-lg border border-border bg-card p-10 text-center md:p-12">
+        <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full border border-accent/40 font-serif text-2xl italic text-accent">
+          ✓
+        </div>
+        <h3 className="serif-display mt-6 text-2xl text-foreground md:text-3xl">
+          Vielen Dank.
         </h3>
-        <p className="mt-2 text-muted-foreground">
-          Wir melden uns in der Regel innerhalb von 1–2 Werktagen persönlich bei Ihnen.
+        <p className="mx-auto mt-4 max-w-md text-[15px] leading-relaxed text-muted-foreground">
+          Wir melden uns in der Regel innerhalb von 1–2 Werktagen persönlich
+          bei Ihnen.
         </p>
       </div>
     )
   }
 
   return (
-    <form onSubmit={submit} className="space-y-5" noValidate>
-      <input type="text" name="website" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
+    <form onSubmit={submit} className="space-y-10" noValidate>
+      <input
+        type="text"
+        name="website"
+        tabIndex={-1}
+        autoComplete="off"
+        className="hidden"
+        aria-hidden="true"
+      />
 
-      <div className="grid gap-5 md:grid-cols-2">
+      <div className="grid gap-8 md:grid-cols-2 md:gap-10">
         <div className="space-y-2">
-          <Label htmlFor="firstName">Vorname *</Label>
-          <Input id="firstName" name="firstName" autoComplete="given-name" required />
+          <Label htmlFor="firstName" className={labelClass}>
+            Vorname *
+          </Label>
+          <Input
+            id="firstName"
+            name="firstName"
+            autoComplete="given-name"
+            required
+            className={fieldClass}
+          />
         </div>
         <div className="space-y-2">
-          <Label htmlFor="lastName">Nachname *</Label>
-          <Input id="lastName" name="lastName" autoComplete="family-name" required />
+          <Label htmlFor="lastName" className={labelClass}>
+            Nachname *
+          </Label>
+          <Input
+            id="lastName"
+            name="lastName"
+            autoComplete="family-name"
+            required
+            className={fieldClass}
+          />
         </div>
       </div>
 
-      <div className="grid gap-5 md:grid-cols-2">
+      <div className="grid gap-8 md:grid-cols-2 md:gap-10">
         <div className="space-y-2">
-          <Label htmlFor="email">E-Mail *</Label>
-          <Input id="email" name="email" type="email" autoComplete="email" required />
+          <Label htmlFor="email" className={labelClass}>
+            E-Mail *
+          </Label>
+          <Input
+            id="email"
+            name="email"
+            type="email"
+            autoComplete="email"
+            required
+            className={fieldClass}
+          />
         </div>
         <div className="space-y-2">
-          <Label htmlFor="phone">Telefon</Label>
-          <Input id="phone" name="phone" type="tel" autoComplete="tel" />
+          <Label htmlFor="phone" className={labelClass}>
+            Telefon
+          </Label>
+          <Input
+            id="phone"
+            name="phone"
+            type="tel"
+            autoComplete="tel"
+            className={fieldClass}
+          />
         </div>
       </div>
 
-      <div className="grid gap-5 md:grid-cols-2">
+      <div className="grid gap-8 md:grid-cols-2 md:gap-10">
         <div className="space-y-2">
-          <Label htmlFor="practice">Praxisname</Label>
-          <Input id="practice" name="practice" autoComplete="organization" />
+          <Label htmlFor="practice" className={labelClass}>
+            Praxisname
+          </Label>
+          <Input
+            id="practice"
+            name="practice"
+            autoComplete="organization"
+            className={fieldClass}
+          />
         </div>
         <div className="space-y-2">
-          <Label htmlFor="role">Rolle in der Praxis</Label>
-          <Input id="role" name="role" placeholder="z. B. Inhaber:in, Praxismanager:in" />
+          <Label htmlFor="role" className={labelClass}>
+            Rolle in der Praxis
+          </Label>
+          <Input
+            id="role"
+            name="role"
+            placeholder="z. B. Inhaber:in, Praxismanager:in"
+            className={fieldClass}
+          />
         </div>
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="message">
+        <Label htmlFor="message" className={labelClass}>
           {variant === "waitlist"
             ? "Was erhoffen Sie sich vom Mentoring?"
             : "Ihre Nachricht"}
@@ -96,56 +160,69 @@ export function ContactForm({ variant = "consultation" }: { variant?: Variant })
         <Textarea
           id="message"
           name="message"
-          rows={5}
+          rows={4}
           placeholder={
             variant === "waitlist"
-              ? "Worauf möchten Sie vorbereitet sein? Was ist Ihr dringendstes Thema?"
+              ? "Worauf möchten Sie vorbereitet sein?"
               : "Schildern Sie uns kurz Ihre Situation und Ziele."
           }
+          className={textareaClass}
         />
       </div>
 
-      <div className="flex items-start gap-3 rounded-lg bg-secondary/60 p-4">
+      <div className="flex items-start gap-3 border-t border-border pt-8">
         <input
           id="consent"
           name="consent"
           type="checkbox"
-          className="mt-1 h-4 w-4 shrink-0 rounded border-border accent-[var(--primary)]"
+          className="mt-1 h-4 w-4 shrink-0 rounded-sm border-border accent-[var(--accent)]"
           required
         />
-        <label htmlFor="consent" className="text-sm text-muted-foreground">
-          Ich bin damit einverstanden, dass meine Angaben zur Bearbeitung meiner Anfrage verarbeitet
-          werden. Details sind in der{" "}
-          <a href="/datenschutz" className="text-primary underline-offset-2 hover:underline">
+        <label
+          htmlFor="consent"
+          className="text-[13px] leading-relaxed text-muted-foreground"
+        >
+          Ich bin damit einverstanden, dass meine Angaben zur Bearbeitung
+          meiner Anfrage verarbeitet werden. Details in der{" "}
+          <a
+            href="/datenschutz"
+            className="text-accent underline-offset-4 hover:underline"
+          >
             Datenschutzerklärung
-          </a>{" "}
-          nachzulesen. Meine Einwilligung kann ich jederzeit widerrufen.
+          </a>
+          . Die Einwilligung kann jederzeit widerrufen werden.
         </label>
       </div>
 
       {error && (
-        <div className="flex items-start gap-2 rounded-lg border border-destructive/30 bg-destructive/5 p-3 text-sm text-destructive">
+        <div className="flex items-start gap-2 border-l-2 border-destructive bg-destructive/5 px-4 py-3 text-sm text-destructive">
           <AlertCircle className="mt-0.5 h-4 w-4 shrink-0" />
           <span>{error}</span>
         </div>
       )}
 
-      <Button type="submit" size="lg" className="w-full" disabled={status === "submitting"}>
-        {status === "submitting" ? (
-          <>
-            <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-            Wird gesendet …
-          </>
-        ) : variant === "waitlist" ? (
-          "Unverbindlich auf die Warteliste"
-        ) : (
-          "Erstgespräch anfragen"
-        )}
-      </Button>
-
-      <p className="text-center text-xs text-muted-foreground">
-        Antwort innerhalb von 1–2 Werktagen · 100 % unverbindlich
-      </p>
+      <div className="flex flex-col items-start gap-4 pt-2">
+        <Button
+          type="submit"
+          size="lg"
+          className="w-full rounded-full px-8 text-sm tracking-wide sm:w-auto"
+          disabled={status === "submitting"}
+        >
+          {status === "submitting" ? (
+            <>
+              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+              Wird gesendet …
+            </>
+          ) : variant === "waitlist" ? (
+            "Unverbindlich auf die Warteliste"
+          ) : (
+            "Erstgespräch anfragen"
+          )}
+        </Button>
+        <p className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
+          Antwort in 1–2 Werktagen · 100 % unverbindlich
+        </p>
+      </div>
     </form>
   )
 }

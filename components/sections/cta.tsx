@@ -1,35 +1,52 @@
+import Link from "next/link"
 import { Button } from "@/components/ui/button"
 
 export function CTA() {
   return (
-    <section id="cta" className="bg-primary py-20 md:py-28">
-      <div className="container mx-auto px-4">
-        <div className="mx-auto max-w-3xl text-center">
-          <h2 className="text-balance text-3xl font-bold tracking-tight text-primary-foreground md:text-4xl">
-            Investieren Sie in eine Zukunft, in der Ihre Praxis floriert
-          </h2>
-          <p className="mx-auto mt-6 max-w-2xl text-lg text-primary-foreground/80">
-            Wirtschaftlich gesund wachsen, Prophylaxe als strategischen Umsatztreiber nutzen, ein motiviertes Team aufbauen – und dabei mehr Freiheit gewinnen.
-          </p>
+    <section
+      id="cta"
+      className="relative overflow-hidden bg-primary py-28 text-primary-foreground md:py-40"
+    >
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -top-32 left-1/2 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-[radial-gradient(closest-side,var(--accent),transparent_70%)] opacity-20 blur-3xl"
+      />
+      <div className="relative mx-auto max-w-3xl px-5 text-center md:px-8">
+        <div className="eyebrow mx-auto justify-center !text-accent">
+          Nächster Schritt
+        </div>
+        <h2 className="serif-display mt-6 text-4xl leading-[1.05] md:text-6xl">
+          Investieren Sie in eine Zukunft, in der Ihre Praxis{" "}
+          <em className="italic text-accent">floriert.</em>
+        </h2>
+        <p className="mx-auto mt-8 max-w-xl text-base text-primary-foreground/70 md:text-lg">
+          Wirtschaftlich gesund wachsen, Prophylaxe als strategischen
+          Umsatztreiber nutzen, ein motiviertes Team aufbauen — und dabei mehr
+          Freiheit gewinnen.
+        </p>
 
-          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <Button
-              size="lg"
-              variant="secondary"
-              className="w-full px-8 py-6 text-lg font-semibold sm:w-auto"
-              asChild
+        <div className="mt-12 flex flex-col items-center justify-center gap-5 sm:flex-row sm:gap-8">
+          <Button
+            asChild
+            size="lg"
+            className="w-full rounded-full bg-accent px-8 text-sm tracking-wide text-accent-foreground hover:bg-accent/90 sm:w-auto"
+          >
+            <Link href="/kontakt#warteliste">Auf die Warteliste</Link>
+          </Button>
+          <Link
+            href="/kontakt"
+            className="group inline-flex items-center gap-2 text-sm font-medium text-primary-foreground"
+          >
+            <span className="border-b border-primary-foreground/40 pb-0.5 group-hover:border-accent">
+              Oder Erstgespräch anfragen
+            </span>
+            <span
+              aria-hidden
+              className="text-accent transition-transform group-hover:translate-x-1"
             >
-              <a href="/kontakt#warteliste">Auf die Warteliste</a>
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="w-full border-primary-foreground/30 bg-transparent px-8 py-6 text-lg font-semibold text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground sm:w-auto"
-              asChild
-            >
-              <a href="/kontakt">Erstgespräch anfragen</a>
-            </Button>
-          </div>
+              →
+            </span>
+          </Link>
         </div>
       </div>
     </section>

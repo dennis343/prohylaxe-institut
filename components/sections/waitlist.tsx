@@ -1,51 +1,72 @@
+import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Calendar, Eye, Gift } from "lucide-react"
 
 const benefits = [
   {
-    icon: Calendar,
     title: "Bevorzugte Starttermine",
-    description: "Als Wartelisten-Teilnehmer erhalten Sie bevorzugten Zugang und können Ihren Starttermin flexibel abstimmen.",
+    description:
+      "Als Wartelisten-Teilnehmer erhalten Sie bevorzugten Zugang und können Ihren Starttermin flexibel abstimmen.",
   },
   {
-    icon: Eye,
     title: "Frühzeitige Informationen",
-    description: "Exklusive Einblicke und detaillierte Informationen zu den Programminhalten, bevor diese öffentlich zugänglich sind.",
+    description:
+      "Exklusive Einblicke und detaillierte Informationen zu den Programminhalten, bevor diese öffentlich zugänglich sind.",
   },
   {
-    icon: Gift,
     title: "Exklusiver Pionierbonus",
-    description: "Als Dankeschön für frühes Vertrauen erhalten Sie einen besonderen Pionierbonus, der nur für Wartelisten-Teilnehmer verfügbar ist.",
+    description:
+      "Als Dankeschön für frühes Vertrauen erhalten Sie einen besonderen Pionierbonus, der nur für Wartelisten-Teilnehmer verfügbar ist.",
   },
 ]
 
 export function Waitlist() {
   return (
-    <section className="bg-gradient-to-b from-primary/5 to-background py-20 md:py-28">
-      <div className="container mx-auto px-4">
-        <div className="mx-auto max-w-5xl">
-          <div className="grid gap-8 md:grid-cols-3">
-            {benefits.map((benefit) => (
-              <Card key={benefit.title} className="border-0 bg-card shadow-sm">
-                <CardHeader className="pb-2">
-                  <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10">
-                    <benefit.icon className="h-6 w-6 text-primary" />
-                  </div>
-                  <CardTitle className="text-lg text-foreground">{benefit.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-muted-foreground">{benefit.description}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+    <section className="bg-secondary/40 py-24 md:py-32">
+      <div className="mx-auto max-w-5xl px-5 md:px-8">
+        <div className="mx-auto max-w-2xl text-center">
+          <div className="eyebrow mx-auto justify-center">Jetzt vormerken</div>
+          <h2 className="serif-display mt-6 text-3xl leading-[1.1] text-foreground md:text-5xl">
+            Sichern Sie sich Ihren{" "}
+            <em className="italic text-accent">Vorsprung.</em>
+          </h2>
+          <p className="mt-6 text-base text-muted-foreground md:text-lg">
+            Die Warteliste ist kostenlos und unverbindlich. Es gilt: First come,
+            first served.
+          </p>
+        </div>
 
-          <div className="mt-12 text-center">
-            <Button size="lg" className="px-8 py-6 text-lg" asChild>
-              <a href="/kontakt#warteliste">Jetzt unverbindlich vormerken lassen</a>
-            </Button>
-          </div>
+        <ol className="mt-16 grid gap-px overflow-hidden rounded-lg border border-border bg-border md:grid-cols-3">
+          {benefits.map((b, i) => (
+            <li
+              key={b.title}
+              className="flex flex-col gap-4 bg-background p-8 md:p-10"
+            >
+              <span className="font-serif text-sm italic text-accent">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <h3 className="font-serif text-xl font-light tracking-tight text-foreground md:text-2xl">
+                {b.title}
+              </h3>
+              <p className="text-[14px] leading-relaxed text-muted-foreground">
+                {b.description}
+              </p>
+            </li>
+          ))}
+        </ol>
+
+        <div className="mt-14 flex flex-col items-center gap-4 text-center">
+          <Button
+            asChild
+            size="lg"
+            className="rounded-full px-8 text-sm tracking-wide"
+          >
+            <Link href="/kontakt#warteliste">
+              Jetzt unverbindlich vormerken lassen
+            </Link>
+          </Button>
+          <p className="text-xs uppercase tracking-[0.18em] text-muted-foreground">
+            Antwort in 1–2 Werktagen · 100 % unverbindlich
+          </p>
         </div>
       </div>
     </section>

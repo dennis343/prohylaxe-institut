@@ -15,8 +15,8 @@ const info = [
   {
     icon: Mail,
     title: "E-Mail",
-    value: "kontakt@prophylaxe-institut.de",
-    href: "mailto:kontakt@prophylaxe-institut.de",
+    value: "info@wissensreich.academy",
+    href: "mailto:info@wissensreich.academy",
   },
   {
     icon: Phone,

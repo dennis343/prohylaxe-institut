@@ -1,6 +1,3 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Check, X, ArrowRight } from "lucide-react"
-
 const beforeItems = [
   "Moderate Deckungsbeiträge",
   "Hohe Mitarbeiterfluktuation",
@@ -15,67 +12,69 @@ const afterItems = [
 
 export function Transformation() {
   return (
-    <section className="bg-secondary/50 py-20 md:py-28">
-      <div className="container mx-auto px-4">
-        <div className="mx-auto max-w-3xl text-center">
-          <h2 className="text-balance text-3xl font-bold tracking-tight text-foreground md:text-4xl">
-            Die Transformation
+    <section className="bg-secondary/40 py-24 md:py-32">
+      <div className="mx-auto max-w-6xl px-5 md:px-8">
+        <div className="mx-auto max-w-2xl text-center">
+          <div className="eyebrow mx-auto justify-center">Die Transformation</div>
+          <h2 className="serif-display mt-6 text-3xl leading-[1.1] text-foreground md:text-5xl">
+            Vom <em className="italic text-muted-foreground">Irgendwie</em>
+            <br className="hidden sm:block" /> zur{" "}
+            <em className="italic text-accent">Praxis auf Autopilot</em>
           </h2>
         </div>
 
-        <div className="mx-auto mt-12 grid max-w-5xl gap-8 md:grid-cols-2">
-          {/* Before Card */}
-          <Card className="relative overflow-hidden border-0 bg-card shadow-sm">
-            <div className="absolute left-0 top-0 h-full w-1.5 bg-muted-foreground/30" />
-            <CardHeader>
-              <p className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">
-                Vorher
-              </p>
-              <CardTitle className="text-2xl text-foreground">Es geht irgendwie</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="mb-6 text-muted-foreground">
-                Chaos in den Abläufen, ungenutzte Potenziale in der Prophylaxe, überlastete Praxisinhaber und ein Team, das nicht voll ausgeschöpft wird.
-              </p>
-              <ul className="space-y-3">
-                {beforeItems.map((item) => (
-                  <li key={item} className="flex items-start gap-3">
-                    <X className="mt-0.5 h-5 w-5 shrink-0 text-muted-foreground" />
-                    <span className="text-muted-foreground">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </CardContent>
-          </Card>
+        <div className="mt-16 grid gap-10 md:mt-20 md:grid-cols-2 md:gap-16">
+          <article className="relative pl-6 md:pl-8">
+            <span className="absolute left-0 top-1 h-full w-px bg-border" />
+            <p className="text-[11px] font-medium uppercase tracking-[0.22em] text-muted-foreground">
+              Vorher
+            </p>
+            <h3 className="mt-4 font-serif text-3xl font-light tracking-tight text-foreground md:text-4xl">
+              Es geht irgendwie
+            </h3>
+            <p className="mt-5 text-[15px] leading-relaxed text-muted-foreground">
+              Chaos in den Abläufen, ungenutzte Potenziale in der Prophylaxe,
+              überlastete Praxisinhaber und ein Team, das nicht voll ausgeschöpft
+              wird.
+            </p>
+            <ul className="mt-8 space-y-3 text-[15px] text-muted-foreground">
+              {beforeItems.map((item) => (
+                <li key={item} className="flex items-start gap-3">
+                  <span
+                    aria-hidden
+                    className="mt-2 inline-block h-px w-3 shrink-0 bg-muted-foreground/60"
+                  />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </article>
 
-          {/* After Card */}
-          <Card className="relative overflow-hidden border-0 bg-gradient-to-br from-primary/10 to-primary/5 shadow-sm ring-2 ring-primary/20">
-            <div className="absolute left-0 top-0 h-full w-1.5 bg-primary" />
-            <CardHeader>
-              <p className="text-sm font-semibold uppercase tracking-wider text-primary">
-                Nachher
-              </p>
-              <CardTitle className="text-2xl text-foreground">Praxis auf Autopilot</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="mb-6 text-muted-foreground">
-                Strukturierte Prozesse, maximal genutzte Prophylaxe-Potenziale, entlastete Praxisinhaber und ein hochmotiviertes, eigenverantwortliches Team.
-              </p>
-              <ul className="space-y-3">
-                {afterItems.map((item) => (
-                  <li key={item} className="flex items-start gap-3">
-                    <Check className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
-                    <span className="text-foreground">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </CardContent>
-          </Card>
-        </div>
-
-        {/* Arrow indicator for mobile */}
-        <div className="mt-6 flex justify-center md:hidden">
-          <ArrowRight className="h-8 w-8 rotate-90 text-primary" />
+          <article className="relative pl-6 md:pl-8">
+            <span className="absolute left-0 top-1 h-full w-px bg-accent" />
+            <p className="text-[11px] font-medium uppercase tracking-[0.22em] text-accent">
+              Nachher
+            </p>
+            <h3 className="mt-4 font-serif text-3xl font-light tracking-tight text-foreground md:text-4xl">
+              Praxis auf Autopilot
+            </h3>
+            <p className="mt-5 text-[15px] leading-relaxed text-muted-foreground">
+              Strukturierte Prozesse, maximal genutzte Prophylaxe-Potenziale,
+              entlastete Praxisinhaber und ein hochmotiviertes,
+              eigenverantwortliches Team.
+            </p>
+            <ul className="mt-8 space-y-3 text-[15px] text-foreground">
+              {afterItems.map((item) => (
+                <li key={item} className="flex items-start gap-3">
+                  <span
+                    aria-hidden
+                    className="mt-2 inline-block h-px w-3 shrink-0 bg-accent"
+                  />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </article>
         </div>
       </div>
     </section>
