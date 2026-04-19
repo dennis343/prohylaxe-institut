@@ -1,60 +1,85 @@
-"use client"
-
 import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { Users, Calendar, Stethoscope, Sparkles } from "lucide-react"
+import Link from "next/link"
 
-const stats = [
-  { value: "150+", label: "Praxen begleitet", icon: Users },
-  { value: "3–18 Mon.", label: "Mentoring", icon: Calendar },
-  { value: "Zahnärzte", label: "Für", icon: Stethoscope },
-  { value: "möglich", label: "Förderung", icon: Sparkles },
+const proof = [
+  { value: "150+", label: "begleitete Praxen" },
+  { value: "3–18", label: "Monate Mentoring" },
+  { value: "ZFA · DH · Inhaber", label: "im Team entwickelt" },
+  { value: "Förderung", label: "häufig möglich" },
 ]
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-primary/5 via-background to-background">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent" />
-      <div className="container relative mx-auto px-4 py-20 md:py-32">
-        <div className="mx-auto max-w-4xl text-center">
-          <Badge variant="secondary" className="mb-6 px-4 py-2 text-sm font-medium">
-            Prophylaxe Institut by Minka
-          </Badge>
-          
-          <h1 className="text-balance text-4xl font-bold tracking-tight text-foreground md:text-5xl lg:text-6xl">
-            Nachhaltiger Praxiserfolg mit System
+    <section className="relative overflow-hidden bg-background">
+      {/* Subtle editorial grain */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 opacity-[0.035]"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle at 1px 1px, currentColor 1px, transparent 0)",
+          backgroundSize: "24px 24px",
+          color: "var(--foreground)",
+        }}
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -right-40 top-10 h-[520px] w-[520px] rounded-full bg-[radial-gradient(closest-side,var(--accent),transparent_70%)] opacity-15 blur-3xl md:-right-24"
+      />
+
+      <div className="relative mx-auto max-w-6xl px-5 pb-20 pt-16 md:px-8 md:pb-32 md:pt-28">
+        <div className="max-w-3xl">
+          <div className="eyebrow">Prophylaxe Institut by Minka</div>
+
+          <h1 className="serif-display mt-8 text-[42px] leading-[1.02] text-foreground sm:text-6xl md:text-[76px] lg:text-[88px]">
+            Nachhaltiger <br className="hidden sm:block" />
+            Praxis­erfolg{" "}
+            <em className="font-normal italic text-accent">mit System.</em>
           </h1>
-          
-          <p className="mt-4 text-lg font-medium text-primary md:text-xl">
-            Kontinuität statt einmaliger Impulse
-          </p>
-          
-          <p className="mx-auto mt-6 max-w-2xl text-pretty text-lg text-muted-foreground md:text-xl">
-            Entdecken Sie, wie Sie mit Deutschlands führendem Prophylaxe-System und persönlichem Mentoring von Minka wachsen – und echte Freiheit statt Chaos gewinnen.
+
+          <p className="mt-8 max-w-xl text-balance text-base leading-relaxed text-muted-foreground md:text-lg">
+            Kontinuität statt einmaliger Impulse: Wir etablieren Prophylaxe als
+            Ihren strategischen Umsatz- und Bindungsfaktor — persönlich begleitet
+            durch Minka, in über 150 Praxen erprobt.
           </p>
 
-          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <Button size="lg" className="w-full px-8 py-6 text-lg sm:w-auto" asChild>
-              <a href="/kontakt#warteliste">Auf die Warteliste</a>
+          <div className="mt-10 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:gap-6">
+            <Button
+              asChild
+              size="lg"
+              className="w-full rounded-full px-8 text-sm tracking-wide sm:w-auto"
+            >
+              <Link href="/kontakt#warteliste">Auf die Warteliste</Link>
             </Button>
-            <Button size="lg" variant="outline" className="w-full px-8 py-6 text-lg sm:w-auto" asChild>
-              <a href="/kontakt">Erstgespräch anfragen</a>
-            </Button>
+            <Link
+              href="/kontakt"
+              className="group inline-flex items-center gap-2 text-sm font-medium text-foreground"
+            >
+              <span className="border-b border-accent/50 pb-0.5 group-hover:border-accent">
+                Oder Erstgespräch anfragen
+              </span>
+              <span
+                aria-hidden
+                className="text-accent transition-transform group-hover:translate-x-1"
+              >
+                →
+              </span>
+            </Link>
           </div>
         </div>
 
-        <div className="mx-auto mt-16 grid max-w-4xl grid-cols-2 gap-4 md:grid-cols-4 md:gap-8">
-          {stats.map((stat) => (
-            <div
-              key={stat.label}
-              className="flex flex-col items-center rounded-2xl bg-card p-6 shadow-sm ring-1 ring-border"
-            >
-              <stat.icon className="mb-2 h-6 w-6 text-primary" />
-              <span className="text-2xl font-bold text-foreground md:text-3xl">{stat.value}</span>
-              <span className="mt-1 text-sm text-muted-foreground">{stat.label}</span>
+        <dl className="mt-20 grid grid-cols-2 gap-x-6 gap-y-8 border-t border-border pt-10 md:mt-28 md:grid-cols-4 md:gap-x-10">
+          {proof.map((item) => (
+            <div key={item.label} className="flex flex-col gap-1.5">
+              <dt className="font-serif text-3xl font-light tracking-tight text-foreground md:text-4xl">
+                {item.value}
+              </dt>
+              <dd className="text-xs uppercase tracking-[0.18em] text-muted-foreground">
+                {item.label}
+              </dd>
             </div>
           ))}
-        </div>
+        </dl>
       </div>
     </section>
   )

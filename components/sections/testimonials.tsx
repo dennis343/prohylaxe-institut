@@ -1,70 +1,60 @@
-import { Card, CardContent } from "@/components/ui/card"
-import { Quote, Star } from "lucide-react"
-
 const testimonials = [
   {
     quote:
-      "Das Prophylaxe-System hat unsere Praxis grundlegend verändert. Mein Team arbeitet eigenständig, die Patienten sind begeistert – und die Auswertungen sprechen für sich.",
+      "Das Prophylaxe-System hat unsere Praxis grundlegend verändert. Mein Team arbeitet eigenständig, die Patienten sind begeistert — und die Auswertungen sprechen für sich.",
     name: "Dr. Anna Schmidt",
-    role: "Zahnärztin aus München",
-    initials: "AS",
+    role: "Zahnärztin, München",
   },
   {
     quote:
-      "Endlich ein Mentoring, das nicht bei der Theorie stehen bleibt. Minka kommt regelmäßig in die Umsetzung – und genau das macht den Unterschied.",
+      "Endlich ein Mentoring, das nicht bei der Theorie stehen bleibt. Minka kommt regelmäßig in die Umsetzung — und genau das macht den Unterschied.",
     name: "Dr. Markus Becker",
     role: "Praxisinhaber, Stuttgart",
-    initials: "MB",
   },
   {
     quote:
-      "Wir haben in 12 Monaten unsere Prophylaxe-Umsätze verdoppelt – ohne dass ich selbst mehr Behandlungszeit aufbringen musste. Das war der eigentliche Wendepunkt.",
+      "Wir haben in 12 Monaten unsere Prophylaxe-Umsätze verdoppelt — ohne dass ich selbst mehr Behandlungszeit aufbringen musste. Das war der eigentliche Wendepunkt.",
     name: "Dr. Lena Wagner",
     role: "Praxisinhaberin, Hamburg",
-    initials: "LW",
   },
 ]
 
 export function Testimonials() {
   return (
-    <section className="bg-background py-20 md:py-28">
-      <div className="container mx-auto px-4">
-        <div className="mx-auto max-w-3xl text-center">
-          <p className="text-sm font-semibold uppercase tracking-wider text-primary">
-            Stimmen aus der Praxis
-          </p>
-          <h2 className="mt-3 text-balance text-3xl font-bold tracking-tight text-foreground md:text-4xl">
-            Was unsere Mentees berichten
+    <section className="bg-secondary/40 py-24 md:py-32">
+      <div className="mx-auto max-w-6xl px-5 md:px-8">
+        <div className="max-w-2xl">
+          <div className="eyebrow">Stimmen aus der Praxis</div>
+          <h2 className="serif-display mt-6 text-3xl leading-[1.1] text-foreground md:text-5xl">
+            Was unsere{" "}
+            <em className="italic text-accent">Mentees berichten.</em>
           </h2>
-          <p className="mt-4 text-lg text-muted-foreground">
-            Echte Erfahrungen von Praxen, die mit uns ihren Weg zu nachhaltigem Erfolg gegangen sind.
-          </p>
         </div>
 
-        <div className="mx-auto mt-12 grid max-w-6xl gap-6 md:grid-cols-3">
+        <div className="mt-16 grid gap-px overflow-hidden rounded-lg border border-border bg-border md:mt-20 md:grid-cols-3">
           {testimonials.map((t) => (
-            <Card key={t.name} className="border-0 bg-card shadow-sm transition-shadow hover:shadow-md">
-              <CardContent className="flex h-full flex-col p-8">
-                <Quote className="h-8 w-8 text-primary/30" />
-                <div className="mt-3 flex gap-0.5 text-primary">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <Star key={i} className="h-4 w-4 fill-current" />
-                  ))}
-                </div>
-                <blockquote className="mt-4 flex-1 text-pretty text-foreground">
-                  &ldquo;{t.quote}&rdquo;
-                </blockquote>
-                <div className="mt-6 flex items-center gap-3 border-t border-border pt-4">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-sm font-semibold text-primary">
-                    {t.initials}
-                  </div>
-                  <div>
-                    <p className="text-sm font-semibold text-foreground">{t.name}</p>
-                    <p className="text-xs text-muted-foreground">{t.role}</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+            <figure
+              key={t.name}
+              className="flex flex-col bg-background p-8 md:p-10"
+            >
+              <span
+                aria-hidden
+                className="font-serif text-5xl italic leading-none text-accent/60"
+              >
+                &ldquo;
+              </span>
+              <blockquote className="mt-4 flex-1 font-serif text-lg font-light italic leading-snug text-foreground md:text-xl">
+                {t.quote}
+              </blockquote>
+              <figcaption className="mt-8 border-t border-border pt-5">
+                <p className="text-[15px] font-medium text-foreground">
+                  {t.name}
+                </p>
+                <p className="mt-1 text-xs uppercase tracking-[0.18em] text-muted-foreground">
+                  {t.role}
+                </p>
+              </figcaption>
+            </figure>
           ))}
         </div>
       </div>

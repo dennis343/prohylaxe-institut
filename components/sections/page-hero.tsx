@@ -1,6 +1,5 @@
 import type { ReactNode } from "react"
 import Link from "next/link"
-import { ChevronRight } from "lucide-react"
 
 type Crumb = { href: string; label: string }
 
@@ -18,24 +17,32 @@ export function PageHero({
   actions?: ReactNode
 }) {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-primary/5 via-background to-background">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent" />
-      <div className="container relative mx-auto px-4 pb-16 pt-12 md:pb-24 md:pt-20">
+    <section className="relative overflow-hidden bg-background">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -top-32 right-[-20%] h-[440px] w-[440px] rounded-full bg-[radial-gradient(closest-side,var(--accent),transparent_70%)] opacity-[0.08] blur-3xl"
+      />
+      <div className="relative mx-auto max-w-5xl px-5 pb-20 pt-16 md:px-8 md:pb-28 md:pt-24">
         {breadcrumbs && breadcrumbs.length > 0 && (
           <nav
             aria-label="Breadcrumb"
-            className="mb-6 flex flex-wrap items-center gap-1 text-sm text-muted-foreground"
+            className="mb-10 flex flex-wrap items-center gap-2 text-[11px] uppercase tracking-[0.22em] text-muted-foreground"
           >
-            <Link href="/" className="hover:text-foreground">
+            <Link href="/" className="transition-colors hover:text-accent">
               Start
             </Link>
             {breadcrumbs.map((crumb, i) => (
-              <span key={crumb.href} className="flex items-center gap-1">
-                <ChevronRight className="h-4 w-4" />
+              <span key={crumb.href} className="flex items-center gap-2">
+                <span aria-hidden className="text-accent/60">
+                  /
+                </span>
                 {i === breadcrumbs.length - 1 ? (
                   <span className="text-foreground">{crumb.label}</span>
                 ) : (
-                  <Link href={crumb.href} className="hover:text-foreground">
+                  <Link
+                    href={crumb.href}
+                    className="transition-colors hover:text-accent"
+                  >
                     {crumb.label}
                   </Link>
                 )}
@@ -44,22 +51,18 @@ export function PageHero({
           </nav>
         )}
 
-        <div className="mx-auto max-w-3xl text-center">
-          {eyebrow && (
-            <p className="text-sm font-semibold uppercase tracking-wider text-primary">
-              {eyebrow}
-            </p>
-          )}
-          <h1 className="mt-3 text-balance text-4xl font-bold tracking-tight text-foreground md:text-5xl">
+        <div className="max-w-3xl">
+          {eyebrow && <div className="eyebrow">{eyebrow}</div>}
+          <h1 className="serif-display mt-6 text-balance text-4xl leading-[1.05] text-foreground md:text-6xl">
             {title}
           </h1>
           {description && (
-            <p className="mx-auto mt-6 max-w-2xl text-pretty text-lg text-muted-foreground">
+            <p className="mt-8 max-w-2xl text-pretty text-base leading-relaxed text-muted-foreground md:text-lg">
               {description}
             </p>
           )}
           {actions && (
-            <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <div className="mt-10 flex flex-col items-start gap-5 sm:flex-row sm:items-center sm:gap-6">
               {actions}
             </div>
           )}

@@ -22,9 +22,9 @@ export function LegalLayout({
         description={description}
         breadcrumbs={breadcrumbs}
       />
-      <section className="bg-background py-16 md:py-20">
-        <div className="container mx-auto px-4">
-          <article className="prose prose-slate mx-auto max-w-3xl text-foreground [&_a]:text-primary [&_a]:underline-offset-2 hover:[&_a]:underline [&_h2]:mt-10 [&_h2]:text-2xl [&_h2]:font-bold [&_h2]:tracking-tight [&_h2]:text-foreground [&_h3]:mt-8 [&_h3]:text-xl [&_h3]:font-semibold [&_h3]:text-foreground [&_p]:mt-4 [&_p]:text-muted-foreground [&_ul]:mt-4 [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:text-muted-foreground [&_li]:mt-1 [&_strong]:text-foreground">
+      <section className="bg-background pb-24 md:pb-32">
+        <div className="mx-auto max-w-3xl px-5 md:px-8">
+          <article className="border-t border-border pt-12 text-[15px] leading-relaxed text-muted-foreground [&_a]:text-accent [&_a]:underline-offset-4 hover:[&_a]:underline [&_h2]:mt-14 [&_h2]:font-serif [&_h2]:text-2xl [&_h2]:font-light [&_h2]:tracking-tight [&_h2]:text-foreground md:[&_h2]:text-3xl [&_h3]:mt-10 [&_h3]:font-serif [&_h3]:text-xl [&_h3]:font-light [&_h3]:tracking-tight [&_h3]:text-foreground [&_p]:mt-5 [&_ul]:mt-5 [&_ul]:list-none [&_ul]:space-y-2 [&_ul]:pl-0 [&_li]:relative [&_li]:pl-6 [&_li]:before:absolute [&_li]:before:left-0 [&_li]:before:top-[0.7em] [&_li]:before:h-px [&_li]:before:w-3 [&_li]:before:bg-accent [&_strong]:font-medium [&_strong]:text-foreground">
             {children}
           </article>
         </div>

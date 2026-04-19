@@ -1,12 +1,22 @@
 import type { Metadata } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
+import { Geist, Fraunces } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { Navbar } from '@/components/sections/navbar'
 import { Footer } from '@/components/sections/footer'
 import './globals.css'
 
-const _geist = Geist({ subsets: ["latin"] });
-const _geistMono = Geist_Mono({ subsets: ["latin"] });
+const geist = Geist({
+  subsets: ['latin'],
+  variable: '--font-sans',
+  display: 'swap',
+})
+
+const fraunces = Fraunces({
+  subsets: ['latin'],
+  variable: '--font-serif',
+  display: 'swap',
+  axes: ['opsz', 'SOFT'],
+})
 
 const siteUrl = 'https://prophylaxe-institut.de'
 
@@ -68,7 +78,10 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="de" className="bg-background">
+    <html
+      lang="de"
+      className={`${geist.variable} ${fraunces.variable} bg-background`}
+    >
       <body className="flex min-h-screen flex-col font-sans antialiased">
         <Navbar />
         <div className="flex-1">{children}</div>
