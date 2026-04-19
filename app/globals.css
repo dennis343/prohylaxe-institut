@@ -263,4 +263,90 @@
     transform: translateY(-2px);
     box-shadow: 0 14px 40px -20px color-mix(in oklch, var(--foreground) 30%, transparent);
   }
+
+  /* Journal / longform prose */
+  .prose-journal {
+    font-size: 17px;
+    line-height: 1.75;
+    color: color-mix(in oklch, var(--foreground) 90%, transparent);
+  }
+  .prose-journal > * + * {
+    margin-top: 1.4em;
+  }
+  .prose-journal h2 {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    color: var(--foreground);
+    margin-top: 2.2em;
+    margin-bottom: 0.4em;
+  }
+  .prose-journal h3 {
+    font-family: var(--font-serif);
+    font-weight: 500;
+    font-size: 1.25rem;
+    line-height: 1.25;
+    color: var(--foreground);
+    margin-top: 1.8em;
+    margin-bottom: 0.3em;
+  }
+  .prose-journal p {
+    max-width: 64ch;
+  }
+  .prose-journal strong {
+    color: var(--foreground);
+    font-weight: 600;
+  }
+  .prose-journal em {
+    color: color-mix(in oklch, var(--foreground) 85%, transparent);
+  }
+  .prose-journal ul,
+  .prose-journal ol {
+    padding-left: 1.4rem;
+    max-width: 64ch;
+  }
+  .prose-journal ul {
+    list-style: none;
+  }
+  .prose-journal ul > li {
+    position: relative;
+    padding-left: 0.2rem;
+  }
+  .prose-journal ul > li::before {
+    content: "";
+    position: absolute;
+    left: -1.1rem;
+    top: 0.75rem;
+    width: 0.6rem;
+    height: 1px;
+    background: var(--accent);
+  }
+  .prose-journal ol {
+    list-style: decimal;
+  }
+  .prose-journal ol > li::marker {
+    color: var(--accent);
+    font-weight: 600;
+  }
+  .prose-journal li + li {
+    margin-top: 0.6em;
+  }
+  .prose-journal a {
+    color: var(--foreground);
+    border-bottom: 1px solid color-mix(in oklch, var(--accent) 60%, transparent);
+  }
+  .prose-journal a:hover {
+    color: var(--accent);
+  }
+  .prose-journal blockquote {
+    border-left: 2px solid var(--accent);
+    padding: 0.1rem 0 0.1rem 1.25rem;
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 1.2rem;
+    line-height: 1.5;
+    color: var(--foreground);
+  }
 }

@@ -27,6 +27,7 @@ const navLinks: NavLink[] = [
     label: "Mentorin",
     sectionIds: ["mentorin", "stimmen"],
   },
+  { href: "/journal", label: "Journal" },
   { href: "/kontakt", label: "Kontakt" },
 ]
 
@@ -199,7 +200,7 @@ export function Navbar() {
             size="sm"
             className="rounded-full px-5 text-sm font-semibold tracking-wide"
           >
-            <Link href="/kontakt">Erstgespräch</Link>
+            <Link href="/gespraech">Termin buchen</Link>
           </Button>
         </div>
 
@@ -256,7 +257,7 @@ export function Navbar() {
               className="w-full rounded-full"
               onClick={() => setOpen(false)}
             >
-              <Link href="/kontakt#warteliste">Erstgespräch anfragen</Link>
+              <Link href="/gespraech">Termin buchen</Link>
             </Button>
             <p className="mt-4 text-center text-xs text-muted-foreground">
               info@prophylaxe-institut.de

@@ -166,6 +166,91 @@ export default function MentorPage() {
         </div>
       </section>
 
+      <section className="bg-background py-20 md:py-28">
+        <div className="mx-auto max-w-6xl px-5 md:px-8">
+          <div className="grid gap-12 md:grid-cols-[5fr_7fr] md:gap-16">
+            <div>
+              <div className="eyebrow">Meine Reise</div>
+              <h2 className="serif-display mt-6 text-3xl leading-[1.1] text-foreground md:text-4xl">
+                Vom ZFA-Alltag zur{" "}
+                <em className="italic text-accent">Architektin der Prophylaxe.</em>
+              </h2>
+              <p className="mt-6 text-base leading-relaxed text-foreground/85 md:text-lg">
+                Ich habe selbst eine Prophylaxe-Abteilung aufgebaut — nicht
+                am Reißbrett, sondern am Stuhl. Was heute als „System"
+                steht, ist die Summe aus den Fehlern, die ich in eigener
+                Verantwortung gemacht habe, und den Hebeln, die wirklich
+                funktionieren.
+              </p>
+            </div>
+
+            <ol className="space-y-8 border-l border-border pl-6 md:pl-8">
+              <li className="relative">
+                <span aria-hidden className="absolute -left-[29px] top-2 h-2 w-2 rounded-full bg-accent md:-left-[33px]" />
+                <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-muted-foreground">
+                  Ausbildung & Fundament
+                </p>
+                <h3 className="mt-2 font-serif text-xl italic text-foreground">
+                  ZFA → ZMP → Praxismanagerin (IHK)
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  Drei Qualifizierungsstufen, parallel zum Praxisalltag. Die
+                  Grundlage, um später zwischen Behandlerteam und
+                  Abteilungsführung übersetzen zu können.
+                </p>
+              </li>
+              <li className="relative">
+                <span aria-hidden className="absolute -left-[29px] top-2 h-2 w-2 rounded-full bg-accent md:-left-[33px]" />
+                <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-muted-foreground">
+                  Eigene Prophylaxe-Abteilung
+                </p>
+                <h3 className="mt-2 font-serif text-xl italic text-foreground">
+                  Aufbau und Leitung einer hochprofitablen Abteilung
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  Umsatzentwicklung und Team-Aufbau über mehrere Jahre —
+                  konkrete Zahlen dazu veröffentlichen wir, sobald die
+                  Kolleg:innen aus der damaligen Zeit der Nennung
+                  zugestimmt haben.{" "}
+                  <span className="font-medium text-foreground">
+                    In Abstimmung — Belegzahlen folgen.
+                  </span>
+                </p>
+              </li>
+              <li className="relative">
+                <span aria-hidden className="absolute -left-[29px] top-2 h-2 w-2 rounded-full bg-accent md:-left-[33px]" />
+                <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-muted-foreground">
+                  Externe Begleitung
+                </p>
+                <h3 className="mt-2 font-serif text-xl italic text-foreground">
+                  Über 150 Praxen im DACH-Raum
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  Von der Einzelpraxis bis zur mittelständischen
+                  Gemeinschaftspraxis. Format: persönliches Mentoring,
+                  Team-Sessions vor Ort, strukturelles Sparring mit
+                  Inhaber:innen.
+                </p>
+              </li>
+              <li className="relative">
+                <span aria-hidden className="absolute -left-[29px] top-2 h-2 w-2 rounded-full bg-accent md:-left-[33px]" />
+                <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-muted-foreground">
+                  Fachliche Vertiefung
+                </p>
+                <h3 className="mt-2 font-serif text-xl italic text-foreground">
+                  iTOP-Teacher (Curaden), bioaktive Konzepte
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  Referentin und Trainerin für Mundhygieneinstruktion.
+                  Regelmäßige fachliche Weiterentwicklung — weil
+                  Prophylaxe sich medizinisch stetig weiterbewegt.
+                </p>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
       <section className="bg-secondary/40 py-20 md:py-28">
         <div className="mx-auto max-w-6xl px-5 md:px-8">
           <div className="max-w-2xl">

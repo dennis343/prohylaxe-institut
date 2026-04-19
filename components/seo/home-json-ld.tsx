@@ -97,53 +97,6 @@ const servicesCatalog = {
   ],
 }
 
-const faq = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: [
-    {
-      "@type": "Question",
-      name: "Was ist das Prophylaxe-Institut by Minka?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Das Prophylaxe-Institut ist eine Mentoring- und Beratungsmarke für Zahnarztpraxen im DACH-Raum. Gegründet von Minka Mujezinovic (ZFA, ZMP, Praxismanagerin IHK), unterstützt das Institut Zahnärztinnen und Zahnärzte dabei, Prophylaxe als strategischen Umsatz- und Bindungsfaktor zu etablieren.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Wie viel kostet eine Beratung?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Beide Einstiegs-Beratungen (Strategische Prophylaxe-Integration und Kommunikations- und Bindungsoptimierung) kosten jeweils 3.500 €. Praxen aus West-Bundesländern erhalten üblicherweise 50 % Förderung (Netto-Eigenanteil 1.750 €), Praxen aus Ost-Bundesländern bis zu 80 % (Netto-Eigenanteil 700 €).",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Für welche Praxen ist das Angebot gedacht?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Für Zahnärztinnen, Zahnärzte und Praxisinhaber, die Prophylaxe strategisch als Umsatz- und Bindungsfaktor etablieren möchten — unabhängig von der Praxisgröße.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Kann die Beratung gefördert werden?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Ja. Über öffentliche Beratungsförderprogramme sind 50 % (West) bzw. bis zu 80 % (Ost) Förderung möglich. Bis zu zwei geförderte Beratungen pro Jahr sind kombinierbar. Unser Fördermittel-Concierge-Team übernimmt die komplette organisatorische Abwicklung.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Wie läuft das Mentoring konkret ab?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Nach einem Kennenlerngespräch legen wir gemeinsam Ziele und einen Fahrplan fest. Das Mentoring findet in drei Stufen statt (Reinschnuppern 3 Monate, Umsetzer-Programm 6 Monate, Elite-Training 18 Monate) und verbindet regelmäßige Sessions mit konkreten Umsetzungsschritten zwischen den Terminen.",
-      },
-    },
-  ],
-}
-
 const website = {
   "@context": "https://schema.org",
   "@type": "WebSite",
@@ -155,7 +108,7 @@ const website = {
 }
 
 export function HomeJsonLd() {
-  const data = [organization, minka, servicesCatalog, faq, website]
+  const data = [organization, minka, servicesCatalog, website]
   return (
     <>
       {data.map((d, i) => (

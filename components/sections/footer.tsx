@@ -2,6 +2,7 @@
 
 import Link from "next/link"
 import { clearConsent } from "@/lib/consent"
+import { NewsletterSignup } from "@/components/newsletter-signup"
 
 const sitemap = {
   angebot: {
@@ -9,15 +10,24 @@ const sitemap = {
     links: [
       { href: "/programme", label: "Programme" },
       { href: "/mentor", label: "Mentorin Minka" },
-      { href: "/#ansatz", label: "Unser Ansatz" },
-      { href: "/#foerderung", label: "Förderung" },
+      { href: "/erfolgsgeschichten", label: "Erfolgsgeschichten" },
+      { href: "/prophylaxe-intensivtag", label: "Intensivtag" },
       { href: "/ladies", label: "April-Spezial ♥" },
     ],
   },
-  services: {
+  ressourcen: {
+    title: "Ressourcen",
+    links: [
+      { href: "/journal", label: "Journal" },
+      { href: "/ressourcen/prophylaxe-checkliste", label: "Checkliste (PDF)" },
+      { href: "/#foerderung", label: "Förderung" },
+      { href: "/gespraech", label: "15-Min-Kennenlernen" },
+    ],
+  },
+  kontakt: {
     title: "Kontakt",
     links: [
-      { href: "/kontakt", label: "Erstgespräch" },
+      { href: "/kontakt", label: "Erstgespräch anfragen" },
       { href: "/kontakt#warteliste", label: "Warteliste" },
       { href: "mailto:info@prophylaxe-institut.de", label: "E-Mail schreiben" },
     ],
@@ -61,6 +71,19 @@ export function Footer() {
               Nachhaltiger Praxiserfolg mit System.
             </p>
 
+            <div className="mt-8 max-w-md">
+              <p className="text-[13px] uppercase tracking-[0.18em] text-foreground">
+                Journal-Newsletter
+              </p>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                Redaktionelle Impulse für strategische Prophylaxe — kein Hype,
+                kein Spam.
+              </p>
+              <div className="mt-4">
+                <NewsletterSignup source="footer" variant="footer" />
+              </div>
+            </div>
+
             <div className="mt-10 border-t border-border pt-8 text-sm text-muted-foreground">
               <p className="text-[13px] uppercase tracking-[0.18em] text-foreground">
                 Kontakt
@@ -85,7 +108,7 @@ export function Footer() {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 sm:gap-10">
+          <div className="grid grid-cols-2 gap-8 sm:grid-cols-2 md:grid-cols-4 sm:gap-10">
             {(Object.keys(sitemap) as Array<keyof typeof sitemap>).map((key) => (
               <div key={key}>
                 <h3 className="text-[13px] uppercase tracking-[0.18em] text-foreground">

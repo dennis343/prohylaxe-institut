@@ -36,9 +36,36 @@ export function LadiesApplicationForm() {
       setStatus("success")
       return
     }
+
+    const payload = {
+      role,
+      candidate: String(data.get("candidate") ?? ""),
+      city: String(data.get("city") ?? ""),
+      profession: String(data.get("profession") ?? ""),
+      age: String(data.get("age") ?? ""),
+      description: String(data.get("description") ?? ""),
+      wishlist: String(data.get("wishlist") ?? ""),
+      contact: String(data.get("contact") ?? ""),
+      consent: "on" as const,
+      honey: String(data.get("honey") ?? ""),
+    }
+
     setStatus("submitting")
-    await new Promise((r) => setTimeout(r, 900))
-    setStatus("success")
+    try {
+      const res = await fetch("/api/ladies", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      })
+      if (!res.ok) {
+        const body = await res.json().catch(() => ({}))
+        throw new Error(body?.error ?? "Übermittlung fehlgeschlagen.")
+      }
+      setStatus("success")
+    } catch (err) {
+      setStatus("idle")
+      setError(err instanceof Error ? err.message : "Übermittlung fehlgeschlagen.")
+    }
   }
 
   if (status === "success") {
