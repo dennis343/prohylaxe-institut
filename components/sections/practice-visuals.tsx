@@ -21,12 +21,12 @@ const visuals = [
 
 export function PracticeVisuals() {
   return (
-    <section className="relative bg-secondary/40 py-20 md:py-28">
-      <div className="mx-auto max-w-6xl px-5 md:px-8">
+    <section className="relative bg-secondary/40 py-16 sm:py-20 md:py-28">
+      <div className="mx-auto max-w-6xl px-4 sm:px-5 md:px-8">
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div className="max-w-xl">
             <SectionLabel numeral="IV" label="Die Praxis im Blick" />
-            <h2 className="serif-display mt-6 text-3xl leading-[1.1] text-foreground md:text-5xl">
+            <h2 className="serif-display mt-6 text-[28px] leading-[1.1] text-foreground sm:text-3xl md:text-5xl">
               Prophylaxe{" "}
               <em className="italic text-accent">mit Seele.</em>
             </h2>
@@ -41,13 +41,13 @@ export function PracticeVisuals() {
           </p>
         </div>
 
-        <div className="mt-12 grid gap-5 md:grid-cols-3 md:gap-6">
+        <div className="mt-10 grid gap-5 sm:mt-12 md:grid-cols-3 md:gap-6">
           {visuals.map((v, i) => (
             <figure
               key={v.src}
               className="group relative overflow-hidden rounded-md bg-background"
             >
-              <div className="relative aspect-[4/5] overflow-hidden">
+              <div className="relative aspect-[3/4] overflow-hidden md:aspect-[4/5]">
                 <Image
                   src={v.src}
                   alt={v.alt}

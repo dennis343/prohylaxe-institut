@@ -17,9 +17,9 @@ const combines = [
 
 export function Mentor() {
   return (
-    <section className="bg-background py-24 md:py-32">
-      <div className="mx-auto max-w-6xl px-5 md:px-8">
-        <div className="grid items-start gap-12 md:grid-cols-[5fr_7fr] md:gap-16">
+    <section className="bg-background py-16 sm:py-20 md:py-32">
+      <div className="mx-auto max-w-6xl px-4 sm:px-5 md:px-8">
+        <div className="grid items-start gap-10 md:grid-cols-[5fr_7fr] md:gap-16">
           {/* Portrait collage */}
           <div className="mx-auto w-full max-w-sm md:max-w-none">
             <div className="relative">
@@ -44,7 +44,7 @@ export function Mentor() {
 
           <div>
             <SectionLabel numeral="V" label="Ihre Mentorin" />
-            <h2 className="serif-display mt-6 text-4xl leading-[1.05] text-foreground md:text-6xl">
+            <h2 className="serif-display mt-6 text-[32px] leading-[1.05] text-foreground sm:text-5xl md:text-6xl">
               Rusminka „Minka"{" "}
               <em className="italic text-accent">Mujezinovic.</em>
             </h2>
@@ -99,8 +99,8 @@ export function Mentor() {
         </div>
 
         {/* Bühnen-Bild als Wirkungs-Banner */}
-        <div className="mt-20 overflow-hidden rounded-lg md:mt-28">
-          <div className="relative aspect-[16/7] w-full bg-primary">
+        <div className="mt-16 overflow-hidden rounded-lg sm:mt-20 md:mt-28">
+          <div className="relative aspect-[4/5] w-full bg-primary sm:aspect-[16/9] md:aspect-[16/7]">
             <Image
               src="/minka/buehne.jpg"
               alt="Minka Mujezinovic auf der Bühne"
@@ -112,8 +112,8 @@ export function Mentor() {
               aria-hidden
               className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/30 to-transparent"
             />
-            <div className="absolute inset-0 flex items-end p-8 md:p-14">
-              <p className="serif-display max-w-2xl text-2xl leading-tight text-primary-foreground md:text-4xl">
+            <div className="absolute inset-0 flex items-end p-5 sm:p-8 md:p-14">
+              <p className="serif-display max-w-2xl text-xl leading-tight text-primary-foreground sm:text-2xl md:text-4xl">
                 Patienten spüren Struktur.{" "}
                 <em className="italic text-accent">
                   Und Struktur schafft Vertrauen.

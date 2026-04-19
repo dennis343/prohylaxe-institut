@@ -9,6 +9,7 @@ import { Programs } from "@/components/sections/programs"
 import { Waitlist } from "@/components/sections/waitlist"
 import { Funding } from "@/components/sections/funding"
 import { Testimonials } from "@/components/sections/testimonials"
+import { LadiesTeaser } from "@/components/sections/ladies-teaser"
 import { CTA } from "@/components/sections/cta"
 import { HomeJsonLd } from "@/components/seo/home-json-ld"
 
@@ -41,6 +42,7 @@ export default function Home() {
       <section id="stimmen">
         <Testimonials />
       </section>
+      <LadiesTeaser />
       <CTA />
     </main>
   )

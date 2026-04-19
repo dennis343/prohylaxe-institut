@@ -12,6 +12,7 @@ const proof = [
 export function Hero() {
   return (
     <section
+      id="hero"
       aria-labelledby="hero-title"
       className="relative overflow-hidden bg-background"
     >
@@ -24,7 +25,7 @@ export function Hero() {
         className="pointer-events-none absolute -right-40 top-10 h-[520px] w-[520px] rounded-full halo-accent opacity-25 blur-3xl md:-right-24"
       />
 
-      <div className="relative mx-auto grid max-w-6xl grid-cols-1 items-center gap-12 px-5 pb-20 pt-14 md:grid-cols-[7fr_5fr] md:gap-16 md:px-8 md:pb-28 md:pt-20">
+      <div className="relative mx-auto grid max-w-6xl grid-cols-1 items-center gap-10 px-4 pb-16 pt-12 sm:px-5 sm:pb-20 sm:pt-14 md:grid-cols-[7fr_5fr] md:gap-14 md:px-8 md:pb-28 md:pt-20 lg:gap-16">
         <div>
           <div className="flex items-center gap-4">
             <span className="font-serif text-[11px] tracking-[0.32em] text-accent">
@@ -38,13 +39,13 @@ export function Hero() {
 
           <h1
             id="hero-title"
-            className="serif-display mt-8 text-[42px] leading-[1.05] text-foreground sm:text-6xl md:text-[72px] lg:text-[80px]"
+            className="serif-display mt-6 text-[34px] leading-[1.05] text-foreground sm:mt-8 sm:text-5xl md:text-[64px] lg:text-[80px]"
           >
             Nachhaltiger Praxis­erfolg{" "}
             <em className="italic text-accent">mit System.</em>
           </h1>
 
-          <p className="lead mt-8 max-w-xl text-balance">
+          <p className="lead mt-6 max-w-xl text-pretty sm:mt-8 sm:text-balance">
             Wir entwickeln Prophylaxe vom Pflichttermin zur steuerbaren,
             messbaren und teamfähigen Renditesäule — persönlich begleitet
             durch Minka, in über 150 Praxen erprobt.
@@ -133,7 +134,7 @@ export function Hero() {
       </div>
 
       <div className="mx-auto max-w-6xl px-5 md:px-8">
-        <dl className="grid grid-cols-2 gap-x-6 gap-y-8 border-t border-border pb-16 pt-10 md:grid-cols-4 md:gap-x-10 md:pb-24">
+        <dl className="grid grid-cols-2 gap-x-5 gap-y-7 border-t border-border pb-12 pt-8 sm:gap-x-6 sm:gap-y-8 sm:pb-16 sm:pt-10 md:grid-cols-4 md:gap-x-10 md:pb-24">
           {proof.map((item) => (
             <div key={item.label} className="flex flex-col gap-1.5">
               <dt className="font-serif text-3xl font-normal tracking-tight text-foreground md:text-4xl">
