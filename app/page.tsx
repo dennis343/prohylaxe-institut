@@ -8,22 +8,32 @@ import { Programs } from "@/components/sections/programs"
 import { Waitlist } from "@/components/sections/waitlist"
 import { Funding } from "@/components/sections/funding"
 import { CTA } from "@/components/sections/cta"
-import { Footer } from "@/components/sections/footer"
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
+    <main>
       <Hero />
-      <Challenges />
-      <Approach />
+      <section id="herausforderungen">
+        <Challenges />
+      </section>
+      <section id="ansatz">
+        <Approach />
+      </section>
       <Transformation />
-      <Mentor />
+      <section id="mentorin">
+        <Mentor />
+      </section>
       <Process />
-      <Programs />
-      <Waitlist />
-      <Funding />
+      <section id="programme">
+        <Programs />
+      </section>
+      <section id="warteliste">
+        <Waitlist />
+      </section>
+      <section id="foerderung">
+        <Funding />
+      </section>
       <CTA />
-      <Footer />
     </main>
   )
 }

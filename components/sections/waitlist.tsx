@@ -43,7 +43,7 @@ export function Waitlist() {
 
           <div className="mt-12 text-center">
             <Button size="lg" className="px-8 py-6 text-lg" asChild>
-              <a href="#kontakt">Jetzt unverbindlich vormerken lassen</a>
+              <a href="/kontakt#warteliste">Jetzt unverbindlich vormerken lassen</a>
             </Button>
           </div>
         </div>
