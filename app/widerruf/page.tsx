@@ -25,13 +25,13 @@ export default function WiderrufPage() {
         Um Ihr Widerrufsrecht auszuüben, müssen Sie uns
       </p>
       <p>
-        <strong>Prophylaxe Institut by Minka</strong>
+        <strong>WissensReich Academy UG (haftungsbeschränkt)</strong>
         <br />
-        [Straße und Hausnummer]
+        Weinsbergstraße 190
         <br />
-        [PLZ Ort]
+        50825 Köln
         <br />
-        E-Mail: <a href="mailto:kontakt@prophylaxe-institut.de">kontakt@prophylaxe-institut.de</a>
+        E-Mail: <a href="mailto:info@wissensreich.academy">info@wissensreich.academy</a>
       </p>
       <p>
         mittels einer eindeutigen Erklärung (z. B. ein mit der Post versandter Brief oder E-Mail)
@@ -77,7 +77,7 @@ export default function WiderrufPage() {
         senden Sie es zurück.)
       </p>
       <ul>
-        <li>An: Prophylaxe Institut by Minka, [Adresse], E-Mail: kontakt@prophylaxe-institut.de</li>
+        <li>An: WissensReich Academy UG (haftungsbeschränkt), Weinsbergstraße 190, 50825 Köln, E-Mail: info@wissensreich.academy</li>
         <li>
           Hiermit widerrufe(n) ich/wir (*) den von mir/uns (*) abgeschlossenen Vertrag über die
           Erbringung der folgenden Dienstleistung (*)

@@ -20,9 +20,14 @@ export default function DatenschutzPage() {
       <p>
         Verantwortlich für die Datenverarbeitung auf dieser Website ist:
         <br />
-        <strong>Prophylaxe Institut by Minka</strong>, ein Angebot der WissensReich Academy,
-        [Straße, PLZ Ort], E-Mail:{" "}
-        <a href="mailto:kontakt@prophylaxe-institut.de">kontakt@prophylaxe-institut.de</a>
+        <strong>WissensReich Academy UG (haftungsbeschränkt)</strong>
+        <br />
+        Weinsbergstraße 190, 50825 Köln
+        <br />
+        E-Mail:{" "}
+        <a href="mailto:info@wissensreich.academy">info@wissensreich.academy</a>
+        <br />
+        Vertreten durch die Geschäftsführer Hermann Fürstenau &amp; Florian Domin.
       </p>
 
       <h2>2. Allgemeines zur Datenverarbeitung</h2>
@@ -96,7 +101,7 @@ export default function DatenschutzPage() {
       </ul>
       <p>
         Anfragen zu diesen Rechten richten Sie bitte an{" "}
-        <a href="mailto:kontakt@prophylaxe-institut.de">kontakt@prophylaxe-institut.de</a>.
+        <a href="mailto:info@wissensreich.academy">info@wissensreich.academy</a>.
       </p>
 
       <h2>10. Datensicherheit</h2>

@@ -25,10 +25,25 @@ export function Waitlist() {
     <section className="bg-gradient-to-b from-primary/5 to-background py-20 md:py-28">
       <div className="container mx-auto px-4">
         <div className="mx-auto max-w-5xl">
-          <div className="grid gap-8 md:grid-cols-3">
-            {benefits.map((benefit) => (
-              <Card key={benefit.title} className="border-0 bg-card shadow-sm">
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="text-sm font-semibold uppercase tracking-wider text-primary">
+              Jetzt vormerken
+            </p>
+            <h2 className="mt-3 text-balance text-3xl font-bold tracking-tight text-foreground md:text-4xl">
+              Sichern Sie sich Ihren Vorsprung: Die Warteliste
+            </h2>
+            <p className="mt-4 text-lg text-muted-foreground">
+              Die Warteliste ist kostenlos und unverbindlich. Es gilt: First come, first served.
+            </p>
+          </div>
+
+          <div className="mt-12 grid gap-8 md:grid-cols-3">
+            {benefits.map((benefit, index) => (
+              <Card key={benefit.title} className="relative border-0 bg-card shadow-sm">
                 <CardHeader className="pb-2">
+                  <span className="absolute right-4 top-4 text-5xl font-bold text-primary/10">
+                    {index + 1}
+                  </span>
                   <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10">
                     <benefit.icon className="h-6 w-6 text-primary" />
                   </div>

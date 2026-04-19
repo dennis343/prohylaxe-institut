@@ -7,6 +7,7 @@ import { Process } from "@/components/sections/process"
 import { Programs } from "@/components/sections/programs"
 import { Waitlist } from "@/components/sections/waitlist"
 import { Funding } from "@/components/sections/funding"
+import { Testimonials } from "@/components/sections/testimonials"
 import { CTA } from "@/components/sections/cta"
 
 export default function Home() {
@@ -32,6 +33,9 @@ export default function Home() {
       </section>
       <section id="foerderung">
         <Funding />
+      </section>
+      <section id="stimmen">
+        <Testimonials />
       </section>
       <CTA />
     </main>

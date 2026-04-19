@@ -1,5 +1,6 @@
+import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { Check, Quote } from "lucide-react"
+import { ArrowRight, Check, Quote } from "lucide-react"
 
 const fundingBenefits = [
   "Unterstützung bei der Beantragung von Zuschüssen",
@@ -52,6 +53,15 @@ export function Funding() {
               </div>
             </CardContent>
           </Card>
+
+          <div className="mt-10 text-center">
+            <Button size="lg" variant="outline" asChild>
+              <a href="/kontakt">
+                Mehr zum Fördermittel-Concierge
+                <ArrowRight className="ml-1 h-4 w-4" />
+              </a>
+            </Button>
+          </div>
         </div>
       </div>
     </section>
