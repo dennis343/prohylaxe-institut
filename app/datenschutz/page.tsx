@@ -4,7 +4,7 @@ import { LegalLayout } from "@/components/sections/legal-layout"
 export const metadata: Metadata = {
   title: "Datenschutzerklärung",
   description:
-    "Informationen zur Verarbeitung personenbezogener Daten nach DSGVO beim Prophylaxe Institut by Minka.",
+    "Informationen zur Verarbeitung personenbezogener Daten nach DSGVO beim Prophylaxe-Institut.",
   alternates: { canonical: "/datenschutz" },
   robots: { index: true, follow: true },
 }
@@ -20,74 +20,107 @@ export default function DatenschutzPage() {
       <p>
         Verantwortlich für die Datenverarbeitung auf dieser Website ist:
         <br />
-        <strong>WissensReich Academy UG (haftungsbeschränkt)</strong>
+        <strong>Prophylaxe-Institut UG (haftungsbeschränkt)</strong>
         <br />
-        Weinsbergstraße 190, 50825 Köln
+        Grenzstraße 144, 47441 Moers
         <br />
         E-Mail:{" "}
-        <a href="mailto:info@wissensreich.academy">info@wissensreich.academy</a>
+        <a href="mailto:info@prophylaxe-institut.de">
+          info@prophylaxe-institut.de
+        </a>
         <br />
-        Vertreten durch die Geschäftsführer Hermann Fürstenau &amp; Florian Domin.
+        Vertreten durch die Geschäftsführerin Rusminka „Minka" Mujezinovic.
       </p>
 
       <h2>2. Allgemeines zur Datenverarbeitung</h2>
       <p>
-        Wir verarbeiten personenbezogene Daten unserer Nutzerinnen und Nutzer grundsätzlich nur,
-        soweit dies zur Bereitstellung einer funktionsfähigen Website sowie unserer Inhalte und
-        Leistungen erforderlich ist. Die Verarbeitung erfolgt regelmäßig nur nach Einwilligung der
-        Nutzer oder auf einer anderen zulässigen Rechtsgrundlage nach Art. 6 DSGVO.
+        Wir verarbeiten personenbezogene Daten unserer Nutzerinnen und Nutzer
+        grundsätzlich nur, soweit dies zur Bereitstellung einer
+        funktionsfähigen Website sowie unserer Inhalte und Leistungen
+        erforderlich ist. Die Verarbeitung erfolgt regelmäßig nur nach
+        Einwilligung der Nutzer oder auf einer anderen zulässigen
+        Rechtsgrundlage nach Art. 6 DSGVO.
       </p>
 
       <h2>3. Hosting</h2>
       <p>
-        Diese Website wird bei einem externen Dienstleister gehostet (Vercel). Beim Besuch der Seite
-        werden technische Daten verarbeitet, die der Browser automatisch übermittelt (insb.
-        IP-Adresse, Datum und Uhrzeit, aufgerufene Ressource, Referrer, User-Agent). Die
-        Verarbeitung erfolgt auf Grundlage unseres berechtigten Interesses an einer stabilen und
-        sicheren Bereitstellung der Website (Art. 6 Abs. 1 lit. f DSGVO).
+        Diese Website wird bei einem externen Dienstleister gehostet (Vercel).
+        Beim Besuch der Seite werden technische Daten verarbeitet, die der
+        Browser automatisch übermittelt (insb. IP-Adresse, Datum und Uhrzeit,
+        aufgerufene Ressource, Referrer, User-Agent). Die Verarbeitung
+        erfolgt auf Grundlage unseres berechtigten Interesses an einer
+        stabilen und sicheren Bereitstellung der Website (Art. 6 Abs. 1
+        lit. f DSGVO).
       </p>
 
       <h2>4. Server-Log-Dateien</h2>
       <p>
-        Zur technischen Absicherung werden Log-Dateien erzeugt und in der Regel nach 14 Tagen
-        gelöscht, sofern keine sicherheitsrelevanten Vorfälle eine längere Speicherung erfordern.
+        Zur technischen Absicherung werden Log-Dateien erzeugt und in der
+        Regel nach 14 Tagen gelöscht, sofern keine sicherheitsrelevanten
+        Vorfälle eine längere Speicherung erfordern.
       </p>
 
-      <h2>5. Kontaktaufnahme &amp; Warteliste</h2>
+      <h2>5. Kontaktaufnahme</h2>
       <p>
-        Wenn Sie uns über das Kontaktformular oder per E-Mail kontaktieren, werden Ihre Angaben
-        (Name, E-Mail, ggf. Telefon, Praxisname, Rolle, Nachricht) zur Bearbeitung Ihrer Anfrage
-        verarbeitet. Rechtsgrundlage ist Ihre Einwilligung (Art. 6 Abs. 1 lit. a DSGVO) sowie zur
-        Durchführung vorvertraglicher Maßnahmen (Art. 6 Abs. 1 lit. b DSGVO). Die Daten werden
-        gelöscht, sobald sie für den Zweck der Erhebung nicht mehr erforderlich sind und keine
-        gesetzlichen Aufbewahrungspflichten bestehen.
+        Wenn Sie uns über das Kontaktformular oder per E-Mail kontaktieren,
+        werden Ihre Angaben (Name, E-Mail, ggf. Telefon, Praxisname, Rolle,
+        Nachricht) zur Bearbeitung Ihrer Anfrage verarbeitet. Rechtsgrundlage
+        ist Ihre Einwilligung (Art. 6 Abs. 1 lit. a DSGVO) sowie zur
+        Durchführung vorvertraglicher Maßnahmen (Art. 6 Abs. 1 lit. b DSGVO).
+        Die Daten werden gelöscht, sobald sie für den Zweck der Erhebung
+        nicht mehr erforderlich sind und keine gesetzlichen
+        Aufbewahrungspflichten bestehen.
       </p>
 
       <h2>6. Cookies &amp; Tracking</h2>
       <p>
-        Diese Website verwendet nur technisch notwendige Cookies, die für die Bereitstellung der
-        Website erforderlich sind. Analyse-Tools oder Marketing-Cookies werden nur mit Ihrer
-        vorherigen Einwilligung gesetzt. Ohne Ihre Einwilligung findet keine Analyse Ihres Verhaltens
-        statt, die Sie identifiziert.
+        Diese Website verwendet nur technisch notwendige Cookies, die für die
+        Bereitstellung der Website erforderlich sind. Analyse-Tools oder
+        Marketing-Cookies werden nur mit Ihrer vorherigen Einwilligung
+        gesetzt. Ohne Ihre Einwilligung findet keine Analyse Ihres
+        Verhaltens statt, die Sie identifiziert.
       </p>
 
       <h2>7. Webanalyse (Vercel Analytics)</h2>
       <p>
-        In der Produktionsumgebung setzen wir Vercel Web Analytics ein. Dabei werden Aufrufe und
-        Seitenwechsel anonymisiert erfasst (ohne Cookies, ohne IP-Speicherung). Rechtsgrundlage ist
-        Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einer statistischen Auswertung unserer
-        Reichweite). Sie können der Erhebung mittels gängiger Browser- oder Betriebssystem-
-        Einstellungen (z. B. „Do Not Track") widersprechen.
+        In der Produktionsumgebung setzen wir Vercel Web Analytics ein. Dabei
+        werden Aufrufe und Seitenwechsel anonymisiert erfasst (ohne Cookies,
+        ohne IP-Speicherung). Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO
+        (berechtigtes Interesse an einer statistischen Auswertung unserer
+        Reichweite). Sie können der Erhebung mittels gängiger Browser- oder
+        Betriebssystem-Einstellungen (z. B. „Do Not Track") widersprechen.
       </p>
 
-      <h2>8. Schriftarten (Google Fonts – self-hosted)</h2>
+      <h2>8. Eingebettete Videos (YouTube, erweiterter Datenschutzmodus)</h2>
       <p>
-        Diese Website bindet Schriftarten (&bdquo;Geist" und &bdquo;Geist Mono") über Next/Font ein.
-        Die Fonts werden zur Build-Zeit lokal eingebettet; es findet keine Verbindung zu Servern
-        Dritter statt.
+        Auf einzelnen Seiten betten wir Videos von YouTube im erweiterten
+        Datenschutzmodus (youtube-nocookie.com) ein. Erst beim Abspielen
+        baut Ihr Browser eine Verbindung zu Servern von Google LLC auf.
+        Dabei werden Daten wie Ihre IP-Adresse, der genutzte Browser, der
+        Videofortschritt und ggf. Cookies an Google übertragen. Auf Inhalt
+        und Umfang der erhobenen Daten haben wir keinen Einfluss.
+        Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes
+        Interesse an ansprechender Darstellung unseres Angebots). Weitere
+        Informationen finden Sie in der Datenschutzerklärung von Google
+        unter{" "}
+        <a
+          href="https://policies.google.com/privacy"
+          rel="noreferrer"
+          target="_blank"
+        >
+          policies.google.com/privacy
+        </a>
+        .
       </p>
 
-      <h2>9. Ihre Rechte</h2>
+      <h2>9. Schriftarten (self-hosted)</h2>
+      <p>
+        Diese Website bindet Schriftarten (Geist und Fraunces) über Next/Font
+        ein. Die Fonts werden zur Build-Zeit lokal eingebettet; es findet
+        keine Verbindung zu Servern Dritter statt.
+      </p>
+
+      <h2>10. Ihre Rechte</h2>
       <p>Ihnen stehen folgende Rechte zu:</p>
       <ul>
         <li>Auskunft (Art. 15 DSGVO)</li>
@@ -101,19 +134,24 @@ export default function DatenschutzPage() {
       </ul>
       <p>
         Anfragen zu diesen Rechten richten Sie bitte an{" "}
-        <a href="mailto:info@wissensreich.academy">info@wissensreich.academy</a>.
+        <a href="mailto:info@prophylaxe-institut.de">
+          info@prophylaxe-institut.de
+        </a>
+        .
       </p>
 
-      <h2>10. Datensicherheit</h2>
+      <h2>11. Datensicherheit</h2>
       <p>
-        Wir verwenden eine TLS-Verschlüsselung (HTTPS), um die Kommunikation zwischen Ihrem Browser
-        und unseren Servern gegen Mitlesen durch Dritte zu schützen.
+        Wir verwenden eine TLS-Verschlüsselung (HTTPS), um die Kommunikation
+        zwischen Ihrem Browser und unseren Servern gegen Mitlesen durch
+        Dritte zu schützen.
       </p>
 
-      <h2>11. Aktualität und Änderung dieser Datenschutzerklärung</h2>
+      <h2>12. Aktualität und Änderung dieser Datenschutzerklärung</h2>
       <p>
-        Diese Datenschutzerklärung ist aktuell gültig. Durch die Weiterentwicklung unserer Website
-        und Angebote oder aufgrund geänderter gesetzlicher bzw. behördlicher Vorgaben kann es
+        Diese Datenschutzerklärung ist aktuell gültig. Durch die
+        Weiterentwicklung unserer Website und Angebote oder aufgrund
+        geänderter gesetzlicher bzw. behördlicher Vorgaben kann es
         notwendig werden, diese Datenschutzerklärung zu ändern.
       </p>
     </LegalLayout>

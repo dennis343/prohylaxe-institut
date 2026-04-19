@@ -1,33 +1,33 @@
 const challenges = [
   {
-    title: "Wirtschaftliche Unsicherheit",
+    title: "Prophylaxe wird erbracht — aber nicht strategisch gelebt",
     description:
-      "Sie wissen nicht, wie Sie Ihre Praxis wirtschaftlich gesund weiterentwickeln können.",
+      "Die Leistung läuft, ist aber kein bewusst gesteuerter Umsatzbaustein.",
   },
   {
-    title: "Mangelnde Prophylaxe-Nutzung",
+    title: "Patienten kommen — aber nicht regelmäßig und freiwillig",
     description:
-      "Prophylaxe wird nicht strategisch als Umsatz- und Bindungsfaktor genutzt.",
+      "Termine werden eher erinnert als gewünscht. Bindung entsteht zufällig.",
   },
   {
-    title: "Komplizierte Abläufe",
+    title: "Waschanlagen-Prinzip statt hochwertige Prävention",
     description:
-      "Abläufe sind ineffizient und erzielen keine höheren Deckungsbeiträge.",
+      "Standardisierter Ablauf ohne wirkliche Beratung — Wertigkeit geht verloren.",
   },
   {
-    title: "Abhängigkeit von Behandlungszeit",
+    title: "Zusatzleistungen werden erklärt — aber nicht systematisch gebucht",
     description:
-      "Sie können nur wachsen, wenn Sie selbst mehr Behandlungszeit aufbringen.",
+      "Empfehlungen verpuffen, weil Gesprächsführung und Anschlusslogik fehlen.",
   },
   {
-    title: "Team-Herausforderungen",
+    title: "Engagiertes Team — ohne messbare Leistungskennzahlen",
     description:
-      "Es fehlt ein starkes, mitdenkendes Team, das Sie entlastet.",
+      "Niemand weiß genau, ob etwas wirkt. Steuern wird zum Bauchgefühl.",
   },
   {
-    title: "Fehlende Langzeitstrategie",
+    title: "Umsatz entsteht — aber selten planbar",
     description:
-      "Sie suchen nach einer langfristigen Begleitung, die über kurzfristige Lösungen hinausgeht.",
+      "Was möglich wäre, bleibt unsichtbar. Sie nutzen häufig nur einen Bruchteil.",
   },
 ]
 
@@ -36,15 +36,17 @@ export function Challenges() {
     <section className="bg-secondary/40 py-24 md:py-32">
       <div className="mx-auto max-w-6xl px-5 md:px-8">
         <div className="max-w-2xl">
-          <div className="eyebrow">Die Realität in vielen Praxen</div>
-          <h2 className="serif-display mt-6 text-3xl leading-[1.1] text-foreground md:text-5xl">
-            Kämpfen Sie mit diesen{" "}
-            <em className="italic text-accent">Herausforderungen?</em>
+          <div className="eyebrow">Typische Realität in vielen Praxen</div>
+          <h2 className="serif-display mt-6 text-4xl leading-[1.1] text-foreground md:text-5xl">
+            Fachlich hervorragend —{" "}
+            <em className="italic text-accent">
+              aber wirtschaftlich unter Wert.
+            </em>
           </h2>
-          <p className="mt-6 text-base leading-relaxed text-muted-foreground md:text-lg">
-            Viele Zahnärzte und Praxisinhaber fühlen sich allein gelassen.
-            Einzelmaßnahmen oder einmalige Coachings reichen nicht aus, um
-            nachhaltigen Erfolg zu sichern.
+          <p className="lead mt-6">
+            Die meisten Praxen arbeiten exzellent. Was häufig fehlt, ist eine
+            klare Kunden­kommunikation und wirtschaftliche Steuerung. Die
+            Folge: Umsatz entsteht — aber selten planbar.
           </p>
         </div>
 
@@ -52,23 +54,24 @@ export function Challenges() {
           {challenges.map((c, i) => (
             <li
               key={c.title}
-              className="grid grid-cols-[auto_1fr] items-start gap-x-6 py-8 md:grid-cols-[4rem_1fr_1.4fr] md:gap-x-10 md:py-10"
+              className="grid grid-cols-[auto_1fr] items-start gap-x-6 py-9 md:grid-cols-[4rem_1fr_1.4fr] md:gap-x-10 md:py-11"
             >
-              <span className="font-serif text-sm italic text-accent md:text-base">
+              <span className="font-serif text-base italic text-accent md:text-lg">
                 {String(i + 1).padStart(2, "0")}
               </span>
-              <h3 className="font-serif text-xl font-light tracking-tight text-foreground md:text-2xl">
+              <h3 className="font-serif text-xl font-normal tracking-tight text-foreground md:text-2xl">
                 {c.title}
               </h3>
-              <p className="col-span-2 mt-3 max-w-xl text-[15px] leading-relaxed text-muted-foreground md:col-span-1 md:mt-0">
+              <p className="col-span-2 mt-3 max-w-xl text-base leading-relaxed text-muted-foreground md:col-span-1 md:mt-0">
                 {c.description}
               </p>
             </li>
           ))}
         </ol>
 
-        <p className="mt-16 max-w-xl text-balance font-serif text-xl font-light italic tracking-tight text-foreground md:text-2xl">
-          Es ist Zeit für einen echten Wandel — mit System statt Zufall.
+        <p className="mt-16 max-w-2xl text-balance font-serif text-2xl font-normal italic tracking-tight text-foreground md:text-3xl">
+          Es ist Zeit für Struktur, Messbarkeit und Steuerbarkeit — nicht nur
+          kosmetisch, sondern organisatorisch und betriebswirtschaftlich.
         </p>
       </div>
     </section>

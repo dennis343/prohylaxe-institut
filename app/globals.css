@@ -16,8 +16,8 @@
   --secondary: oklch(0.955 0.012 80);
   --secondary-foreground: oklch(0.26 0.04 265);
   --muted: oklch(0.955 0.012 80);
-  --muted-foreground: oklch(0.48 0.02 265);
-  --accent: oklch(0.72 0.095 72);
+  --muted-foreground: oklch(0.36 0.025 265);
+  --accent: oklch(0.62 0.105 72);
   --accent-foreground: oklch(0.22 0.025 265);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.985 0.008 80);
@@ -113,6 +113,10 @@
 }
 
 @layer base {
+  html {
+    /* Slightly larger base for older readers; scales rem-based UI proportionally */
+    font-size: 17px;
+  }
   * {
     @apply border-border outline-ring/50;
   }
@@ -122,6 +126,7 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
+    line-height: 1.6;
   }
   ::selection {
     background: color-mix(in oklch, var(--accent) 40%, transparent);
@@ -136,7 +141,7 @@
     font-feature-settings: "ss01", "liga", "dlig";
   }
   .eyebrow {
-    @apply inline-flex items-center gap-3 text-[11px] font-medium uppercase tracking-[0.22em] text-accent;
+    @apply inline-flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.18em] text-accent;
   }
   .eyebrow::before {
     content: "";
@@ -146,7 +151,10 @@
     @apply h-px w-full bg-border;
   }
   .serif-display {
-    @apply font-serif font-light tracking-tight;
-    font-variation-settings: "opsz" 144, "SOFT" 50, "WONK" 0;
+    @apply font-serif font-normal tracking-tight;
+    font-variation-settings: "opsz" 144, "SOFT" 30, "WONK" 0;
+  }
+  .lead {
+    @apply text-lg leading-relaxed text-foreground/85 md:text-xl;
   }
 }

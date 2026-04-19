@@ -1,28 +1,48 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 
-const programs = [
+const consulting = [
   {
-    number: "01",
-    title: "Reinschnuppern",
+    variant: "Variante 1",
+    title: "Strategische Prophylaxe-Integration",
+    description:
+      "Konzeption für ein zusätzliches, kalkulierbares und steuerbares Profitcenter in Ihrer Praxis.",
+    points: [
+      "Analyse der aktuellen Umsatz- und Leistungsstruktur",
+      "Bewertung bestehender Prophylaxe- und Zusatzleistungen",
+      "Strukturiertes Profitcenter-Modell mit Steuerungs-KPIs",
+      "Preismodelle, Abo-Strategien & Wirtschaftlichkeitsrechnung",
+    ],
+  },
+  {
+    variant: "Variante 2",
+    title: "Kommunikations- und Bindungsoptimierung",
+    description:
+      "Mehr freiwillige Termin­wahrnehmung. Höhere Weiterempfehlung. Stärkere Teamwirkung.",
+    points: [
+      "Patientenweg vom Erstkontakt bis zum Wiedertermin",
+      "Patienten-Wirkungs-Kommunikation® & Gesprächsleitfäden",
+      "Rollenklärung im Team & Recruiting-Wirkung",
+      "Produktive Fehlerkultur und messbare Zufriedenheit",
+    ],
+  },
+]
+
+const mentoringStages = [
+  {
+    name: "Reinschnuppern",
     duration: "3 Monate",
-    description:
-      "Für erste Potenziale und strukturierten Start. Sie lernen das System kennen und identifizieren die größten Hebel in Ihrer Praxis.",
+    text: "Erste Potenziale sichtbar, strukturierter Start.",
   },
   {
-    number: "02",
-    title: "Umsetzer-Programm",
+    name: "Umsetzer-Programm",
     duration: "6 Monate",
-    description:
-      "Systematischer Aufbau von Prophylaxe, Team und Abläufen. Hier entsteht die Struktur, die Ihre Praxis nachhaltig verändert.",
+    text: "Systematischer Aufbau von Prophylaxe, Team & Abläufen.",
   },
   {
-    number: "03",
-    title: "Elite-Training",
+    name: "Elite-Training",
     duration: "18 Monate",
-    description:
-      "Langfristige Etablierung als echte Renditequelle auf Autopilot und strategische Teamentwicklung. Ihr Praxiserfolg wird selbsttragend.",
-    highlight: true,
+    text: "Selbsttragende Renditesäule auf Autopilot.",
   },
 ]
 
@@ -32,100 +52,165 @@ export function Programs() {
       <div className="mx-auto max-w-6xl px-5 md:px-8">
         <div className="max-w-2xl">
           <div className="eyebrow">Ihr Weg zum Erfolg</div>
-          <h2 className="serif-display mt-6 text-3xl leading-[1.1] text-foreground md:text-5xl">
-            Drei Mentoring-Stufen —{" "}
-            <em className="italic text-accent">passend für jede Praxisphase.</em>
+          <h2 className="serif-display mt-6 text-4xl leading-[1.1] text-foreground md:text-5xl">
+            Zwei Einstiegs-Beratungen —{" "}
+            <em className="italic text-accent">und ein Mentoring</em>{" "}
+            für die Tiefe.
           </h2>
-          <p className="mt-6 text-base text-muted-foreground md:text-lg">
-            Wir bieten ein Wachstumsmentoring für ausgewählte Dentalpraxen in
-            drei aufeinander aufbauenden Stufen an.
+          <p className="lead mt-6">
+            Sie starten mit einem konkreten, geförderten Beratungsbaustein.
+            Wer schneller, sicherer und mit weniger Umwegen umsetzen möchte,
+            geht direkt ins Mentoring-Programm.
           </p>
         </div>
 
-        <div className="mt-16 grid gap-6 md:mt-20 md:grid-cols-3 md:gap-5">
-          {programs.map((p) => (
-            <article
-              key={p.number}
-              className={
-                p.highlight
-                  ? "group relative flex flex-col overflow-hidden rounded-lg bg-primary p-8 text-primary-foreground md:p-10"
-                  : "group relative flex flex-col overflow-hidden rounded-lg border border-border bg-card p-8 md:p-10"
-              }
-            >
-              {p.highlight && (
-                <span className="absolute right-6 top-6 rounded-full border border-accent/60 px-3 py-1 text-[10px] uppercase tracking-[0.22em] text-accent">
-                  Empfohlen
+        {/* Einstiegsprodukte: zwei Beratungsbausteine */}
+        <div className="mt-16 md:mt-20">
+          <div className="flex items-center gap-4">
+            <span className="font-serif text-lg italic text-accent">
+              Einstieg
+            </span>
+            <span className="h-px flex-1 bg-border" />
+            <span className="text-xs uppercase tracking-[0.18em] text-muted-foreground">
+              Förderfähig 50–80 %
+            </span>
+          </div>
+
+          <div className="mt-8 grid gap-px overflow-hidden rounded-lg border border-border bg-border md:grid-cols-2">
+            {consulting.map((c) => (
+              <article
+                key={c.variant}
+                className="flex flex-col bg-card p-8 md:p-10"
+              >
+                <span className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">
+                  {c.variant}
                 </span>
-              )}
+                <h3 className="mt-4 font-serif text-2xl font-normal tracking-tight text-foreground md:text-3xl">
+                  {c.title}
+                </h3>
+                <p className="mt-4 text-base leading-relaxed text-muted-foreground">
+                  {c.description}
+                </p>
 
-              <span
-                className={
-                  p.highlight
-                    ? "font-serif text-sm italic text-accent"
-                    : "font-serif text-sm italic text-accent"
-                }
-              >
-                {p.number}
-              </span>
+                <ul className="mt-8 space-y-4 border-t border-border pt-6">
+                  {c.points.map((p) => (
+                    <li
+                      key={p}
+                      className="flex items-start gap-3 text-[15px] leading-relaxed text-foreground"
+                    >
+                      <span
+                        aria-hidden
+                        className="mt-2.5 inline-block h-px w-4 shrink-0 bg-accent"
+                      />
+                      <span>{p}</span>
+                    </li>
+                  ))}
+                </ul>
 
-              <h3
-                className={
-                  p.highlight
-                    ? "mt-8 font-serif text-3xl font-light tracking-tight md:text-4xl"
-                    : "mt-8 font-serif text-3xl font-light tracking-tight text-foreground md:text-4xl"
-                }
-              >
-                {p.title}
-              </h3>
+                <div className="mt-10 flex items-end justify-between gap-4 border-t border-border pt-6">
+                  <div>
+                    <p className="font-serif text-2xl text-foreground md:text-3xl">
+                      3.500&nbsp;€
+                    </p>
+                    <p className="mt-1 text-xs uppercase tracking-[0.18em] text-muted-foreground">
+                      pro Beratung · Förderung möglich
+                    </p>
+                  </div>
+                  <Link
+                    href="/kontakt"
+                    className="inline-flex items-center gap-2 text-sm font-medium text-foreground"
+                  >
+                    <span className="border-b border-accent/60 pb-0.5">
+                      Anfragen
+                    </span>
+                    <span aria-hidden className="text-accent">
+                      →
+                    </span>
+                  </Link>
+                </div>
+              </article>
+            ))}
+          </div>
 
-              <p
-                className={
-                  p.highlight
-                    ? "mt-2 text-[13px] uppercase tracking-[0.18em] text-primary-foreground/70"
-                    : "mt-2 text-[13px] uppercase tracking-[0.18em] text-muted-foreground"
-                }
-              >
-                {p.duration}
-              </p>
-
-              <p
-                className={
-                  p.highlight
-                    ? "mt-8 flex-1 text-[15px] leading-relaxed text-primary-foreground/80"
-                    : "mt-8 flex-1 text-[15px] leading-relaxed text-muted-foreground"
-                }
-              >
-                {p.description}
-              </p>
-
-              <Link
-                href="/programme"
-                className={
-                  p.highlight
-                    ? "mt-10 inline-flex items-center gap-2 text-sm font-medium text-accent"
-                    : "mt-10 inline-flex items-center gap-2 text-sm font-medium text-foreground"
-                }
-              >
-                <span className="border-b border-accent/50 pb-0.5">
-                  Stufe ansehen
-                </span>
-                <span aria-hidden className="text-accent">→</span>
-              </Link>
-            </article>
-          ))}
+          <p className="mt-6 max-w-2xl text-sm leading-relaxed text-muted-foreground">
+            Beide Bausteine sind unabhängig nutzbar — und im selben Förderjahr
+            kombinierbar (bis zu zwei geförderte Beratungen pro Jahr).
+          </p>
         </div>
 
-        <div className="mt-14 flex flex-col items-start gap-6 border-t border-border pt-10 md:flex-row md:items-center md:justify-between">
-          <p className="max-w-xl font-serif text-lg italic text-muted-foreground md:text-xl">
-            Individuelles Angebot — Konditionsgestaltung gemäß Ihren Zielen.
+        {/* Elite: Mentoring-Programm */}
+        <div className="mt-20 md:mt-28">
+          <div className="flex items-center gap-4">
+            <span className="font-serif text-lg italic text-accent">
+              Elite
+            </span>
+            <span className="h-px flex-1 bg-border" />
+            <span className="text-xs uppercase tracking-[0.18em] text-muted-foreground">
+              Mentoring-Programm
+            </span>
+          </div>
+
+          <article className="relative mt-8 overflow-hidden rounded-lg bg-primary p-8 text-primary-foreground md:p-14">
+            <span
+              aria-hidden
+              className="pointer-events-none absolute -right-32 -top-20 h-[440px] w-[440px] rounded-full bg-[radial-gradient(closest-side,var(--accent),transparent_70%)] opacity-15 blur-3xl"
+            />
+            <div className="relative grid gap-12 md:grid-cols-[6fr_5fr] md:gap-16">
+              <div>
+                <span className="inline-flex items-center gap-2 rounded-full border border-accent/60 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-accent">
+                  Empfohlen für ambitionierte Praxen
+                </span>
+                <h3 className="serif-display mt-6 text-3xl leading-[1.1] md:text-5xl">
+                  Praxis-Mentoring —{" "}
+                  <em className="italic text-accent">in der Tiefe begleitet.</em>
+                </h3>
+                <p className="mt-6 text-base leading-relaxed text-primary-foreground/85 md:text-lg">
+                  Direktes Sparring, engere Begleitung und konsequente
+                  Umsetzung — drei Stufen, die aufeinander aufbauen.
+                </p>
+
+                <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+                  <Button
+                    asChild
+                    size="lg"
+                    className="rounded-full bg-accent px-8 text-sm font-semibold tracking-wide text-accent-foreground hover:bg-accent/90"
+                  >
+                    <Link href="/programme">Mentoring-Stufen ansehen</Link>
+                  </Button>
+                  <Button
+                    asChild
+                    variant="outline"
+                    size="lg"
+                    className="rounded-full border-primary-foreground/30 bg-transparent px-8 text-sm font-medium tracking-wide text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground"
+                  >
+                    <Link href="/kontakt">Erstgespräch anfragen</Link>
+                  </Button>
+                </div>
+              </div>
+
+              <ul className="space-y-6 md:border-l md:border-primary-foreground/20 md:pl-12">
+                {mentoringStages.map((s) => (
+                  <li key={s.name}>
+                    <div className="flex items-baseline justify-between gap-4">
+                      <span className="font-serif text-xl text-primary-foreground md:text-2xl">
+                        {s.name}
+                      </span>
+                      <span className="shrink-0 text-xs uppercase tracking-[0.18em] text-accent">
+                        {s.duration}
+                      </span>
+                    </div>
+                    <p className="mt-2 text-[15px] leading-relaxed text-primary-foreground/80">
+                      {s.text}
+                    </p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </article>
+
+          <p className="mt-8 max-w-2xl font-serif text-lg italic leading-snug text-foreground md:text-xl">
+            „Nicht notwendig. Meist sinnvoll. Immer lohnenswert."
           </p>
-          <Button
-            asChild
-            variant="outline"
-            className="rounded-full border-foreground/15 px-6 text-sm tracking-wide hover:bg-primary hover:text-primary-foreground"
-          >
-            <Link href="/programme">Alle Programme vergleichen →</Link>
-          </Button>
         </div>
       </div>
     </section>
