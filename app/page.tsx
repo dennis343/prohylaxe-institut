@@ -2,6 +2,7 @@ import { Hero } from "@/components/sections/hero"
 import { Challenges } from "@/components/sections/challenges"
 import { Approach } from "@/components/sections/approach"
 import { Transformation } from "@/components/sections/transformation"
+import { PracticeVisuals } from "@/components/sections/practice-visuals"
 import { Mentor } from "@/components/sections/mentor"
 import { Process } from "@/components/sections/process"
 import { Programs } from "@/components/sections/programs"
@@ -9,10 +10,12 @@ import { Waitlist } from "@/components/sections/waitlist"
 import { Funding } from "@/components/sections/funding"
 import { Testimonials } from "@/components/sections/testimonials"
 import { CTA } from "@/components/sections/cta"
+import { HomeJsonLd } from "@/components/seo/home-json-ld"
 
 export default function Home() {
   return (
     <main>
+      <HomeJsonLd />
       <Hero />
       <section id="herausforderungen">
         <Challenges />
@@ -21,6 +24,7 @@ export default function Home() {
         <Approach />
       </section>
       <Transformation />
+      <PracticeVisuals />
       <section id="mentorin">
         <Mentor />
       </section>

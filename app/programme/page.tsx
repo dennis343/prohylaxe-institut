@@ -115,9 +115,67 @@ const faqs = [
   },
 ]
 
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+}
+
+const serviceJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  serviceType: "Praxisberatung & Mentoring für Zahnarztpraxen",
+  provider: {
+    "@type": "ProfessionalService",
+    "@id": "https://prophylaxe-institut.de#organization",
+    name: "Prophylaxe-Institut by Minka",
+  },
+  areaServed: [
+    { "@type": "Country", name: "Deutschland" },
+    { "@type": "Country", name: "Österreich" },
+    { "@type": "Country", name: "Schweiz" },
+  ],
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Beratung & Mentoring",
+    itemListElement: [
+      {
+        "@type": "Offer",
+        name: "Strategische Prophylaxe-Integration",
+        price: "3500",
+        priceCurrency: "EUR",
+      },
+      {
+        "@type": "Offer",
+        name: "Kommunikations- und Bindungsoptimierung",
+        price: "3500",
+        priceCurrency: "EUR",
+      },
+      {
+        "@type": "Offer",
+        name: "Praxis-Mentoring — drei Stufen",
+      },
+    ],
+  },
+}
+
 export default function ProgrammePage() {
   return (
     <main>
+      <script
+        type="application/ld+json"
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
+      />
       <PageHero
         eyebrow="Beratung & Mentoring"
         title="Zwei Einstiegs-Beratungen — und ein Mentoring für die Tiefe."

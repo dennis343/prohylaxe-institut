@@ -157,4 +157,110 @@
   .lead {
     @apply text-lg leading-relaxed text-foreground/85 md:text-xl;
   }
+
+  /* Section numeral (I, II, III …) rendered as a subtle orienting anchor */
+  .section-numeral {
+    @apply font-serif text-[11px] font-medium uppercase tracking-[0.3em] text-accent;
+    font-variant-numeric: oldstyle-nums;
+  }
+
+  /* Thin hairline divider with optional centered ornament */
+  .hairline {
+    @apply block h-px w-full bg-border;
+  }
+  .ornament {
+    @apply relative my-16 flex items-center justify-center;
+  }
+  .ornament::before,
+  .ornament::after {
+    content: "";
+    @apply h-px flex-1 bg-border;
+  }
+  .ornament > span {
+    @apply mx-4 font-serif text-lg italic text-accent;
+  }
+
+  /* Subtle animated link underline */
+  .link-underline {
+    position: relative;
+  }
+  .link-underline::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -2px;
+    height: 1px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 400ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .link-underline:hover::after {
+    transform: scaleX(1);
+  }
+
+  /* Drop-cap for editorial paragraphs */
+  .drop-cap::first-letter {
+    font-family: var(--font-serif);
+    font-weight: 500;
+    font-variation-settings: "opsz" 144, "SOFT" 20;
+    float: left;
+    font-size: 4.5rem;
+    line-height: 0.85;
+    padding-right: 0.6rem;
+    padding-top: 0.35rem;
+    color: var(--accent);
+  }
+
+  /* Decorative dot grid background */
+  .dot-grid {
+    background-image: radial-gradient(
+      circle,
+      color-mix(in oklch, var(--foreground) 10%, transparent) 1px,
+      transparent 1px
+    );
+    background-size: 18px 18px;
+  }
+
+  /* Soft radial halo behind hero elements */
+  .halo-accent {
+    background: radial-gradient(
+      closest-side,
+      color-mix(in oklch, var(--accent) 30%, transparent),
+      transparent 70%
+    );
+  }
+
+  /* Reveal-on-scroll base (JS-free, uses CSS animation-timeline where supported) */
+  .reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    animation: reveal-in 1ms linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 20%;
+  }
+  @keyframes reveal-in {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal {
+      opacity: 1;
+      transform: none;
+      animation: none;
+    }
+  }
+
+  /* Subtle card lift */
+  .lift {
+    transition: transform 400ms cubic-bezier(0.2, 0.8, 0.2, 1),
+      box-shadow 400ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .lift:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 40px -20px color-mix(in oklch, var(--foreground) 30%, transparent);
+  }
 }

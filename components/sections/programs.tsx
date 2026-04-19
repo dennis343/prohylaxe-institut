@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
+import { SectionLabel } from "@/components/ui/section-label"
 
 const consulting = [
   {
@@ -51,7 +52,7 @@ export function Programs() {
     <section className="bg-background py-24 md:py-32">
       <div className="mx-auto max-w-6xl px-5 md:px-8">
         <div className="max-w-2xl">
-          <div className="eyebrow">Ihr Weg zum Erfolg</div>
+          <SectionLabel numeral="VII" label="Ihr Weg" />
           <h2 className="serif-display mt-6 text-4xl leading-[1.1] text-foreground md:text-5xl">
             Zwei Einstiegs-Beratungen —{" "}
             <em className="italic text-accent">und ein Mentoring</em>{" "}
@@ -80,7 +81,7 @@ export function Programs() {
             {consulting.map((c) => (
               <article
                 key={c.variant}
-                className="flex flex-col bg-card p-8 md:p-10"
+                className="group flex flex-col bg-card p-8 transition-colors duration-500 hover:bg-secondary/30 md:p-10"
               >
                 <span className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">
                   {c.variant}

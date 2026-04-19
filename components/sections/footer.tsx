@@ -1,4 +1,7 @@
+"use client"
+
 import Link from "next/link"
+import { clearConsent } from "@/lib/consent"
 
 const sitemap = {
   angebot: {
@@ -11,11 +14,11 @@ const sitemap = {
     ],
   },
   services: {
-    title: "Services",
+    title: "Kontakt",
     links: [
       { href: "/kontakt", label: "Erstgespräch" },
       { href: "/kontakt#warteliste", label: "Warteliste" },
-      { href: "/matching-magnet", label: "Matching Magnet" },
+      { href: "mailto:info@prophylaxe-institut.de", label: "E-Mail schreiben" },
     ],
   },
   rechtliches: {
@@ -109,9 +112,19 @@ export function Footer() {
             &copy; {new Date().getFullYear()} Prophylaxe-Institut UG
             (haftungsbeschränkt) · Alle Rechte vorbehalten.
           </p>
-          <p className="uppercase tracking-[0.18em]">
-            Made with care in Moers
-          </p>
+          <div className="flex flex-wrap items-center gap-4">
+            <button
+              type="button"
+              onClick={() => clearConsent()}
+              className="uppercase tracking-[0.18em] transition-colors hover:text-accent"
+            >
+              Cookie-Einstellungen
+            </button>
+            <span aria-hidden className="h-px w-4 bg-border" />
+            <p className="uppercase tracking-[0.18em]">
+              Made with care in Moers
+            </p>
+          </div>
         </div>
       </div>
     </footer>

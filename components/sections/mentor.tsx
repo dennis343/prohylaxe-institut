@@ -1,4 +1,5 @@
 import Image from "next/image"
+import { SectionLabel } from "@/components/ui/section-label"
 
 const credentials = [
   "Zahnmedizinische Fachangestellte (ZFA)",
@@ -42,7 +43,7 @@ export function Mentor() {
           </div>
 
           <div>
-            <div className="eyebrow">Ihre Mentorin</div>
+            <SectionLabel numeral="V" label="Ihre Mentorin" />
             <h2 className="serif-display mt-6 text-4xl leading-[1.05] text-foreground md:text-6xl">
               Rusminka „Minka"{" "}
               <em className="italic text-accent">Mujezinovic.</em>
