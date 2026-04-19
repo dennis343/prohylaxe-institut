@@ -5,8 +5,31 @@ import { rateLimit, getClientIp } from "@/lib/rate-limit"
 
 export const runtime = "nodejs"
 
+const INTENT_LABELS: Record<string, string> = {
+  kennenlernen: "15-Min-Kennenlernen vereinbaren",
+  programme: "Mentoring-Programm (3 / 6 / 18 Monate)",
+  strategie: "Strategische Prophylaxe-Integration (3.500 €)",
+  kommunikation: "Kommunikations- & Bindungsoptimierung (3.500 €)",
+  intensivtag: "Prophylaxe-Intensivtag",
+  foerderung: "Förder-Eignung / BAFA-Quickcheck",
+  ladies: "Ladies-Programm (April-Spezial)",
+  presse: "Presse- oder Kooperationsanfrage",
+  sonstiges: "Allgemeine Frage",
+}
+
 const schema = z.object({
   variant: z.enum(["consultation", "waitlist"]).default("consultation"),
+  intent: z.enum([
+    "kennenlernen",
+    "programme",
+    "strategie",
+    "kommunikation",
+    "intensivtag",
+    "foerderung",
+    "ladies",
+    "presse",
+    "sonstiges",
+  ]).optional(),
   firstName: z.string().min(1).max(80),
   lastName: z.string().min(1).max(80),
   email: z.string().email().max(160),
@@ -43,12 +66,14 @@ export async function POST(req: Request) {
   }
 
   const to = process.env.CONTACT_TO_EMAIL ?? "info@prophylaxe-institut.de"
+  const intentLabel = data.intent ? INTENT_LABELS[data.intent] : null
   const subject =
     data.variant === "waitlist"
       ? `Warteliste: ${data.firstName} ${data.lastName}`
-      : `Erstgespräch-Anfrage: ${data.firstName} ${data.lastName}`
+      : `[${intentLabel ?? "Anfrage"}] ${data.firstName} ${data.lastName}`
 
   const lines = [
+    intentLabel ? `Anliegen: ${intentLabel}` : null,
     `Name: ${data.firstName} ${data.lastName}`,
     `E-Mail: ${data.email}`,
     data.phone ? `Telefon: ${data.phone}` : null,
@@ -64,6 +89,7 @@ export async function POST(req: Request) {
 
   const html = `
     <h2>${escapeHtml(subject)}</h2>
+    ${intentLabel ? `<p><strong>Anliegen:</strong> ${escapeHtml(intentLabel)}</p>` : ""}
     <p><strong>Name:</strong> ${escapeHtml(`${data.firstName} ${data.lastName}`)}</p>
     <p><strong>E-Mail:</strong> <a href="mailto:${escapeHtml(data.email)}">${escapeHtml(data.email)}</a></p>
     ${data.phone ? `<p><strong>Telefon:</strong> ${escapeHtml(data.phone)}</p>` : ""}

@@ -12,6 +12,7 @@ const staticRoutes = [
   { url: "/erfolgsgeschichten", priority: 0.8 },
   { url: "/journal", priority: 0.7 },
   { url: "/prophylaxe-intensivtag", priority: 0.7 },
+  { url: "/foerder-check", priority: 0.8 },
   { url: "/ressourcen/prophylaxe-checkliste", priority: 0.6 },
   { url: "/kontakt", priority: 0.9 },
   { url: "/ladies", priority: 0.4 },

@@ -12,13 +12,36 @@ type Variant = "waitlist" | "consultation"
 const fieldClass =
   "h-12 rounded-none border-0 border-b border-border bg-transparent px-0 text-base shadow-none focus-visible:border-accent focus-visible:ring-0 md:text-[15px]"
 
+const selectClass =
+  "h-12 w-full appearance-none rounded-none border-0 border-b border-border bg-transparent bg-[right_0_center] bg-no-repeat pl-0 pr-8 text-base text-foreground shadow-none focus:border-accent focus:outline-none focus:ring-0 md:text-[15px]"
+
 const textareaClass =
   "rounded-none border-0 border-b border-border bg-transparent px-0 text-base shadow-none focus-visible:border-accent focus-visible:ring-0 md:text-[15px]"
 
 const labelClass =
   "text-[11px] font-medium uppercase tracking-[0.18em] text-muted-foreground"
 
-export function ContactForm({ variant = "consultation" }: { variant?: Variant }) {
+export const CONTACT_INTENTS = [
+  { value: "kennenlernen", label: "15-Min-Kennenlernen vereinbaren" },
+  { value: "programme", label: "Mentoring-Programm (3 / 6 / 18 Monate)" },
+  { value: "strategie", label: "Strategische Prophylaxe-Integration (3.500 €)" },
+  { value: "kommunikation", label: "Kommunikations- & Bindungs­optimierung (3.500 €)" },
+  { value: "intensivtag", label: "Prophylaxe-Intensivtag (Platz sichern)" },
+  { value: "foerderung", label: "Förder-Eignung / BAFA-Quickcheck" },
+  { value: "ladies", label: "Ladies-Programm (April-Spezial)" },
+  { value: "presse", label: "Presse- oder Kooperations­anfrage" },
+  { value: "sonstiges", label: "Allgemeine Frage" },
+] as const
+
+type IntentValue = (typeof CONTACT_INTENTS)[number]["value"]
+
+export function ContactForm({
+  variant = "consultation",
+  defaultIntent,
+}: {
+  variant?: Variant
+  defaultIntent?: IntentValue
+}) {
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle")
   const [error, setError] = useState<string | null>(null)
 
@@ -32,6 +55,10 @@ export function ContactForm({ variant = "consultation" }: { variant?: Variant })
       setError("Bitte stimmen Sie der Datenschutzerklärung zu.")
       return
     }
+    if (!data.get("intent")) {
+      setError("Bitte wählen Sie ein Anliegen aus.")
+      return
+    }
     if (data.get("website")) {
       setStatus("success")
       return
@@ -39,6 +66,7 @@ export function ContactForm({ variant = "consultation" }: { variant?: Variant })
 
     const payload = {
       variant,
+      intent: String(data.get("intent") ?? ""),
       firstName: String(data.get("firstName") ?? ""),
       lastName: String(data.get("lastName") ?? ""),
       email: String(data.get("email") ?? ""),
@@ -96,6 +124,39 @@ export function ContactForm({ variant = "consultation" }: { variant?: Variant })
         className="hidden"
         aria-hidden="true"
       />
+
+      <div className="space-y-2">
+        <Label htmlFor="intent" className={labelClass}>
+          Worum geht es? *
+        </Label>
+        <div className="relative">
+          <select
+            id="intent"
+            name="intent"
+            required
+            defaultValue={defaultIntent ?? ""}
+            className={selectClass}
+          >
+            <option value="" disabled>
+              Bitte auswählen …
+            </option>
+            {CONTACT_INTENTS.map((opt) => (
+              <option key={opt.value} value={opt.value}>
+                {opt.label}
+              </option>
+            ))}
+          </select>
+          <span
+            aria-hidden
+            className="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 text-accent"
+          >
+            ↓
+          </span>
+        </div>
+        <p className="text-[12px] leading-relaxed text-muted-foreground">
+          Je klarer das Anliegen, desto gezielter die Antwort — und desto kürzer die Runde.
+        </p>
+      </div>
 
       <div className="grid gap-8 md:grid-cols-2 md:gap-10">
         <div className="space-y-2">

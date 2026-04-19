@@ -1,10 +1,18 @@
 import Link from "next/link"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 
 const fundingBenefits = [
   "Vom Bund anerkannte Beratungseinrichtung",
   "Cash-Back nach Umsetzung der Beratung",
   "Concierge-Service: Wir übernehmen die komplette Antragstellung",
+]
+
+const eligibility = [
+  "Zahnarztpraxen als KMU (< 250 Mitarbeitende, Umsatz bis 50 Mio. €)",
+  "Praxen mit Wachstums- oder Strukturthemen — nicht nur in Krise",
+  "Jungunternehmen (< 2 Jahre) mit eigener Förderkulisse",
+  "Bestandspraxen, die Prozesse und Prophylaxe professionalisieren",
 ]
 
 export function Funding() {
@@ -25,6 +33,56 @@ export function Funding() {
               förderfähig — und unser Concierge übernimmt die komplette
               Bürokratie.
             </p>
+
+            <div className="mt-10 flex items-center gap-5 rounded-md border border-border bg-card p-5">
+              <div className="relative h-14 w-24 shrink-0 text-foreground/80">
+                <Image
+                  src="/bafa/bafa-logo-placeholder.svg"
+                  alt="BAFA — Bundesamt für Wirtschaft und Ausfuhrkontrolle"
+                  fill
+                  sizes="96px"
+                  className="object-contain object-left"
+                />
+              </div>
+              <div>
+                <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-accent">
+                  Fördermittelgeber
+                </p>
+                <p className="mt-1 text-[13px] leading-relaxed text-muted-foreground">
+                  Bundesamt für Wirtschaft und Ausfuhr­kontrolle — Programm{" "}
+                  <em className="not-italic text-foreground">Förderung unter­nehmerischen Know-hows</em>.
+                </p>
+              </div>
+            </div>
+
+            <div className="mt-10 border-t border-border pt-8">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-accent">
+                Warum es diese Förderung gibt
+              </p>
+              <p className="mt-4 text-[15px] leading-relaxed text-muted-foreground">
+                Der Bund unterstützt kleine und mittlere Unternehmen dabei, sich strategisch
+                weiter­zuentwickeln — und honoriert Beratung, die Substanz schafft statt
+                Powerpoint. Für Zahnarztpraxen heißt das: ein Teil der Investition in
+                Strukturen, Prozesse und Prophylaxe fließt direkt zurück.
+              </p>
+            </div>
+
+            <div className="mt-8">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-accent">
+                Wer die Förderung nutzen sollte
+              </p>
+              <ul className="mt-4 space-y-3">
+                {eligibility.map((item) => (
+                  <li
+                    key={item}
+                    className="flex gap-3 text-[14px] leading-relaxed text-foreground"
+                  >
+                    <span aria-hidden className="mt-[0.55em] inline-block h-px w-4 shrink-0 bg-accent" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
 
           <div>
@@ -86,18 +144,28 @@ export function Funding() {
               </figcaption>
             </figure>
 
-            <div className="mt-10">
+            <div className="mt-10 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
               <Button
                 asChild
-                variant="outline"
                 size="lg"
-                className="rounded-full border-foreground/15 px-7 text-sm font-medium tracking-wide hover:bg-primary hover:text-primary-foreground"
+                className="rounded-full px-7 text-sm font-semibold tracking-wide"
               >
-                <Link href="/kontakt">
-                  Förder-Eignung prüfen lassen →
+                <Link href="/foerder-check">
+                  Förder-Quickcheck starten →
                 </Link>
               </Button>
+              <Link
+                href="/kontakt"
+                className="text-sm font-medium text-foreground"
+              >
+                <span className="border-b border-accent/60 pb-0.5">
+                  Lieber persönlich fragen
+                </span>
+              </Link>
             </div>
+            <p className="mt-4 text-[12px] uppercase tracking-[0.18em] text-muted-foreground">
+              90 Sekunden · ohne Verpflichtung · Einschätzung per E-Mail
+            </p>
           </div>
         </div>
       </div>
