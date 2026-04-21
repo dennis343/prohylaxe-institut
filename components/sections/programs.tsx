@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
+import { ChapterContinuation } from "@/components/ui/section-label"
 
 const consulting = [
   {
@@ -51,10 +52,8 @@ export function Programs() {
     <section className="bg-background py-16 sm:py-24 md:py-32">
       <div className="mx-auto max-w-6xl px-4 sm:px-5 md:px-8">
         <div className="max-w-2xl">
-          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-foreground/60">
-            Angebote
-          </p>
-          <h2 className="serif-display mt-4 text-[32px] leading-[1.1] text-foreground sm:text-4xl md:text-5xl">
+          <ChapterContinuation numeral="iv · ii" label="Angebote" />
+          <h2 className="serif-display mt-6 text-[32px] leading-[1.1] text-foreground sm:text-4xl md:text-5xl">
             Zwei Einstiegs-Beratungen — und ein Mentoring für die Tiefe.
           </h2>
           <p className="lead mt-6">

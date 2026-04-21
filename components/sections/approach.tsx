@@ -1,3 +1,5 @@
+import { ChapterContinuation } from "@/components/ui/section-label"
+
 const approaches = [
   {
     title: "Prophylaxe als Renditetreiber",
@@ -21,10 +23,8 @@ export function Approach() {
     <section className="bg-background py-24 md:py-32">
       <div className="mx-auto max-w-6xl px-5 md:px-8">
         <div className="max-w-2xl">
-          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-foreground/60">
-            Unser Ansatz
-          </p>
-          <h2 className="serif-display mt-4 text-3xl leading-[1.1] text-foreground md:text-5xl">
+          <ChapterContinuation numeral="i · ii" label="Unser Ansatz" />
+          <h2 className="serif-display mt-6 text-3xl leading-[1.1] text-foreground md:text-5xl">
             Persönliches Mentoring für nachhaltigen Praxiserfolg.
           </h2>
           <p className="lead mt-6">
@@ -63,7 +63,7 @@ export function Approach() {
         <figure className="mx-auto mt-20 max-w-3xl text-center md:mt-28">
           <span
             aria-hidden
-            className="font-serif text-7xl italic leading-none text-foreground/25 md:text-8xl"
+            className="font-serif text-7xl italic leading-none text-foreground/35 md:text-8xl"
           >
             &ldquo;
           </span>

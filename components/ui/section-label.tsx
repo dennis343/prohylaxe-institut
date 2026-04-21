@@ -22,3 +22,30 @@ export function SectionLabel({ numeral, label, className }: Props) {
     </div>
   )
 }
+
+type ContinuationProps = {
+  numeral: string
+  label: string
+  className?: string
+}
+
+export function ChapterContinuation({
+  numeral,
+  label,
+  className,
+}: ContinuationProps) {
+  return (
+    <div
+      className={cn(
+        "flex items-center gap-4 text-xs font-semibold uppercase tracking-[0.22em]",
+        className,
+      )}
+    >
+      <span className="font-serif text-[11px] lowercase tracking-[0.3em] text-foreground/50">
+        {numeral}
+      </span>
+      <span aria-hidden className="h-px w-10 bg-border" />
+      <span className="text-foreground/60">{label}</span>
+    </div>
+  )
+}

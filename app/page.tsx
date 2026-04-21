@@ -30,9 +30,9 @@ export default function Home() {
       </section>
       <section id="weg" aria-label="Kapitel IV – Der Weg">
         <Process />
-        <section id="programme">
+        <div id="programme">
           <Programs />
-        </section>
+        </div>
       </section>
       <section id="foerderung" aria-label="Kapitel V – Das Safety-Net">
         <Funding />
