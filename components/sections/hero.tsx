@@ -6,7 +6,7 @@ const proof = [
   { value: "150+", label: "begleitete Praxen" },
   { value: "3–18", label: "Monate Mentoring" },
   { value: "50–80 %", label: "Beratung förderfähig" },
-  { value: "DACH", label: "Beratungsraum" },
+  { value: "seit 2015", label: "Mentorin im Fachgebiet" },
 ]
 
 export function Hero() {
@@ -75,16 +75,6 @@ export function Hero() {
             </Link>
           </div>
 
-          {/* Accreditation line — adds charm + authority */}
-          <div className="mt-12 hidden items-center gap-5 text-[11px] uppercase tracking-[0.22em] text-muted-foreground md:flex">
-            <span>ZFA</span>
-            <span aria-hidden className="h-px w-4 bg-border" />
-            <span>ZMP</span>
-            <span aria-hidden className="h-px w-4 bg-border" />
-            <span>Praxismanagerin IHK</span>
-            <span aria-hidden className="h-px w-4 bg-border" />
-            <span>iTOP-Teacher</span>
-          </div>
         </div>
 
         {/* Portrait with decorative frame */}

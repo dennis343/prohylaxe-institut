@@ -1,4 +1,5 @@
 import Link from "next/link"
+import { ChapterContinuation } from "@/components/ui/section-label"
 
 type Slot = {
   metric: string
@@ -43,12 +44,10 @@ export function Results() {
       <div className="mx-auto max-w-6xl px-4 sm:px-5 md:px-8">
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div className="max-w-2xl">
-            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-foreground/60">
-              Ergebnisse in Entwicklung
-            </p>
+            <ChapterContinuation numeral="ii · ii" label="Ehrliche Zahlen" />
             <h2
               id="ergebnisse-title"
-              className="serif-display mt-4 text-[28px] leading-[1.1] text-foreground sm:text-4xl md:text-5xl"
+              className="serif-display mt-6 text-[28px] leading-[1.1] text-foreground sm:text-4xl md:text-5xl"
             >
               Ehrliche Zahlen statt Marketing-Uplifts.
             </h2>

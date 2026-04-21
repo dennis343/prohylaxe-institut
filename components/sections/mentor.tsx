@@ -113,10 +113,7 @@ export function Mentor() {
             />
             <div className="absolute inset-0 flex items-end p-5 sm:p-8 md:p-14">
               <p className="serif-display max-w-2xl text-xl leading-tight text-primary-foreground sm:text-2xl md:text-4xl">
-                Patienten spüren Struktur.{" "}
-                <em className="italic text-primary-foreground/85">
-                  Und Struktur schafft Vertrauen.
-                </em>
+                Patienten spüren Struktur. Und Struktur schafft Vertrauen.
               </p>
             </div>
           </div>
