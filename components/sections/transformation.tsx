@@ -18,19 +18,14 @@ export function Transformation() {
       <div className="mx-auto max-w-6xl px-5 md:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <SectionLabel
-            numeral="III"
-            label="Die Transformation"
+            numeral="II"
+            label="Was sich verändert"
             className="mx-auto justify-center"
           />
           <h2 className="serif-display mt-6 text-3xl leading-[1.1] text-foreground md:text-5xl">
-            Vom <em className="italic text-muted-foreground">Irgendwie</em>
-            <br className="hidden sm:block" /> zur{" "}
-            <em className="italic text-accent">Praxis auf Autopilot.</em>
+            Vom Irgendwie
+            <br className="hidden sm:block" /> zur Praxis auf Autopilot.
           </h2>
-
-          <div className="ornament mt-10 mb-0">
-            <span>✦</span>
-          </div>
         </div>
 
         <div className="mt-16 grid gap-10 md:mt-20 md:grid-cols-2 md:gap-16">
@@ -61,8 +56,8 @@ export function Transformation() {
           </article>
 
           <article className="relative pl-6 md:pl-8">
-            <span className="absolute left-0 top-1 h-full w-px bg-accent" />
-            <p className="text-[11px] font-medium uppercase tracking-[0.22em] text-accent">
+            <span className="absolute left-0 top-1 h-full w-px bg-foreground/40" />
+            <p className="text-[11px] font-medium uppercase tracking-[0.22em] text-foreground/70">
               Nachher
             </p>
             <h3 className="mt-4 font-serif text-3xl font-light tracking-tight text-foreground md:text-4xl">
@@ -78,7 +73,7 @@ export function Transformation() {
                 <li key={item} className="flex items-start gap-3">
                   <span
                     aria-hidden
-                    className="mt-2 inline-block h-px w-3 shrink-0 bg-accent"
+                    className="mt-2 inline-block h-px w-3 shrink-0 bg-foreground/40"
                   />
                   {item}
                 </li>

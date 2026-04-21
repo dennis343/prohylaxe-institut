@@ -12,8 +12,12 @@ export function CTA() {
         className="pointer-events-none absolute -top-32 left-1/2 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-[radial-gradient(closest-side,var(--accent),transparent_70%)] opacity-20 blur-3xl"
       />
       <div className="relative mx-auto max-w-3xl px-5 text-center md:px-8">
-        <div className="eyebrow mx-auto justify-center !text-accent">
-          Nächster Schritt
+        <div className="inline-flex items-center gap-4 text-xs font-semibold uppercase tracking-[0.22em]">
+          <span className="font-serif text-[11px] tracking-[0.3em] text-accent">
+            VI
+          </span>
+          <span aria-hidden className="h-px w-10 bg-primary-foreground/25" />
+          <span className="text-primary-foreground/75">Der Anstoß</span>
         </div>
         <h2 className="serif-display mt-6 text-4xl leading-[1.05] md:text-6xl">
           Investieren Sie in eine Zukunft, in der Ihre Praxis{" "}

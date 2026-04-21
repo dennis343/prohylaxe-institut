@@ -38,12 +38,9 @@ export function Challenges() {
     <section className="bg-secondary/40 py-24 md:py-32">
       <div className="mx-auto max-w-6xl px-5 md:px-8">
         <div className="max-w-2xl">
-          <SectionLabel numeral="I" label="Typische Realität" />
+          <SectionLabel numeral="I" label="Die Realität" />
           <h2 className="serif-display mt-6 text-4xl leading-[1.1] text-foreground md:text-5xl">
-            Fachlich hervorragend —{" "}
-            <em className="italic text-accent">
-              aber wirtschaftlich unter Wert.
-            </em>
+            Fachlich hervorragend — aber wirtschaftlich unter Wert.
           </h2>
           <p className="lead mt-6">
             Die meisten Praxen arbeiten exzellent. Was häufig fehlt, ist eine
