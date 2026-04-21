@@ -1,6 +1,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
+import { SectionLabel } from "@/components/ui/section-label"
 
 const fundingBenefits = [
   "Vom Bund anerkannte Beratungseinrichtung",
@@ -21,7 +22,7 @@ export function Funding() {
       <div className="mx-auto max-w-6xl px-5 md:px-8">
         <div className="grid gap-12 md:grid-cols-[5fr_7fr] md:gap-16">
           <div>
-            <div className="eyebrow">Förderung möglich</div>
+            <SectionLabel numeral="V" label="Das Safety-Net" />
             <h2 className="serif-display mt-6 text-4xl leading-[1.1] text-foreground md:text-5xl">
               Bis zu{" "}
               <em className="italic text-accent">80 % Zuschuss</em> auf Ihre
@@ -45,7 +46,7 @@ export function Funding() {
                 />
               </div>
               <div>
-                <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-accent">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-foreground/60">
                   Fördermittelgeber
                 </p>
                 <p className="mt-1 text-[13px] leading-relaxed text-muted-foreground">
@@ -56,7 +57,7 @@ export function Funding() {
             </div>
 
             <div className="mt-10 border-t border-border pt-8">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-accent">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-foreground/60">
                 Warum es diese Förderung gibt
               </p>
               <p className="mt-4 text-[15px] leading-relaxed text-muted-foreground">
@@ -68,7 +69,7 @@ export function Funding() {
             </div>
 
             <div className="mt-8">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-accent">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-foreground/60">
                 Wer die Förderung nutzen sollte
               </p>
               <ul className="mt-4 space-y-3">
@@ -77,7 +78,7 @@ export function Funding() {
                     key={item}
                     className="flex gap-3 text-[14px] leading-relaxed text-foreground"
                   >
-                    <span aria-hidden className="mt-[0.55em] inline-block h-px w-4 shrink-0 bg-accent" />
+                    <span aria-hidden className="mt-[0.55em] inline-block h-px w-4 shrink-0 bg-foreground/30" />
                     <span>{item}</span>
                   </li>
                 ))}
@@ -88,7 +89,7 @@ export function Funding() {
           <div>
             <div className="grid gap-px overflow-hidden rounded-lg border border-border bg-border md:grid-cols-2">
               <div className="bg-card p-7">
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-foreground/55">
                   Westdeutschland
                 </p>
                 <p className="mt-3 font-serif text-4xl text-foreground md:text-5xl">
@@ -102,7 +103,7 @@ export function Funding() {
                 </p>
               </div>
               <div className="bg-card p-7">
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-foreground/55">
                   Ostdeutschland
                 </p>
                 <p className="mt-3 font-serif text-4xl text-foreground md:text-5xl">
@@ -125,7 +126,7 @@ export function Funding() {
                 >
                   <span
                     aria-hidden
-                    className="mt-3 inline-block h-px w-5 shrink-0 bg-accent"
+                    className="mt-3 inline-block h-px w-5 shrink-0 bg-foreground/30"
                   />
                   <span>{item}</span>
                 </li>

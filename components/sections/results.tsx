@@ -1,5 +1,4 @@
 import Link from "next/link"
-import { SectionLabel } from "@/components/ui/section-label"
 
 type Slot = {
   metric: string
@@ -44,13 +43,14 @@ export function Results() {
       <div className="mx-auto max-w-6xl px-4 sm:px-5 md:px-8">
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div className="max-w-2xl">
-            <SectionLabel numeral="V" label="Was sich verändert" />
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-foreground/60">
+              Ergebnisse in Entwicklung
+            </p>
             <h2
               id="ergebnisse-title"
-              className="serif-display mt-6 text-[28px] leading-[1.1] text-foreground sm:text-4xl md:text-5xl"
+              className="serif-display mt-4 text-[28px] leading-[1.1] text-foreground sm:text-4xl md:text-5xl"
             >
-              Ehrliche Zahlen statt{" "}
-              <em className="italic text-accent">Marketing-Uplifts.</em>
+              Ehrliche Zahlen statt Marketing-Uplifts.
             </h2>
             <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground">
               Wir arbeiten gerade an einer belastbaren Durchschnitts-Statistik
@@ -87,7 +87,7 @@ export function Results() {
                 {s.context}
               </p>
               {s.placeholder && (
-                <p className="mt-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-accent">
+                <p className="mt-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-foreground/55">
                   In Validierung
                 </p>
               )}

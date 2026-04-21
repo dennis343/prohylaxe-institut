@@ -17,7 +17,7 @@ export function SectionLabel({ numeral, label, className }: Props) {
       <span className="font-serif text-[11px] tracking-[0.3em] text-accent">
         {numeral}
       </span>
-      <span aria-hidden className="h-px w-10 bg-accent" />
+      <span aria-hidden className="h-px w-10 bg-border" />
       <span className="text-foreground/70">{label}</span>
     </div>
   )

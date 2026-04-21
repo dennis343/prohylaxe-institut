@@ -1,5 +1,3 @@
-import { SectionLabel } from "@/components/ui/section-label"
-
 const approaches = [
   {
     title: "Prophylaxe als Renditetreiber",
@@ -23,10 +21,11 @@ export function Approach() {
     <section className="bg-background py-24 md:py-32">
       <div className="mx-auto max-w-6xl px-5 md:px-8">
         <div className="max-w-2xl">
-          <SectionLabel numeral="II" label="Unser Ansatz" />
-          <h2 className="serif-display mt-6 text-3xl leading-[1.1] text-foreground md:text-5xl">
-            Persönliches Mentoring für{" "}
-            <em className="italic text-accent">nachhaltigen</em> Praxiserfolg
+          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-foreground/60">
+            Unser Ansatz
+          </p>
+          <h2 className="serif-display mt-4 text-3xl leading-[1.1] text-foreground md:text-5xl">
+            Persönliches Mentoring für nachhaltigen Praxiserfolg.
           </h2>
           <p className="lead mt-6">
             Kein Blabla. Vorhersehbarer Erfolg. System statt Chaos.
@@ -40,13 +39,13 @@ export function Approach() {
               className="group relative flex flex-col gap-6 bg-background p-8 transition-colors duration-500 hover:bg-secondary/50 md:p-10"
             >
               <div className="flex items-baseline gap-3">
-                <span className="font-serif text-xs italic text-accent">
+                <span className="font-serif text-xs italic text-foreground/50">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <span className="h-px flex-1 bg-border" />
                 <span
                   aria-hidden
-                  className="font-serif text-accent opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                  className="font-serif text-foreground/40 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
                 >
                   ✦
                 </span>
@@ -64,7 +63,7 @@ export function Approach() {
         <figure className="mx-auto mt-20 max-w-3xl text-center md:mt-28">
           <span
             aria-hidden
-            className="font-serif text-7xl italic leading-none text-accent/60 md:text-8xl"
+            className="font-serif text-7xl italic leading-none text-foreground/25 md:text-8xl"
           >
             &ldquo;
           </span>
@@ -74,7 +73,7 @@ export function Approach() {
             Wirkung, wenn man kontinuierlich dranbleibt.
           </blockquote>
           <figcaption className="mt-8 text-xs uppercase tracking-[0.22em] text-muted-foreground">
-            <span className="mx-auto mb-3 block h-px w-12 bg-accent" />
+            <span className="mx-auto mb-3 block h-px w-12 bg-border" />
             Minka — Ihre Mentorin
           </figcaption>
         </figure>

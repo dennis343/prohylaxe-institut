@@ -43,10 +43,9 @@ export function Mentor() {
           </div>
 
           <div>
-            <SectionLabel numeral="V" label="Ihre Mentorin" />
+            <SectionLabel numeral="III" label="Ihre Mentorin" />
             <h2 className="serif-display mt-6 text-[32px] leading-[1.05] text-foreground sm:text-5xl md:text-6xl">
-              Rusminka „Minka"{" "}
-              <em className="italic text-accent">Mujezinovic.</em>
+              Rusminka „Minka" Mujezinovic.
             </h2>
             <p className="mt-4 font-serif text-lg italic text-muted-foreground md:text-xl">
               Gründerin Prophylaxe-Institut · ZFA · ZMP · Praxismanagerin
@@ -73,7 +72,7 @@ export function Mentor() {
                 >
                   <span
                     aria-hidden
-                    className="mt-3 inline-block h-px w-5 shrink-0 bg-accent"
+                    className="mt-3 inline-block h-px w-5 shrink-0 bg-foreground/30"
                   />
                   <span>{item}</span>
                 </li>
@@ -83,7 +82,7 @@ export function Mentor() {
             <div className="mt-12 grid gap-px overflow-hidden rounded-md border border-border bg-border sm:grid-cols-3">
               {combines.map((c) => (
                 <div key={c.left} className="bg-card p-5">
-                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-foreground/55">
                     Verbindet
                   </p>
                   <p className="mt-3 font-serif text-base text-foreground md:text-lg">
@@ -115,7 +114,7 @@ export function Mentor() {
             <div className="absolute inset-0 flex items-end p-5 sm:p-8 md:p-14">
               <p className="serif-display max-w-2xl text-xl leading-tight text-primary-foreground sm:text-2xl md:text-4xl">
                 Patienten spüren Struktur.{" "}
-                <em className="italic text-accent">
+                <em className="italic text-primary-foreground/85">
                   Und Struktur schafft Vertrauen.
                 </em>
               </p>
