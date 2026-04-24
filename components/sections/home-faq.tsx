@@ -51,34 +51,30 @@ export function HomeFaq() {
       />
       <div className="mx-auto max-w-5xl px-4 sm:px-5 md:px-8">
         <div className="max-w-2xl">
-          <SectionLabel numeral="IX" label="Häufige Fragen" />
+          <SectionLabel numeral="V · ii" label="Häufige Fragen" />
           <h2
             id="faq-title"
             className="serif-display mt-6 text-[28px] leading-[1.1] text-foreground sm:text-4xl md:text-5xl"
           >
-            Antworten auf das,{" "}
-            <em className="italic text-accent">was Praxen wirklich fragen.</em>
+            Antworten auf das, was Praxen wirklich fragen.
           </h2>
         </div>
 
         <div className="mt-12 divide-y divide-border border-y border-border">
           {faqs.map((f) => (
-            <details
-              key={f.q}
-              className="group py-6 marker:hidden sm:py-7"
-            >
-              <summary className="flex cursor-pointer list-none items-start justify-between gap-6 text-left">
+            <details key={f.q} className="group marker:hidden">
+              <summary className="flex min-h-[60px] cursor-pointer list-none items-center justify-between gap-6 py-5 text-left">
                 <span className="font-serif text-lg leading-snug text-foreground sm:text-xl md:text-2xl">
                   {f.q}
                 </span>
                 <span
                   aria-hidden
-                  className="mt-1 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-border text-accent transition-transform group-open:rotate-45"
+                  className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-border text-foreground transition-all group-open:rotate-45 group-hover:border-accent group-hover:text-accent"
                 >
                   +
                 </span>
               </summary>
-              <p className="mt-5 max-w-3xl text-[15px] leading-relaxed text-muted-foreground sm:text-base">
+              <p className="mb-6 max-w-3xl text-[15.5px] leading-[1.7] text-foreground sm:text-base">
                 {f.a}
               </p>
             </details>

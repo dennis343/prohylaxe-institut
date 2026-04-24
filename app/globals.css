@@ -4,40 +4,41 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Premium editorial palette: warm ivory base, deep ink navy primary, champagne gold accent */
+  /* Premium editorial palette: warm ivory base, deep ink navy primary, champagne gold accent.
+     Dark values (foreground, muted-foreground, border) were strengthened for readers 45+ and WCAG AA. */
   --background: oklch(0.985 0.008 80);
-  --foreground: oklch(0.22 0.025 265);
+  --foreground: oklch(0.17 0.03 265);
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.22 0.025 265);
+  --card-foreground: oklch(0.17 0.03 265);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.22 0.025 265);
-  --primary: oklch(0.26 0.04 265);
+  --popover-foreground: oklch(0.17 0.03 265);
+  --primary: oklch(0.22 0.04 265);
   --primary-foreground: oklch(0.985 0.008 80);
   --secondary: oklch(0.955 0.012 80);
-  --secondary-foreground: oklch(0.26 0.04 265);
+  --secondary-foreground: oklch(0.22 0.04 265);
   --muted: oklch(0.955 0.012 80);
-  --muted-foreground: oklch(0.36 0.025 265);
-  --accent: oklch(0.62 0.105 72);
-  --accent-foreground: oklch(0.22 0.025 265);
-  --destructive: oklch(0.577 0.245 27.325);
+  --muted-foreground: oklch(0.29 0.03 265);
+  --accent: oklch(0.52 0.12 62);
+  --accent-foreground: oklch(0.985 0.008 80);
+  --destructive: oklch(0.52 0.24 27);
   --destructive-foreground: oklch(0.985 0.008 80);
-  --border: oklch(0.9 0.012 80);
-  --input: oklch(0.9 0.012 80);
-  --ring: oklch(0.26 0.04 265);
-  --chart-1: oklch(0.26 0.04 265);
-  --chart-2: oklch(0.72 0.095 72);
-  --chart-3: oklch(0.55 0.08 260);
-  --chart-4: oklch(0.82 0.06 75);
-  --chart-5: oklch(0.4 0.04 265);
+  --border: oklch(0.84 0.016 80);
+  --input: oklch(0.8 0.018 80);
+  --ring: oklch(0.52 0.12 62);
+  --chart-1: oklch(0.22 0.04 265);
+  --chart-2: oklch(0.65 0.1 72);
+  --chart-3: oklch(0.45 0.08 260);
+  --chart-4: oklch(0.78 0.06 75);
+  --chart-5: oklch(0.35 0.04 265);
   --radius: 0.5rem;
   --sidebar: oklch(0.985 0.008 80);
-  --sidebar-foreground: oklch(0.22 0.025 265);
-  --sidebar-primary: oklch(0.26 0.04 265);
+  --sidebar-foreground: oklch(0.17 0.03 265);
+  --sidebar-primary: oklch(0.22 0.04 265);
   --sidebar-primary-foreground: oklch(0.985 0.008 80);
   --sidebar-accent: oklch(0.955 0.012 80);
-  --sidebar-accent-foreground: oklch(0.26 0.04 265);
-  --sidebar-border: oklch(0.9 0.012 80);
-  --sidebar-ring: oklch(0.26 0.04 265);
+  --sidebar-accent-foreground: oklch(0.22 0.04 265);
+  --sidebar-border: oklch(0.84 0.016 80);
+  --sidebar-ring: oklch(0.52 0.12 62);
 }
 
 .dark {
@@ -114,8 +115,11 @@
 
 @layer base {
   html {
-    /* Slightly larger base for older readers; scales rem-based UI proportionally */
-    font-size: 17px;
+    /* Base size tuned for readers 45+; rem-based UI scales proportionally. */
+    font-size: 18px;
+  }
+  @media (min-width: 1024px) {
+    html { font-size: 18px; }
   }
   * {
     @apply border-border outline-ring/50;
@@ -126,11 +130,22 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
-    line-height: 1.6;
+    line-height: 1.65;
   }
   ::selection {
-    background: color-mix(in oklch, var(--accent) 40%, transparent);
-    color: var(--foreground);
+    background: color-mix(in oklch, var(--accent) 45%, transparent);
+    color: var(--primary-foreground);
+  }
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+  /* Respect reduced-motion globally */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 }
 
@@ -155,7 +170,7 @@
     font-variation-settings: "opsz" 144, "SOFT" 30, "WONK" 0;
   }
   .lead {
-    @apply text-lg leading-relaxed text-foreground/85 md:text-xl;
+    @apply text-lg leading-[1.7] text-foreground md:text-xl;
   }
 
   /* Section numeral (I, II, III …) rendered as a subtle orienting anchor */
@@ -266,9 +281,9 @@
 
   /* Journal / longform prose */
   .prose-journal {
-    font-size: 17px;
-    line-height: 1.75;
-    color: color-mix(in oklch, var(--foreground) 90%, transparent);
+    font-size: 1.0625rem;
+    line-height: 1.8;
+    color: var(--foreground);
   }
   .prose-journal > * + * {
     margin-top: 1.4em;

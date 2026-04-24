@@ -57,7 +57,7 @@ export function Transformation() {
 
           <article className="relative pl-6 md:pl-8">
             <span className="absolute left-0 top-1 h-full w-px bg-foreground/40" />
-            <p className="text-[11px] font-medium uppercase tracking-[0.22em] text-foreground/70">
+            <p className="text-[11px] font-medium uppercase tracking-[0.22em] text-foreground/90">
               Nachher
             </p>
             <h3 className="mt-4 font-serif text-3xl font-light tracking-tight text-foreground md:text-4xl">

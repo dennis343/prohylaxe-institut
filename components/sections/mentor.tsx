@@ -82,7 +82,7 @@ export function Mentor() {
             <div className="mt-12 grid gap-px overflow-hidden rounded-md border border-border bg-border sm:grid-cols-3">
               {combines.map((c) => (
                 <div key={c.left} className="bg-card p-5">
-                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-foreground/55">
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-foreground/80">
                     Verbindet
                   </p>
                   <p className="mt-3 font-serif text-base text-foreground md:text-lg">
