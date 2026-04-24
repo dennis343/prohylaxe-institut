@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation"
 
 export function StickyMobileCTA() {
   const [visible, setVisible] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false)
   const pathname = usePathname()
 
   const hideOn = ["/gespraech", "/foerder-check", "/kontakt"]
@@ -16,22 +17,38 @@ export function StickyMobileCTA() {
     const onScroll = () => {
       const y = window.scrollY
       const h = window.innerHeight
-      setVisible(y > h * 0.6)
+      setVisible(y > h * 0.5)
     }
     onScroll()
     window.addEventListener("scroll", onScroll, { passive: true })
     return () => window.removeEventListener("scroll", onScroll)
   }, [shouldRender])
 
+  useEffect(() => {
+    if (!shouldRender) return
+    const check = () => {
+      setMenuOpen(document.body.style.overflow === "hidden")
+    }
+    check()
+    const observer = new MutationObserver(check)
+    observer.observe(document.body, {
+      attributes: true,
+      attributeFilter: ["style"],
+    })
+    return () => observer.disconnect()
+  }, [shouldRender])
+
   if (!shouldRender) return null
+
+  const show = visible && !menuOpen
 
   return (
     <div
-      aria-hidden={!visible}
+      aria-hidden={!show}
       className={[
-        "fixed inset-x-0 bottom-0 z-40 md:hidden",
+        "fixed inset-x-0 bottom-0 z-30 md:hidden",
         "transition-transform duration-300 ease-out",
-        visible ? "translate-y-0" : "translate-y-full",
+        show ? "translate-y-0" : "translate-y-full",
       ].join(" ")}
     >
       <div className="border-t border-border bg-background/95 px-4 pb-[max(env(safe-area-inset-bottom),0.75rem)] pt-3 backdrop-blur-md">
@@ -44,7 +61,7 @@ export function StickyMobileCTA() {
           </Link>
           <Link
             href="/foerder-check"
-            className="inline-flex h-12 items-center justify-center rounded-full border border-border bg-background px-4 text-xs font-semibold uppercase tracking-[0.18em] text-foreground"
+            className="inline-flex h-12 items-center justify-center rounded-full border border-foreground/30 bg-background px-4 text-xs font-semibold uppercase tracking-[0.18em] text-foreground"
           >
             Förder-Check
           </Link>
