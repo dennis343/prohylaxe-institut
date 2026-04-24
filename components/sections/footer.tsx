@@ -102,7 +102,7 @@ export function Footer() {
                   <span className="block">Prophylaxe-Institut UG (haftungsbeschränkt)</span>
                   <span className="block">Grenzstraße 144, 47441 Moers</span>
                 </li>
-                <li className="text-foreground/70">
+                <li className="text-foreground/90">
                   Leitung &amp; Ansprechpartnerin: Minka Mujezinovic
                 </li>
               </ul>

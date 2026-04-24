@@ -8,6 +8,7 @@ import { CaseStudiesTeaser } from "@/components/sections/case-studies-teaser"
 import { Process } from "@/components/sections/process"
 import { Programs } from "@/components/sections/programs"
 import { Funding } from "@/components/sections/funding"
+import { HomeFaq } from "@/components/sections/home-faq"
 import { CTA } from "@/components/sections/cta"
 import { HomeJsonLd } from "@/components/seo/home-json-ld"
 
@@ -37,6 +38,7 @@ export default function Home() {
       <section id="foerderung" aria-label="Kapitel V – Das Safety-Net">
         <Funding />
       </section>
+      <HomeFaq />
       <CTA />
     </main>
   )

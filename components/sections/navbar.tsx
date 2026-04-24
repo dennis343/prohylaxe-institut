@@ -178,7 +178,7 @@ export function Navbar() {
                   "relative text-sm font-medium tracking-wide transition-colors",
                   active
                     ? "text-foreground"
-                    : "text-foreground/70 hover:text-foreground",
+                    : "text-foreground/90 hover:text-foreground",
                 )}
               >
                 {link.label}
@@ -209,9 +209,9 @@ export function Navbar() {
           aria-label={open ? "Menü schließen" : "Menü öffnen"}
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
-          className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border text-foreground transition-colors hover:border-accent hover:text-accent md:hidden"
+          className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-border text-foreground transition-colors hover:border-accent hover:text-accent md:hidden"
         >
-          {open ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
+          {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
       </div>
 

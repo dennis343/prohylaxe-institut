@@ -17,13 +17,13 @@ export function CTA() {
             VI
           </span>
           <span aria-hidden className="h-px w-10 bg-primary-foreground/25" />
-          <span className="text-primary-foreground/75">Der Anstoß</span>
+          <span className="text-primary-foreground/90">Der Anstoß</span>
         </div>
         <h2 className="serif-display mt-6 text-4xl leading-[1.05] md:text-6xl">
           Investieren Sie in eine Zukunft, in der Ihre Praxis{" "}
           <em className="italic text-accent">floriert.</em>
         </h2>
-        <p className="mx-auto mt-8 max-w-xl text-base text-primary-foreground/70 md:text-lg">
+        <p className="mx-auto mt-8 max-w-xl text-base text-primary-foreground/90 md:text-lg">
           Wirtschaftlich gesund wachsen, Prophylaxe als strategischen
           Umsatztreiber nutzen, ein motiviertes Team aufbauen — und dabei mehr
           Freiheit gewinnen.

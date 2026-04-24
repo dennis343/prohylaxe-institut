@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next'
 import { Geist, Fraunces } from 'next/font/google'
 import { Navbar } from '@/components/sections/navbar'
 import { Footer } from '@/components/sections/footer'
+import { StickyMobileCTA } from '@/components/sticky-mobile-cta'
 import { CookieConsent } from '@/components/cookie-consent'
 import { AnalyticsGate } from '@/components/analytics-gate'
 import './globals.css'
@@ -132,6 +133,7 @@ export default function RootLayout({
           {children}
         </div>
         <Footer />
+        <StickyMobileCTA />
         <CookieConsent />
         <AnalyticsGate />
       </body>

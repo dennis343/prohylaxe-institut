@@ -86,7 +86,7 @@ export function Results() {
                 {s.context}
               </p>
               {s.placeholder && (
-                <p className="mt-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-foreground/55">
+                <p className="mt-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-foreground/80">
                   In Validierung
                 </p>
               )}

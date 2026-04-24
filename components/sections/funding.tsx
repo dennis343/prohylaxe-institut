@@ -46,7 +46,7 @@ export function Funding() {
                 />
               </div>
               <div>
-                <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-foreground/60">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-foreground/85">
                   Fördermittelgeber
                 </p>
                 <p className="mt-1 text-[13px] leading-relaxed text-muted-foreground">
@@ -57,7 +57,7 @@ export function Funding() {
             </div>
 
             <div className="mt-10 border-t border-border pt-8">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-foreground/60">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-foreground/85">
                 Warum es diese Förderung gibt
               </p>
               <p className="mt-4 text-[15px] leading-relaxed text-muted-foreground">
@@ -69,7 +69,7 @@ export function Funding() {
             </div>
 
             <div className="mt-8">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-foreground/60">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-foreground/85">
                 Wer die Förderung nutzen sollte
               </p>
               <ul className="mt-4 space-y-3">
@@ -89,7 +89,7 @@ export function Funding() {
           <div>
             <div className="grid gap-px overflow-hidden rounded-lg border border-border bg-border md:grid-cols-2">
               <div className="bg-card p-7">
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-foreground/55">
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-foreground/80">
                   Westdeutschland
                 </p>
                 <p className="mt-3 font-serif text-4xl text-foreground md:text-5xl">
@@ -103,7 +103,7 @@ export function Funding() {
                 </p>
               </div>
               <div className="bg-card p-7">
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-foreground/55">
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-foreground/80">
                   Ostdeutschland
                 </p>
                 <p className="mt-3 font-serif text-4xl text-foreground md:text-5xl">

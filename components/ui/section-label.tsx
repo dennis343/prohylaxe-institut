@@ -18,7 +18,7 @@ export function SectionLabel({ numeral, label, className }: Props) {
         {numeral}
       </span>
       <span aria-hidden className="h-px w-10 bg-border" />
-      <span className="text-foreground/70">{label}</span>
+      <span className="text-foreground/90">{label}</span>
     </div>
   )
 }
@@ -45,7 +45,7 @@ export function ChapterContinuation({
         {numeral}
       </span>
       <span aria-hidden className="h-px w-10 bg-border" />
-      <span className="text-foreground/60">{label}</span>
+      <span className="text-foreground/85">{label}</span>
     </div>
   )
 }

@@ -66,7 +66,7 @@ export function Programs() {
         {/* Einstiegsprodukte: zwei Beratungsbausteine */}
         <div className="mt-16 md:mt-20">
           <div className="flex items-center gap-4">
-            <span className="font-serif text-lg italic text-foreground/60">
+            <span className="font-serif text-lg italic text-foreground/85">
               Einstieg
             </span>
             <span className="h-px flex-1 bg-border" />
@@ -81,7 +81,7 @@ export function Programs() {
                 key={c.variant}
                 className="group flex flex-col bg-card p-6 transition-colors duration-500 hover:bg-secondary/30 sm:p-8 md:p-10"
               >
-                <span className="text-xs font-semibold uppercase tracking-[0.18em] text-foreground/55">
+                <span className="text-xs font-semibold uppercase tracking-[0.18em] text-foreground/80">
                   {c.variant}
                 </span>
                 <h3 className="mt-4 font-serif text-2xl font-normal tracking-tight text-foreground md:text-3xl">
@@ -140,7 +140,7 @@ export function Programs() {
         {/* Elite: Mentoring-Programm */}
         <div className="mt-20 md:mt-28">
           <div className="flex items-center gap-4">
-            <span className="font-serif text-lg italic text-foreground/60">
+            <span className="font-serif text-lg italic text-foreground/85">
               Elite
             </span>
             <span className="h-px flex-1 bg-border" />
@@ -156,7 +156,7 @@ export function Programs() {
             />
             <div className="relative grid gap-12 md:grid-cols-[6fr_5fr] md:gap-16">
               <div>
-                <span className="inline-flex items-center gap-2 rounded-full border border-primary-foreground/25 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-primary-foreground/80">
+                <span className="inline-flex items-center gap-2 rounded-full border border-primary-foreground/25 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-primary-foreground/92">
                   Empfohlen für ambitionierte Praxen
                 </span>
                 <h3 className="serif-display mt-6 text-[28px] leading-[1.1] sm:text-3xl md:text-5xl">
@@ -193,11 +193,11 @@ export function Programs() {
                       <span className="font-serif text-xl text-primary-foreground md:text-2xl">
                         {s.name}
                       </span>
-                      <span className="shrink-0 text-xs uppercase tracking-[0.18em] text-primary-foreground/65">
+                      <span className="shrink-0 text-xs uppercase tracking-[0.18em] text-primary-foreground/85">
                         {s.duration}
                       </span>
                     </div>
-                    <p className="mt-2 text-[15px] leading-relaxed text-primary-foreground/80">
+                    <p className="mt-2 text-[15px] leading-relaxed text-primary-foreground/92">
                       {s.text}
                     </p>
                   </li>
