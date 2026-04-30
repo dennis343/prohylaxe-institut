@@ -5,6 +5,7 @@ import { Footer } from '@/components/sections/footer'
 import { StickyMobileCTA } from '@/components/sticky-mobile-cta'
 import { CookieConsent } from '@/components/cookie-consent'
 import { AnalyticsGate } from '@/components/analytics-gate'
+import { HideOnMatchingMagnet } from '@/components/matching-magnet/LayoutGuard'
 import './globals.css'
 
 const geist = Geist({
@@ -128,13 +129,13 @@ export default function RootLayout({
         >
           Zum Inhalt springen
         </a>
-        <Navbar />
+        <HideOnMatchingMagnet><Navbar /></HideOnMatchingMagnet>
         <div id="main-content" className="flex-1">
           {children}
         </div>
-        <Footer />
-        <StickyMobileCTA />
-        <CookieConsent />
+        <HideOnMatchingMagnet><Footer /></HideOnMatchingMagnet>
+        <HideOnMatchingMagnet><StickyMobileCTA /></HideOnMatchingMagnet>
+        <HideOnMatchingMagnet><CookieConsent /></HideOnMatchingMagnet>
         <AnalyticsGate />
       </body>
     </html>

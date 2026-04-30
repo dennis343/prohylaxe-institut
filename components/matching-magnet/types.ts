@@ -9,16 +9,28 @@ export type TxType =
   | 'plattform_gebuehr'
   | 'token_kauf'
 
+export interface UserPermissions {
+  canShareContacts: boolean
+  canCreateCampaigns: boolean
+  canAcceptCampaigns: boolean
+  canSeeMarketplace: boolean
+  canSeeTransactions: boolean
+}
+
 export interface User {
   id: string
   name: string
   role: string
+  email: string
   businessType: BusinessType
   industries: string[]
   b2bPercentage: number
   description: string
+  specialty: string
   tokens: number
   isAdmin: boolean
+  isActive: boolean
+  permissions: UserPermissions
   initials: string
   color: string
 }
@@ -85,3 +97,7 @@ export type AppAction =
   | { type: 'RESPOND_CAMPAIGN'; campaignId: string; accept: boolean; transactions: Transaction[] }
   | { type: 'COMPLETE_CAMPAIGN'; campaignId: string }
   | { type: 'BUY_TOKENS'; userId: string; amount: number; transaction: Transaction }
+  | { type: 'ADMIN_UPDATE_PERMISSIONS'; userId: string; permissions: Partial<UserPermissions> }
+  | { type: 'ADMIN_SET_ACTIVE'; userId: string; isActive: boolean }
+  | { type: 'ADMIN_SET_ADMIN'; userId: string; isAdmin: boolean }
+  | { type: 'ADMIN_CREATE_USER'; user: User; contacts: Contact[] }

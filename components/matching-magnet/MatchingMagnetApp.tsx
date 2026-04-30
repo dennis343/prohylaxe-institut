@@ -184,22 +184,79 @@ function AppInner() {
       </main>
 
       {/* Footer */}
-      <footer className="border-t bg-gradient-to-r from-amber-50/50 to-background py-6 mt-8">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm">
-            <div className="flex items-center gap-2">
-              <Star className="h-4 w-4 text-amber-400 fill-amber-400" />
-              <span className="font-semibold">Matching Magnet</span>
-              <span className="text-amber-500 text-xs font-medium">Die Sterne stehen günstig ✦</span>
+      <footer className="border-t bg-gradient-to-br from-slate-950 to-slate-900 text-slate-300 mt-8">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-8 mb-10">
+            {/* Brand */}
+            <div className="md:col-span-2">
+              <div className="flex items-center gap-2 mb-3">
+                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-amber-400 to-primary">
+                  <Star className="h-4 w-4 fill-white text-white" />
+                </div>
+                <div>
+                  <p className="text-white font-bold text-sm leading-tight">Matching Magnet</p>
+                  <p className="text-amber-400 text-xs leading-tight">by Miriam</p>
+                </div>
+              </div>
+              <p className="text-sm text-slate-400 leading-relaxed max-w-xs">
+                Kooperationsplattform für hochwertige Kontakte, smarte Empfehlungen und faire Lead-Partnerschaften.
+              </p>
+              <p className="text-amber-400 text-xs mt-3 font-medium">Die Sterne stehen günstig ✦</p>
             </div>
-            <div className="flex items-center gap-4 text-xs text-muted-foreground">
-              <span>Plattformgebühr: 6 %</span>
-              <span>1 Token = 1 Kontakt</span>
-              <button className="underline hover:no-underline text-amber-600" onClick={() => setDisclaimerOpen(true)}>
-                DSGVO &amp; Kooperationsmodell
-              </button>
-              <span>Betrieben von Miriam König</span>
+
+            {/* Plattform */}
+            <div>
+              <p className="text-white font-semibold text-xs uppercase tracking-wider mb-3">Plattform</p>
+              <ul className="space-y-2 text-sm text-slate-400">
+                {(['dashboard', 'kontakte', 'marktplatz', 'kampagnen'] as const).map(t => (
+                  <li key={t}>
+                    <button
+                      className="hover:text-white transition-colors capitalize"
+                      onClick={() => setActiveTab(t)}
+                    >
+                      {t.charAt(0).toUpperCase() + t.slice(1)}
+                    </button>
+                  </li>
+                ))}
+              </ul>
             </div>
+
+            {/* Ressourcen */}
+            <div>
+              <p className="text-white font-semibold text-xs uppercase tracking-wider mb-3">Ressourcen</p>
+              <ul className="space-y-2 text-sm text-slate-400">
+                <li>
+                  <button className="hover:text-white transition-colors text-left" onClick={() => setDisclaimerOpen(true)}>
+                    DSGVO &amp; Kooperationsmodell
+                  </button>
+                </li>
+                <li><span className="opacity-50 cursor-default">Nutzungsregeln</span></li>
+                <li><span className="opacity-50 cursor-default">FAQ</span></li>
+              </ul>
+            </div>
+
+            {/* Kontakt & Rechtliches */}
+            <div>
+              <p className="text-white font-semibold text-xs uppercase tracking-wider mb-3">Kontakt</p>
+              <ul className="space-y-2 text-sm text-slate-400 mb-5">
+                <li>
+                  <a href="mailto:kontakt@matching-magnet.de" className="hover:text-white transition-colors">
+                    kontakt@matching-magnet.de
+                  </a>
+                </li>
+              </ul>
+              <p className="text-white font-semibold text-xs uppercase tracking-wider mb-3">Rechtliches</p>
+              <ul className="space-y-2 text-sm text-slate-400">
+                <li><span className="opacity-50 cursor-default">Impressum</span></li>
+                <li><span className="opacity-50 cursor-default">Datenschutz</span></li>
+                <li><span className="opacity-50 cursor-default">AGB</span></li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="border-t border-slate-800 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500">
+            <p>© 2026 Matching Magnet by Miriam · Alle Rechte vorbehalten.</p>
+            <p>1 Token = 1 freigegebener Kontakt · Plattformgebühr 6 %</p>
           </div>
         </div>
       </footer>
